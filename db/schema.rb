@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_155824) do
+ActiveRecord::Schema.define(version: 2019_11_27_164653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "itineraries", force: :cascade do |t|
     t.string "country"
@@ -24,7 +30,53 @@ ActiveRecord::Schema.define(version: 2019_11_27_155824) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "bookmark", default: false
     t.index ["user_id"], name: "index_itineraries_on_user_id"
+  end
+
+  create_table "itinerary_cities", force: :cascade do |t|
+    t.bigint "itinerary_id"
+    t.bigint "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_itinerary_cities_on_city_id"
+    t.index ["itinerary_id"], name: "index_itinerary_cities_on_itinerary_id"
+  end
+
+  create_table "itinerary_spots", force: :cascade do |t|
+    t.integer "days"
+    t.bigint "spot_id"
+    t.bigint "itinerary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itinerary_id"], name: "index_itinerary_spots_on_itinerary_id"
+    t.index ["spot_id"], name: "index_itinerary_spots_on_spot_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.bigint "itinerary_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["itinerary_id"], name: "index_reviews_on_itinerary_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.string "title"
+    t.string "address"
+    t.string "city"
+    t.string "zip_code"
+    t.text "description"
+    t.integer "price"
+    t.bigint "city_id"
+    t.float "longitude"
+    t.float "latitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_spots_on_city_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +94,11 @@ ActiveRecord::Schema.define(version: 2019_11_27_155824) do
   end
 
   add_foreign_key "itineraries", "users"
+  add_foreign_key "itinerary_cities", "cities"
+  add_foreign_key "itinerary_cities", "itineraries"
+  add_foreign_key "itinerary_spots", "itineraries"
+  add_foreign_key "itinerary_spots", "spots"
+  add_foreign_key "reviews", "itineraries"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "spots", "cities"
 end
