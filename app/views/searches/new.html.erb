@@ -1,11 +1,11 @@
-<h1>Itineraries#search</h1>
-<p>Find me in app/views/itineraries/search.html.erb</p>
+<h1>Search#new</h1>
+<p>Find me in app/views/searches/new.html.erb</p>
 <hr>
 <p>Please insert here the form to make the search</p>
 
-<%= simple_form_for(@itineraries) do |f| %>
+<%= simple_form_for(@search) do |f| %>
   <%= f.input :experience %>
-  <%= f.input :country, as: :text %>
+  <%= f.input :country, as: :string %>
   <%= f.input :budget %>
   <%= f.input :days %>
   <%= f.submit class: "btn btn-secondary" %>
