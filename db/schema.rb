@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_164653) do
+ActiveRecord::Schema.define(version: 2019_11_27_171559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -76,6 +82,8 @@ ActiveRecord::Schema.define(version: 2019_11_27_164653) do
     t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_spots_on_category_id"
     t.index ["city_id"], name: "index_spots_on_city_id"
   end
 
@@ -100,5 +108,6 @@ ActiveRecord::Schema.define(version: 2019_11_27_164653) do
   add_foreign_key "itinerary_spots", "spots"
   add_foreign_key "reviews", "itineraries"
   add_foreign_key "reviews", "users"
+  add_foreign_key "spots", "categories"
   add_foreign_key "spots", "cities"
 end
