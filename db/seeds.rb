@@ -3,6 +3,7 @@
 puts 'Cleaning database...'
 User.destroy_all
 Category.destroy_all
+Itinerary.destroy_all
 
 puts 'Creating categories...'
 category_attributes = [
@@ -45,4 +46,48 @@ users_attributes = [
 
 User.create!(users_attributes)
 
+puts 'Creating Itineraries...'
+itineraries_attributes = [
+  {
+    country: "Peru",
+    experience: "party",
+    budget: 1000,
+    days: 15,
+    user_id: 1
+  },
+  {
+    country: "Peru",
+    experience: "urban",
+    budget: 1000,
+    days: 15,
+    user_id: 1
+  },
+  {
+    country: "Peru",
+    experience: "culture",
+    budget: 1000,
+    days: 15,
+    user_id: 1
+  },
+  {
+    country: "Peru",
+    experience: "adventure",
+    budget: 1000,
+    days: 15,
+    user_id: 1
+  },
+  {
+    country: "Peru",
+    experience: "party",
+    budget: 1000,
+    days: 15,
+    user_id: 1
+  },
+]
+
+Itinerary.create!(itineraries_attributes)
+
 puts 'Finished!'
+
+
+

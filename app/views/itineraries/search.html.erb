@@ -3,3 +3,11 @@
 <hr>
 <p>Please insert here the form to make the search</p>
 
+<%= simple_form_for(@itineraries) do |f| %>
+  <%= f.input :experience %>
+  <%= f.input :country, as: :text %>
+  <%= f.input :budget %>
+  <%= f.input :days %>
+  <%= f.submit class: "btn btn-secondary" %>
+<% end %>
+
