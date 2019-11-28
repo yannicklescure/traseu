@@ -1,16 +1,38 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render 'shared/banner_medium' %>
 <hr>
-<div class="container">
-  <div>
-    test
-  </div>
-  <div
-  id="map"
-  style="width: 60%;
-  height: 600px;"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  data-markers="<%= @markers.to_json %>">
-  </div>
+<div class="container-fluid" class="border border-secondary">
+  <div class="d-flex justify-content-between">
 
+    <div class="cities">
+      <div class="border border-primary">
+        City #1
+      </div>
+      <div class="border border-primary">
+        City #2
+      </div>
+      <div class="border border-primary">
+        City #3
+      </div>
+      <div class="border border-primary">
+        City #4
+      </div>
+      <div class="border border-primary">
+        City #5
+      </div>
+      <div class="border border-primary">
+        City #6
+      </div>
+      <div class="border border-primary">
+        City #7
+      </div>
+  </div>
+    <div
+      class="border border-secondary"
+      id="map"
+      style="width: 60%;
+      height: 600px;"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-markers="<%= @markers.to_json %>">
+    </div>
+  </div>
 </div>
