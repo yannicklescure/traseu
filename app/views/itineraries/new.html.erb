@@ -1,7 +1,7 @@
 <h1>Itineraries#new</h1>
 <p>Find me in app/views/itineraries/new.html.erb</p>
 <hr>
-<% @itineraries.each do |itinerary| %>
+<% @itineraries.reverse.each do |itinerary| %>
   <div class="card" style="width: 18rem;">
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
@@ -10,7 +10,8 @@
       <!-- <a href="#" class="btn btn-primary stretched-link">Go somewhere</a> -->
       <div class="d-flex justify-content-between">
         <%= simple_form_for(Itinerary.new) do |f| %>
-          <%= hidden_field_tag :id, value: itinerary.id %>
+          <%#= hidden_field_tag :id, value: itinerary.id %>
+          <%= f.hidden_field :id, value: itinerary.id %>
           <%= f.hidden_field :experience, value: params[:search][:experience] %>
           <%= f.hidden_field :country, value: params[:search][:country] %>
           <%= f.hidden_field :budget, value: params[:search][:budget] %>
