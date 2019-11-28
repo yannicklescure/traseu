@@ -21,13 +21,13 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.find(params[:itinerary][:id])
     if @itinerary.user == current_user
-      redirect_to itinerary_path
+      redirect_to itinerary_path(@itinerary)
     else
       @itinerary_new = Itinerary.new(@itinerary.attributes)
       @itinerary_new.id = nil
       @itinerary_new.user = current_user
       if @itinerary_new.save
-        redirect_to itinerary_path
+        redirect_to itinerary_path(@itinerary_new)
       else
         render :new
       end
