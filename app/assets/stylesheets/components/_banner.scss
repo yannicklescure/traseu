@@ -1,0 +1,32 @@
+.banner {
+    height: 80vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner_title {
+  color: white;
+  text-align: center;
+}
+
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  background-color: #FFCB21;
+  justify-content: center;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
+
