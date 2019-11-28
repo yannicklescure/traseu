@@ -1,3 +1,21 @@
 <h1>Itineraries#new</h1>
 <p>Find me in app/views/itineraries/new.html.erb</p>
 <hr>
+<% @itineraries.each do |itinerary| %>
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card with stretched link <%= itinerary.id %></h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <!-- <a href="#" class="btn btn-primary stretched-link">Go somewhere</a> -->
+      <%= simple_form_for(Itinerary.new) do |f| %>
+        <%= hidden_field_tag :id, value: itinerary.id %>
+        <%= f.hidden_field :experience, value: params[:search][:experience] %>
+        <%= f.hidden_field :country, value: params[:search][:country] %>
+        <%= f.hidden_field :budget, value: params[:search][:budget] %>
+        <%= f.hidden_field :days, value: params[:search][:days] %>
+        <%= f.submit "submit", class: "btn btn-info" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

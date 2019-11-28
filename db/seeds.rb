@@ -57,6 +57,20 @@ itineraries_attributes = [
   },
   {
     country: "Peru",
+    experience: "party",
+    budget: 1000,
+    days: 15,
+    user_id: 1
+  },
+  {
+    country: "Peru",
+    experience: "party",
+    budget: 1000,
+    days: 15,
+    user_id: 1
+  },
+  {
+    country: "Peru",
     experience: "urban",
     budget: 1000,
     days: 15,
@@ -72,13 +86,6 @@ itineraries_attributes = [
   {
     country: "Peru",
     experience: "adventure",
-    budget: 1000,
-    days: 15,
-    user_id: 1
-  },
-  {
-    country: "Peru",
-    experience: "party",
     budget: 1000,
     days: 15,
     user_id: 1

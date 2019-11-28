@@ -7,6 +7,7 @@ class SearchesController < ApplicationController
   end
 
   def create
+    raise
     @search = Search.new(search_params)
     if current_user.present?
       @search.user = current_user
