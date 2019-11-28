@@ -2,14 +2,20 @@
 <p>Find me in app/views/itineraries/new.html.erb</p>
 <hr>
 <% @itineraries.reverse.each do |itinerary| %>
+  <%# next if itinerary.id == 1 %>
   <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
+    <img src="#" class="card-img-top" alt="image">
     <div class="card-body">
       <h5 class="card-title">Card with stretched link <%= itinerary.id %></h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="card-text">
+        <ul class="list-unstyled">
+          <li><%= itinerary.cities.first.name if itinerary.cities.size.positive? %></li>
+          <li><%= itinerary.spots.first.title if itinerary.spots.size.positive? %></li>
+        </ul>
+      </div>
       <!-- <a href="#" class="btn btn-primary stretched-link">Go somewhere</a> -->
       <div class="d-flex justify-content-between">
-        <%= simple_form_for(Itinerary.new) do |f| %>
+        <%= simple_form_for(@new_itinerary) do |f| %>
           <%#= hidden_field_tag :id, value: itinerary.id %>
           <%= f.hidden_field :id, value: itinerary.id %>
           <%= f.hidden_field :experience, value: params[:search][:experience] %>

@@ -1,6 +1,10 @@
 class SearchesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create]
 
+  def index
+    @itineraries = Itinerary.where(user_id: current_user.id)
+  end
+
   def new
     #raise
     @search = Search.new

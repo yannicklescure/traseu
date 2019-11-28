@@ -1,4 +1,6 @@
 <h1>Itineraries#show</h1>
 <p>Find me in app/views/itineraries/show.html.erb</p>
 <hr>
-<% raise %>
+<% @itinerary.cities.each do |city| %>
+  <p><%= city.name %></p>
+<% end %>
