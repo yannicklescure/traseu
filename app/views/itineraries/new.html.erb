@@ -8,14 +8,17 @@
       <h5 class="card-title">Card with stretched link <%= itinerary.id %></h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       <!-- <a href="#" class="btn btn-primary stretched-link">Go somewhere</a> -->
-      <%= simple_form_for(Itinerary.new) do |f| %>
-        <%= hidden_field_tag :id, value: itinerary.id %>
-        <%= f.hidden_field :experience, value: params[:search][:experience] %>
-        <%= f.hidden_field :country, value: params[:search][:country] %>
-        <%= f.hidden_field :budget, value: params[:search][:budget] %>
-        <%= f.hidden_field :days, value: params[:search][:days] %>
-        <%= f.submit "submit", class: "btn btn-info" %>
-      <% end %>
+      <div class="d-flex justify-content-between">
+        <%= simple_form_for(Itinerary.new) do |f| %>
+          <%= hidden_field_tag :id, value: itinerary.id %>
+          <%= f.hidden_field :experience, value: params[:search][:experience] %>
+          <%= f.hidden_field :country, value: params[:search][:country] %>
+          <%= f.hidden_field :budget, value: params[:search][:budget] %>
+          <%= f.hidden_field :days, value: params[:search][:days] %>
+          <%= f.submit "submit", class: "btn btn-info" %>
+        <% end %>
+        <%= link_to "bookmark", "#{bookmarks_path}?query=create&itinerary=#{itinerary.id}", method: :get, class: 'btn btn-info' %>
+      </div>
     </div>
   </div>
 <% end %>

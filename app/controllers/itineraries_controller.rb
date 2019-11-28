@@ -6,7 +6,11 @@ class ItinerariesController < ApplicationController
     # &search%5Bcountry%5D=peru
     # &search%5Bbudget%5D=1000
     # &search%5Bdays%5D=15&commit=Create+Search
-    @search = Search.last
+    @search = Search.new(search_params)
+    @search.user = current_user
+    @search.save
+    # raise
+    # @search = Search.last
     @itineraries = Itinerary.where(
       "country = ? OR experience = ?",
       params[:search][:country],
@@ -16,5 +20,11 @@ class ItinerariesController < ApplicationController
 
   def create
     raise
+  end
+
+  private
+
+  def search_params
+    params.require(:search).permit(:country, :experience, :budget, :days)
   end
 end

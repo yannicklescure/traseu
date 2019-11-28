@@ -1,0 +1,8 @@
+<h1>Bookmarks#index</h1>
+<p>Find me in app/views/bookmarks/index.html.erb</p>
+<hr>
+<ul class="list-unstyled">
+  <% @itineraries.each do |itinerary| %>
+    <li id="itinerary-id-<%= itinerary.id %>"><%= itinerary.country %> id#<%= itinerary.id %> <%= link_to "remove", "#{bookmarks_path}?query=delete&itinerary=#{itinerary.id}", remote: true, method: :get, class: 'btn btn-sm btn-info' %></li>
+  <% end %>
+</ul>

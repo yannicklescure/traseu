@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :searches, only: [ :new, :create ]
 
   resources :itineraries, only: [ :new, :create, :show ]
- # get '/search', to: 'itineraries#search', as: 'search_itineraries'
+  # get '/search', to: 'itineraries#search', as: 'search_itineraries'
+  # resources :bookmarks, only: [ :index, :destroy, :create ]
+  get '/bookmarks', to: 'bookmarks#index', as: 'bookmarks'
+  # post '/bookmarks', to: 'bookmarks#bookmark'
+  delete '/bookmarks', to: 'bookmarks#destroy'
 
   resources :itinaries_cities, only: [ :destroy, :create ]
   resources :itinaries_spots, only: [ :destroy, :create ]
