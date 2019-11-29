@@ -71,17 +71,33 @@ class ItinerariesController < ApplicationController
     @itineraries = Itinerary.where(bookmark: true)
     # @itineraries = Itinerary.cities.all
     # raise
-    case params[:query]
-    when "create"
-      @itinerary.bookmark = true
-      @itinerary.save!
-      # itinerary = Itinerary.find(params[:itinerary])
-      # redirect_to itinerary_path(itinerary)
+    if params[:call] == 'create'
+      itinerary_city = ItineraryCity.new(city_id: params[:city], itinerary_id: params[:id])
+      itinerary_city.save
+      redirect_to itinerary_path(params[:id])
       # raise
-    when "delete"
+    end
+
+    if params[:call] == 'delete'
+      itinerary_city = ItineraryCity.find(params[:itinerary_city])
+      itinerary_city.destroy
+      redirect_to itinerary_path(params[:id])
       # raise
-      @itinerary.bookmark = false
-      @itinerary.save!
+    end
+
+    if params[:query]
+      case params[:query]
+      when "create"
+        @itinerary.bookmark = true
+        @itinerary.save!
+        # itinerary = Itinerary.find(params[:itinerary])
+        # redirect_to itinerary_path(itinerary)
+        # raise
+      when "delete"
+        # raise
+        @itinerary.bookmark = false
+        @itinerary.save!
+      end
     end
   end
 
@@ -97,4 +113,8 @@ class ItinerariesController < ApplicationController
   def search_params
     params.require(:search).permit(:country, :experience, :budget, :days, :query, :itinerary)
   end
+
+  # def itinerary_city_params
+  #   params.require(:itinerary_city).permit(:call, :city)
+  # end
 end
