@@ -4,8 +4,10 @@
 <div class="p-5">
 
   <div class="text-center p-5">
-    <h1>You're in the right place</h1>
-    <p>For all DIY travelers. We have created a back-packer itinerary maker based your experience. From putting together a trip wishlist to creating a detailed itinerary; from pre-trip planning to on-trip access – all done in one place.</p>
+    <div class="text-center p-5">
+      <h1>You're in the right place</h1>
+      <p>For all DIY travelers. We have created a back-packer itinerary maker based your experience. From putting together a trip wishlist to creating a detailed itinerary; from pre-trip planning to on-trip access – all done in one place.</p>
+    </div>
   </div>
 
   <div class="cards">
@@ -59,18 +61,18 @@
 
 
 <div class="text-center p-5">
+  <div class="text-center p-5">
+    <%= simple_form_for(@search, url: new_itinerary_path, method: :get) do |f| %>
+      <%= f.input :experience %>
+      <%= f.input :country, as: :string %>
+      <%= f.input :budget %>
+      <%= f.input :days %>
+      <%#= f.hidden_field :product_id, value: @product.id %>
+      <%= f.submit class: "btn-ghost" %>
+    <% end %>
 
-  <%= simple_form_for(@search, url: new_itinerary_path, method: :get) do |f| %>
-    <%= f.input :experience %>
-    <%= f.input :country, as: :string %>
-    <%= f.input :budget %>
-    <%= f.input :days %>
-    <%#= f.hidden_field :product_id, value: @product.id %>
-    <%= f.submit class: "btn btn-secondary" %>
-  <% end %>
-
-  <form>
-
-  </form>
-</div>
+    <form>
+    </form>
+    </div>
+  </div>
 </div>
