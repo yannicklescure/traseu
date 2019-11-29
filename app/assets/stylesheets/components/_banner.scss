@@ -1,5 +1,28 @@
+//types of banners
+
 .banner {
     height: 80vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-city-show {
+    height: 35vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner-itinerary-show {
+    height: 20vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -20,6 +43,8 @@
   color: white;
   text-align: center;
 }
+
+
 
 .btn-ghost {
   color: #4A4A4A;
