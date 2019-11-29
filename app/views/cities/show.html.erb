@@ -1,0 +1,7 @@
+<h1>Cities#show</h1>
+<p>Find me in app/views/cities/show.html.erb</p>
+<hr>
+<% raise %>
+<% @itinerary.spots.where("city_id = ? AND category_id = ?", city.id, restaurant_id).each do |spot| %>
+  <p><%= spot.title %></p>
+<% end %>

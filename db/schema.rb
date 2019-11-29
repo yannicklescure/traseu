@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_171559) do
+ActiveRecord::Schema.define(version: 2019_11_27_202044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,10 +70,20 @@ ActiveRecord::Schema.define(version: 2019_11_27_171559) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "searches", force: :cascade do |t|
+    t.string "country"
+    t.string "experience"
+    t.integer "budget"
+    t.integer "days"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_searches_on_user_id"
+  end
+
   create_table "spots", force: :cascade do |t|
     t.string "title"
     t.string "address"
-    t.string "city"
     t.string "zip_code"
     t.text "description"
     t.integer "price"
@@ -108,6 +118,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_171559) do
   add_foreign_key "itinerary_spots", "spots"
   add_foreign_key "reviews", "itineraries"
   add_foreign_key "reviews", "users"
+  add_foreign_key "searches", "users"
   add_foreign_key "spots", "categories"
   add_foreign_key "spots", "cities"
 end
