@@ -1,38 +1,35 @@
-<%= render 'shared/banner_medium' %>
-<hr>
-<div class="container-fluid" class="border border-secondary">
-  <div class="d-flex justify-content-between">
-
-    <div class="cities">
-      <div class="border border-primary">
-        City #1
+  <div class="container d-flex justify-content-between">
+    <div class="cities ml-3 mr-3">
+      <div class="city-card" style="width: 30rem">
+        <div class="card-body" style="padding: 0.4rem">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title">INPUT</h5>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitches">
+              <label class="custom-control-label" for="customSwitches"></label>
+            </div>
+          </div>
+            <ul style="list-style-type: none;">
+              <li><p><i class="fas fa-utensils fas-lg" style="color:#3F3D56"></i> INPUT</p></li>
+              <li><p><i class="fas fa-bed fas-lg" style="color:#3F3D56"></i> INPUT</p></li>
+              <li><p><i class="fas fa-hiking fas-lg" style="color:#3F3D56"></i> INPUT</p></li>
+            </ul>
+            <div class="text-right">
+              <a href="#" class="card-link, text-secondary">Edit details ></a>
+            </div>
+        </div>
       </div>
-      <div class="border border-primary">
-        City #2
-      </div>
-      <div class="border border-primary">
-        City #3
-      </div>
-      <div class="border border-primary">
-        City #4
-      </div>
-      <div class="border border-primary">
-        City #5
-      </div>
-      <div class="border border-primary">
-        City #6
-      </div>
-      <div class="border border-primary">
-        City #7
-      </div>
-  </div>
+    </div>
     <div
-      class="border border-secondary"
       id="map"
+      class="mt-3 mr-3"
       style="width: 60%;
       height: 600px;"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       data-markers="<%= @markers.to_json %>">
+      <div><i class="fas fa-file-download fas-2x" style="color:#3F3D56"></i></div>
     </div>
   </div>
-</div>
+
+
+

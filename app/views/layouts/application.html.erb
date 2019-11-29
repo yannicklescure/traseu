@@ -9,11 +9,11 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body class="d-flex flex-column">
+  <body class="d-flex flex-column" class="border border-primary">
     <div id="page-content">
       <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
-      <div class="container pt-5"><%= yield %></div>
+      <%= yield %>
     </div>
     <%= render 'shared/footer' %>
 
