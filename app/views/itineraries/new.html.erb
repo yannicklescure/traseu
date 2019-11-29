@@ -52,3 +52,69 @@
     </div>
   </div>
 </div>
+<!-- ###################################################################################### -->
+<div class="container-fluid d-none">
+  <h1>Itineraries#new</h1>
+  <p>Find me in app/views/itineraries/new.html.erb</p>
+  <hr>
+  <% params_str = "utf8=✓&" %>
+  <% params[:search].each do |key, value| %>
+    <% params_str += "search%5B#{key}%5D=#{value}&" %>
+  <% end %>
+  <% params_str += "commit=Create+Search" %>
+  <% @itineraries.reverse.each do |itinerary| %>
+    <%# next if itinerary.id == 1 %>
+    <div class="card" style="width: 18rem;">
+      <img src="#" class="card-img-top" alt="image">
+      <div class="card-body">
+        <h5 class="card-title">Card with stretched link <%= itinerary.id %></h5>
+        <div class="card-text">
+          <ul class="list-unstyled">
+            <li><%= itinerary.cities.first.name if itinerary.cities.size.positive? %></li>
+            <li><%= itinerary.spots.first.title if itinerary.spots.size.positive? %></li>
+          </ul>
+        </div>
+        <!-- <a href="#" class="btn btn-primary stretched-link">Go somewhere</a> -->
+        <div class="d-flex justify-content-between">
+          <%= simple_form_for(@new_itinerary) do |f| %>
+            <%#= hidden_field_tag :id, value: itinerary.id %>
+            <%= f.hidden_field :id, value: itinerary.id %>
+            <%= f.hidden_field :experience, value: params[:search][:experience] %>
+            <%= f.hidden_field :country, value: params[:search][:country] %>
+            <%= f.hidden_field :budget, value: params[:search][:budget] %>
+            <%= f.hidden_field :days, value: params[:search][:days] %>
+            <%= f.submit "submit", class: "btn btn-info" %>
+          <% end %>
+          <%# raise %>
+          <% if itinerary.bookmark %>
+            <div id="bookmark-delete-id-<%= itinerary.id %>">
+              <%= link_to raw("<i class=\"fas fa-star\"></i>"), "#{new_itinerary_path}?#{params_str}&query=delete&itinerary=#{itinerary.id}", remote: true, method: :get, class: 'btn' %>
+            </div>
+            <div id="bookmark-create-id-<%= itinerary.id %>">
+              <%= link_to raw("<i class=\"far fa-star\"></i>"), "#{new_itinerary_path}?#{params_str}&query=create&itinerary=#{itinerary.id}", remote: true, method: :get, class: 'btn' %>
+            </div>
+            <script type="text/javascript">
+              elementTrue = document.querySelector('<%= "#bookmark-create-id-#{itinerary.id}" %>');
+              elementFalse = document.querySelector('<%= "#bookmark-delete-id-#{itinerary.id}" %>');
+              elementTrue.style.display = 'none';
+              elementFalse.style.display = 'block';
+            </script>
+          <% else %>
+            <div id="bookmark-delete-id-<%= itinerary.id %>">
+              <%= link_to raw("<i class=\"fas fa-star\"></i>"), "#{new_itinerary_path}?#{params_str}&query=delete&itinerary=#{itinerary.id}", remote: true, method: :get, class: 'btn' %>
+            </div>
+            <div id="bookmark-create-id-<%= itinerary.id %>">
+              <%= link_to raw("<i class=\"far fa-star\"></i>"), "#{new_itinerary_path}?#{params_str}&query=create&itinerary=#{itinerary.id}", remote: true, method: :get, class: 'btn' %>
+            </div>
+            <script type="text/javascript">
+              elementTrue = document.querySelector('<%= "#bookmark-create-id-#{itinerary.id}" %>');
+              elementFalse = document.querySelector('<%= "#bookmark-delete-id-#{itinerary.id}" %>');
+              elementTrue.style.display = 'block';
+              elementFalse.style.display = 'none';
+            </script>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

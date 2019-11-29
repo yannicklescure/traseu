@@ -1,6 +1,20 @@
 class ItinerariesController < ApplicationController
 
   def new
+    if params[:query]
+      @itinerary = Itinerary.find(params[:itinerary])
+      @bookmarks = Itinerary.where(bookmark: true)
+      case params[:query]
+      when "create"
+        # raise
+        @itinerary.bookmark = true
+        @itinerary.save!
+      when "delete"
+        # raise
+        @itinerary.bookmark = false
+        @itinerary.save!
+      end
+    end
     # http://localhost:3000/itineraries/new?
     # utf8=%E2%9C%93
     # &search%5Bexperience%5D=party
@@ -52,22 +66,38 @@ class ItinerariesController < ApplicationController
 
   def show
     # binding.pry
-    # @cities = City.all
+    @cities = City.all
     @itinerary = Itinerary.find(params[:id])
     @itineraries = Itinerary.where(bookmark: true)
     # @itineraries = Itinerary.cities.all
     # raise
-    case params[:query]
-    when "create"
-      @itinerary.bookmark = true
-      @itinerary.save!
-      # itinerary = Itinerary.find(params[:itinerary])
-      # redirect_to itinerary_path(itinerary)
+    if params[:call] == 'create'
+      itinerary_city = ItineraryCity.new(city_id: params[:city], itinerary_id: params[:id])
+      itinerary_city.save
+      redirect_to itinerary_path(params[:id])
       # raise
-    when "delete"
+    end
+
+    if params[:call] == 'delete'
+      itinerary_city = ItineraryCity.find(params[:itinerary_city])
+      itinerary_city.destroy
+      redirect_to itinerary_path(params[:id])
       # raise
-      @itinerary.bookmark = false
-      @itinerary.save!
+    end
+
+    if params[:query]
+      case params[:query]
+      when "create"
+        @itinerary.bookmark = true
+        @itinerary.save!
+        # itinerary = Itinerary.find(params[:itinerary])
+        # redirect_to itinerary_path(itinerary)
+        # raise
+      when "delete"
+        # raise
+        @itinerary.bookmark = false
+        @itinerary.save!
+      end
     end
   end
 
@@ -81,6 +111,10 @@ class ItinerariesController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:country, :experience, :budget, :days)
+    params.require(:search).permit(:country, :experience, :budget, :days, :query, :itinerary)
   end
+
+  # def itinerary_city_params
+  #   params.require(:itinerary_city).permit(:call, :city)
+  # end
 end
