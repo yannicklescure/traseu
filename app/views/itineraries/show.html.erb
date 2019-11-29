@@ -1,7 +1,6 @@
 <div class="container py-5">
   <h1>Itineraries#show</h1>
   <p>Find me in app/views/itineraries/show.html.erb</p>
-  <hr>
   <div class="row justify-content-end">
     <div id="bookmark">
       <div id="bookmark-show-true">
@@ -24,49 +23,56 @@
       </script>
     </div>
   </div>
+  <hr>
+  <div class="row">
+    <div class="col-6">
+      <% @itinerary.cities.each do |city| %>
+        <div class="row m-0 d-none">
+          <p><%= city.name %></p>
+          &emsp;
+          <% restaurant_id = 1 %>
+          <% str = @itinerary.spots.where("city_id = ? AND category_id = ?", city.id, restaurant_id).first %>
+          <p><%= str.title unless str.nil? %></p>
+          <% hotel_id = 2 %>
+          <% str = @itinerary.spots.where("city_id = ? AND category_id = ?", city.id, hotel_id).first %>
+          <p><%= str.title unless str.nil? %></p>
+          <% activity_id = 3 %>
+          <% str = @itinerary.spots.where("city_id = ? AND category_id = ?", city.id, activity_id).first %>
+          <p><%= str.title unless str.nil? %></p>
+        </div>
+      <% end %>
 
-  <% @itinerary.cities.each do |city| %>
-    <div class="row m-0 d-none">
-      <p><%= city.name %></p>
-      &emsp;
-      <% restaurant_id = 1 %>
-      <% str = @itinerary.spots.where("city_id = ? AND category_id = ?", city.id, restaurant_id).first %>
-      <p><%= str.title unless str.nil? %></p>
-      <% hotel_id = 2 %>
-      <% str = @itinerary.spots.where("city_id = ? AND category_id = ?", city.id, hotel_id).first %>
-      <p><%= str.title unless str.nil? %></p>
-      <% activity_id = 3 %>
-      <% str = @itinerary.spots.where("city_id = ? AND category_id = ?", city.id, activity_id).first %>
-      <p><%= str.title unless str.nil? %></p>
-    </div>
-  <% end %>
+      <% itinerary_city_array = [] %>
+      <% @itinerary.itinerary_cities.each do |itinerary_city| %>
+        <% itinerary_city_array << itinerary_city.city %>
+        <div class="d-flex">
+          <p class="text-success">
+            <%#= itinerary_city.city.name %>
+            <%= link_to itinerary_city.city.name, "#{city_path(itinerary_city.city)}?itinerary=#{@itinerary.id}", class: "text-success" %>
+            </p>
+          &emsp;
+          <div id="city-delete-id-<%= itinerary_city.id %>">
+            <%= link_to "delete", "#{itinerary_path(@itinerary)}?call=delete&itinerary_city=#{itinerary_city.id}" %>
+          </div>
+        </div>
+      <% end %>
 
-  <% itinerary_city_array = [] %>
-  <% @itinerary.itinerary_cities.each do |itinerary_city| %>
-    <% itinerary_city_array << itinerary_city.city %>
-    <div class="d-flex">
-      <p class="text-success">
-        <%#= itinerary_city.city.name %>
-        <%= link_to itinerary_city.city.name, "#{city_path(itinerary_city.city)}?itinerary=#{@itinerary.id}", class: "text-success" %>
-        </p>
-      &emsp;
-      <div id="city-delete-id-<%= itinerary_city.id %>">
-        <%= link_to "delete", "#{itinerary_path(@itinerary)}?call=delete&itinerary_city=#{itinerary_city.id}" %>
-      </div>
-    </div>
-  <% end %>
+      <%# raise %>
 
-  <%# raise %>
-
-  <% @cities.each do |city| %>
-    <div class="row m-0">
-      <% unless itinerary_city_array.include?(city) %>
-        <p class="text-danger"><%= city.name %></p>
-        &emsp;
-        <div id="city-create-id-<%= city.id %>">
-          <%= link_to "create", "#{itinerary_path(@itinerary)}?call=create&city=#{city.id}" %>
+      <% @cities.each do |city| %>
+        <div class="row m-0">
+          <% unless itinerary_city_array.include?(city) %>
+            <p class="text-danger"><%= city.name %></p>
+            &emsp;
+            <div id="city-create-id-<%= city.id %>">
+              <%= link_to "create", "#{itinerary_path(@itinerary)}?call=create&city=#{city.id}" %>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
-  <% end %>
+    <div class="col-6">
+      <img src="https://github.com/PierreJaouen/traseu/blob/controllers-next/public/map.png?raw=true" alt="" width="100%">
+    </div>
+  </div>
 </div>
