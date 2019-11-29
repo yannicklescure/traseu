@@ -23,7 +23,7 @@
 </div>
 
 <% @itinerary.cities.each do |city| %>
-  <div class="row m-0">
+  <div class="row m-0 d-none">
     <p><%= city.name %></p>
     &emsp;
     <% restaurant_id = 1 %>
@@ -38,8 +38,24 @@
   </div>
 <% end %>
 
-<%# @cities.each do |city| %>
-  <div class="row m-0">
-    <p class="text-muted"><%#= city.name %></p>
+<% itinerary_city_array = [] %>
+<% @itinerary.cities.each do |itinerary_city| %>
+  <% itinerary_city_array << itinerary_city %>
+  <div class="d-flex">
+    <p class="text-success"><%= itinerary_city.name %></p>
+    &emsp;
+    <%= link_to "add", "#{itinerary_path(itinerary)}" %>
+    &emsp;
+    <p>remove</p>
   </div>
-<%# end %>
+<% end %>
+
+<%# raise %>
+
+<% @cities.each do |city| %>
+  <div class="row m-0">
+    <% unless itinerary_city_array.include?(city) %>
+      <p class="text-danger"><%= city.name %></p>
+    <% end %>
+  </div>
+<% end %>
