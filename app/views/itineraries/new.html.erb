@@ -51,36 +51,4 @@
       <%= render 'shared/itinerary-carousel' %>
     </div>
   </div>
-
 </div>
-
-
-<% @itineraries.reverse.each do |itinerary| %>
-  <%# next if itinerary.id == 1 %>
-
-  <div class="card" style="width: 18rem;">
-    <img src="#" class="card-img-top" alt="image">
-    <div class="card-body">
-      <h5 class="card-title">Card with stretched link <%= itinerary.id %></h5>
-      <div class="card-text">
-        <ul class="list-unstyled">
-          <li><%= itinerary.cities.first.name if itinerary.cities.size.positive? %></li>
-          <li><%= itinerary.spots.first.title if itinerary.spots.size.positive? %></li>
-        </ul>
-      </div>
-      <!-- <a href="#" class="btn btn-primary stretched-link">Go somewhere</a> -->
-      <div class="d-flex justify-content-between">
-        <%= simple_form_for(@new_itinerary) do |f| %>
-          <%#= hidden_field_tag :id, value: itinerary.id %>
-          <%= f.hidden_field :id, value: itinerary.id %>
-          <%= f.hidden_field :experience, value: params[:search][:experience] %>
-          <%= f.hidden_field :country, value: params[:search][:country] %>
-          <%= f.hidden_field :budget, value: params[:search][:budget] %>
-          <%= f.hidden_field :days, value: params[:search][:days] %>
-          <%= f.submit "submit", class: "btn btn-info" %>
-        <% end %>
-        <%= link_to "bookmark", "#{bookmarks_path}?query=create&itinerary=#{itinerary.id}", method: :get, class: 'btn btn-info' %>
-      </div>
-    </div>
-  </div>
-<% end %>
