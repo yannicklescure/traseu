@@ -26,6 +26,10 @@ h5 {
   font-size: 2rem;
 }
 
+.bookmark-icon {
+  color: #FFCB21;
+}
+
 $color: #FFCB21;
 
 .button {
@@ -67,5 +71,11 @@ $color: #FFCB21;
         &:before {
             width: 100%;
         }
+    }
+    input {
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 0.9rem;
     }
 }
