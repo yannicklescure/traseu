@@ -51,7 +51,24 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    # binding.pry
+    # @cities = City.all
     @itinerary = Itinerary.find(params[:id])
+    @itineraries = Itinerary.where(bookmark: true)
+    # @itineraries = Itinerary.cities.all
+    # raise
+    case params[:query]
+    when "create"
+      @itinerary.bookmark = true
+      @itinerary.save!
+      # itinerary = Itinerary.find(params[:itinerary])
+      # redirect_to itinerary_path(itinerary)
+      # raise
+    when "delete"
+      # raise
+      @itinerary.bookmark = false
+      @itinerary.save!
+    end
   end
 
   def destroy

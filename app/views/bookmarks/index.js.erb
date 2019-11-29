@@ -4,7 +4,7 @@ if (<%= @delete %>) {
     element.innerHTML = '<i class="far fa-star"></i>';
   }
   itinerary = document.querySelector('#itinerary-id-<%= @itinerary.id %>');
-  itinerary.remove();
+  if (itinerary) itinerary.remove();
 }
 // itinerary.addEventListener('click', (event) => {
 //   event.preventDefault();

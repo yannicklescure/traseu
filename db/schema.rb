@@ -84,7 +84,6 @@ ActiveRecord::Schema.define(version: 2019_11_27_202044) do
   create_table "spots", force: :cascade do |t|
     t.string "title"
     t.string "address"
-    t.string "city"
     t.string "zip_code"
     t.text "description"
     t.integer "price"

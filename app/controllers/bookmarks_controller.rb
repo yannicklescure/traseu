@@ -4,15 +4,10 @@ class BookmarksController < ApplicationController
     @itineraries = Itinerary.where(bookmark: true)
     if params[:query]
       @itinerary = Itinerary.find(params[:itinerary])
-      case params[:query]
-      when "delete"
+      if params[:query] == "delete"
         @itinerary.bookmark = false
         @itinerary.save
         @delete = true
-        # raise
-      when "create"
-        @itinerary.bookmark = true
-        @itinerary.save
         # raise
       end
     end
