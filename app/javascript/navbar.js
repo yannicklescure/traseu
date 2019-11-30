@@ -1,11 +1,18 @@
 const initUpdateNavbarOnScroll = () => {
-  const navbar = document.querySelector('.navbar-lewagon');
+  const navbar = document.querySelector('.navbar');
+  navbar.classList.add('navbar-traseu-yellow');
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= window.innerHeight) {
-        navbar.classList.add('navbar-lewagon-white');
+        console.log(navbar.className);
+        navbar.classList.add('bg-light');
+        navbar.classList.remove('navbar-traseu-yellow');
+        // navbar.className += " bg-light";
       } else {
-        navbar.classList.remove('navbar-lewagon-white');
+        navbar.classList.remove('bg-light');
+        navbar.classList.add('navbar-traseu-yellow');
+        // navbar.className -= " bg-light";
+        console.log(navbar.className);
       }
     });
   }
