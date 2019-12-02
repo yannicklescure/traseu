@@ -81,7 +81,7 @@ spots_attributes = [
   },
   {
     city: puno,
-    address: "puno peru"
+    address: "Av La Torre 224, Puno 21001, Pérou"
   },
   # {
   #   city: huaraz,

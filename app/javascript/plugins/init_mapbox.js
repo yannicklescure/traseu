@@ -25,7 +25,7 @@ const pathFinder = (map, markers) => {
   // Puno Latitud: -15.8422003,
 
   // api takes long,lat;
-  const coords = `-71.967627,-13.5228392;-77.0365256,-12.0621065;-71.5350000,-16.3988900`;
+  const coords = `-71.967627,-13.5228392;-77.0365256,-12.0621065;-71.5350000,-16.3988900;-70.0430588,-15.8275436`;
   const mapboxApiKey = mapElement.dataset.mapboxApiKey;
   const url = `https://api.mapbox.com/optimized-trips/v1/mapbox/driving/${coords}?access_token=${mapboxApiKey}`;
   fetch(url)
