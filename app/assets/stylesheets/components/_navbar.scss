@@ -6,10 +6,7 @@
 
 .navbar-lewagon-white {
   background-color: white;
-  i.fas,
-  i.fab,
-  i.far,
-  i.fa, {
+  i {
     color: black;
   }
 
@@ -27,12 +24,15 @@
 }
 
 .navbar-traseu-yellow {
-  i.fas,
-  i.fab,
-  i.far,
-  i.fa,
-  .navbar-brand,
-  li.nav-item > a.nav-link {
+  i,
+  a.navbar-brand,
+  a.navbar-brand i {
     color: #ffcb20;
+  }
+
+  a.navbar-brand:hover,
+  a.navbar-brand:hover i,
+  i:hover {
+    color: white;
   }
 }

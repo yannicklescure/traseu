@@ -4,7 +4,7 @@ const scrollToAnchor = (anchor) => {
   btnTarget.addEventListener('click', (event) => {
     event.preventDefault();
     let target = event.currentTarget.getAttribute("href");
-    console.log(target);
+    console.log(`target: ${target}`);
     // @ https://stackoverflow.com/questions/442404/retrieve-the-position-x-y-of-an-html-element
     let element = document.querySelector(target);
     let rect = element.getBoundingClientRect();
