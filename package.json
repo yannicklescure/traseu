@@ -9,6 +9,7 @@
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^1.5.1",
     "popper.js": "^1.16.0"
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.9.0"

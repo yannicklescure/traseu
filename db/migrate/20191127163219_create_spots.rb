@@ -3,7 +3,7 @@ class CreateSpots < ActiveRecord::Migration[5.2]
     create_table :spots do |t|
       t.string :title
       t.string :address
-      t.string :city
+      # t.string :city
       t.string :zip_code
       t.text :description
       t.integer :price

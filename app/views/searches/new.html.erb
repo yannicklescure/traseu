@@ -1,0 +1,77 @@
+<%= render 'shared/banner' %>
+<div class="p-5">
+
+  <div class="text-center px-5">
+    <div class="text-center px-5 py-1">
+      <h1>You're in the right place</h1>
+      <p>For all DIY travelers. We have created a back-packer itinerary maker based your experience. From putting together a trip wishlist to creating a detailed itinerary; from pre-trip planning to on-trip access – all done in one place.</p>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/urban)">
+      <div>Urban</div>
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/adventure)">
+      <div>Adventure</div>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/culture)">
+      <div>Culture</div>
+    </div>
+     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/party)">
+      <div>Party</div>
+    </div>
+
+  </div>
+
+<div class="text-center p-5">
+    <h1>Our Services</h1>
+</div>
+
+<br>
+
+  <div class="cards">
+    <div class="card-category2" style="background-image: url(http://sophiealexandre.eu/images/1)">
+    </div>
+    <div class="card-category2">
+      <p> <b>We understand firsthand how overwhelmed you are</b> <br>When it comes to the perpetual dilemma of carry-on suitcase vs. travel backpack, it all depends on your personal preferences and travel needs. Although, we have to admit, we’re leaning towards the backpack option, not because we feel nostalgic about the good old schoolyard days, but because we’ve found it to be the more practical alternative of the two, especially on budget airlines where you’re more concerned with the weight of your luggage</p>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card-category2">
+       <p> <b>Get rid of the noise when looking for information</b> <br>When it comes to the perpetual dilemma of carry-on suitcase vs. travel backpack, it all depends on your personal preferences and travel needs. Although, we have to admit, we’re leaning towards the backpack option, not because we feel nostalgic about the good old schoolyard days, but because we’ve found it to be the more practical alternative of the two, especially on budget airlines where you’re more concerned with the weight of your luggage</p>
+    </div>
+    <div class="card-category2" style="background-image: url(http://sophiealexandre.eu/images/2)">
+    </div>
+  </div>
+
+<div class="cards">
+    <div class="card-category2" style="background-image: url(http://sophiealexandre.eu/images/3)">
+    </div>
+    <div class="card-category2">
+      <p> <b>Just because you're backpacking doesn't mean you have to do it ugly</b> <br>When it comes to the perpetual dilemma of carry-on suitcase vs. travel backpack, it all depends on your personal preferences and travel needs. Although, we have to admit, we’re leaning towards the backpack option, not because we feel nostalgic about the good old schoolyard days, but because we’ve found it to be the more practical alternative of the two, especially on budget airlines where you’re more concerned with the weight of your luggage</p>
+    </div>
+  </div>
+
+
+<div class="text-center p-5">
+  <div class="text-center p-5">
+    <%= simple_form_for(@search, url: new_itinerary_path, method: :get) do |f| %>
+      <%= f.input :experience %>
+      <%= f.input :country, as: :string %>
+      <%= f.input :budget %>
+      <%= f.input :days %>
+      <%#= f.hidden_field :product_id, value: @product.id %>
+
+      <a class="button" href="#"><%= f.submit%></a>
+    <% end %>
+
+    <form>
+    </form>
+    </div>
+  </div>
+</div>

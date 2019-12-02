@@ -73,10 +73,20 @@ ActiveRecord::Schema.define(version: 2019_12_02_205343) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "searches", force: :cascade do |t|
+    t.string "country"
+    t.string "experience"
+    t.integer "budget"
+    t.integer "days"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_searches_on_user_id"
+  end
+
   create_table "spots", force: :cascade do |t|
     t.string "title"
     t.string "address"
-    t.string "city"
     t.string "zip_code"
     t.text "description"
     t.integer "price"
@@ -111,6 +121,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_205343) do
   add_foreign_key "itinerary_spots", "spots"
   add_foreign_key "reviews", "itineraries"
   add_foreign_key "reviews", "users"
+  add_foreign_key "searches", "users"
   add_foreign_key "spots", "categories"
   add_foreign_key "spots", "cities"
 end

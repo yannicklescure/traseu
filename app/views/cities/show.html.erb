@@ -1,0 +1,47 @@
+<div class="container-fluid m-5">
+  <h3 class="my-4">Top restaurants</h3>
+  <div class="row my-2">
+    <% @restaurants.each do |restaurant| %>
+      <div class="city-card m-2">
+        <div class="image">
+          <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="100%">
+        </div>
+        <div class="text">
+          <div class="fab">&#43;</div>
+            <h3><%= restaurant.title %></h3>
+            <p><%= restaurant.address %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h3 class="my-4">Top Activities</h3>
+  <div class="row my-2">
+    <% @activities.each do |activity| %>
+      <div class="city-card m-2">
+        <div class="image">
+          <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="100%">
+        </div>
+        <div class="text">
+          <div class="fab">&#43;</div>
+            <h3><%= activity.title %></h3>
+            <p><%= activity.address %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h3 class="my-4">Top Hotels</h3>
+  <div class="row my-2">
+    <% @hotels.each do |hotel| %>
+      <div class="city-card m-2">
+        <div class="image">
+          <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="100%">
+        </div>
+        <div class="text">
+          <div class="fab">&#43;</div>
+            <h3><%= hotel.title %></h3>
+            <p><%= hotel.address %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
