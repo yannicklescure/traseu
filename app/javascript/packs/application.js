@@ -1,5 +1,8 @@
 import "bootstrap";
 import { initUpdateNavbarOnScroll } from "../navbar";
+import { scrollToAnchor } from "../scroll_to_anchor";
+
+scrollTo();
 
 const currentPage = window.location.href.split(/.*[\/]/)[1] || null;
 console.log(currentPage);
@@ -11,3 +14,5 @@ if (currentPage == null) {
   navbar.classList.add('bg-light');
   console.log(navbar.className);
 }
+
+scrollToAnchor('#search-country');
