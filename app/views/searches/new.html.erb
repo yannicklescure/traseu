@@ -3,8 +3,8 @@
    <%= render 'shared/banner' %>
 <div class="p-5">
 
-  <div class="text-center p-5">
-    <div class="text-center p-5">
+  <div class="text-center px-5">
+    <div class="text-center px-5 py-1">
       <h1>You're in the right place</h1>
       <p>For all DIY travelers. We have created a back-packer itinerary maker based your experience. From putting together a trip wishlist to creating a detailed itinerary; from pre-trip planning to on-trip access – all done in one place.</p>
     </div>
@@ -12,19 +12,19 @@
 
   <div class="cards">
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/urban)">
-      <div class="yellow">Urban</div>
+      <div>Urban</div>
     </div>
 
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/adventure)">
-      <div class="yellow">Adventure</div>
+      <div>Adventure</div>
     </div>
   </div>
   <div class="cards">
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/culture)">
-      <div class="yellow">Culture</div>
+      <div>Culture</div>
     </div>
      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/party)">
-      <div class="yellow">Party</div>
+      <div>Party</div>
     </div>
 
   </div>
@@ -68,7 +68,8 @@
       <%= f.input :budget %>
       <%= f.input :days %>
       <%#= f.hidden_field :product_id, value: @product.id %>
-      <%= f.submit class: "btn-ghost" %>
+
+      <a class="button" href="#"><%= f.submit%></a>
     <% end %>
 
     <form>
