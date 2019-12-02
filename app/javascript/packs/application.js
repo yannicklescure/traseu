@@ -1,6 +1,8 @@
 import "bootstrap";
-
-console.log(window.location.href.split('/')[3]);
-
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { initMapBox } from '../plugins/init_mapbox';
 import { initUpdateNavbarOnScroll } from '../navbar';
+
 initUpdateNavbarOnScroll();
+
+initMapBox();
