@@ -1,8 +1,45 @@
-.carousel {
+.sticky-carousel {
   position: sticky;
   top: 0;
 }
 
-.carousel-item {
-  min-height: 500px;
+#myCarousel .list-inline {
+    white-space:nowrap;
+    overflow-x:auto;
+}
+
+#myCarousel .carousel-indicators {
+    position: static;
+    left: initial;
+    width: initial;
+    margin-left: initial;
+}
+
+#myCarousel .carousel-indicators > li {
+    width: initial;
+    height: initial;
+    text-indent: initial;
+}
+
+#myCarousel .carousel-indicators > li.active img {
+    opacity: 1.2;
+}
+
+.thumb {
+  max-height: 150px;
+}
+
+.thumb-inner {
+  max-height: 500px;
+}
+
+ul {
+  margin-bottom: 0px;
+  margin-right: 0px;
+}
+
+@media(max-width: 768px) {
+  .thumb-slider {
+    display: none;
+  }
 }
