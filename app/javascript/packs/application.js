@@ -9,10 +9,9 @@ console.log(currentPage);
 
 if (currentPage == null) {
   initUpdateNavbarOnScroll();
+  scrollToAnchor('#search-country');
 } else {
   const navbar = document.querySelector('.navbar');
   navbar.classList.add('bg-light');
   console.log(navbar.className);
 }
-
-scrollToAnchor('#search-country');
