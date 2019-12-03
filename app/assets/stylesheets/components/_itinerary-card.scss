@@ -13,7 +13,7 @@
 }
 
 p {
-  font-size: 1rem;
+  font-size: 15px;
 }
 
 p.input {
@@ -22,7 +22,7 @@ p.input {
 }
 
 h5 {
-  font-size: 2rem;
+  font-size: 25px;
   padding-bottom: 2px;
 }
 
@@ -80,4 +80,10 @@ h5 {
       color: white;
       font-size: 0.9rem;
     }
+}
+
+@media(max-width: 576px) {
+  h5 {
+    font-size: 20px;
+  }
 }

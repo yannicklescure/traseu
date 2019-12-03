@@ -20,13 +20,13 @@
               </div>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam sagittis accumsan ut posuere commodo. Enim mattis eget vestibulum bibendum ut ipsum at.</p>
-            <div class="d-flex justify-content-start h-25 mb-2"><span></span><p class="input"><%= itinerary.days %> days</p></div>
-            <div class="d-flex justify-content-start h-25 mb-2"><span></span><p class="input">$<%= itinerary.budget %></p></div>
-            <div class= "d-flex justify-content-between align-items-center">
+            <div class= "d-flex justify-content-between align-items-end">
               <div>
-                <div class="d-flex justify-content-start h-25 mb-2"><span class="card-rating-icon"></span><p><i class="fas fa-star"></i> 4.2</p></div>
+                <div class="d-flex justify-content-start h-25 mb-2"><span></span><p class="input"><%= itinerary.days %> days</p></div>
+                <div class="d-flex justify-content-start h-25 mb-2"><span></span><p class="input">$<%= itinerary.budget %></p></div>
+                <div class="d-flex justify-content-start h-25 mb-2"><span class="card-rating-icon"></span><p class="input"><i class="fas fa-star"></i> 4.2</p></div>
               </div>
-              <div align="right">
+              <div>
                 <button class="button">
                 <%= simple_form_for(@new_itinerary) do |f| %>
                   <%#= hidden_field_tag :id, value: itinerary.id %>
