@@ -1,8 +1,50 @@
-<%= render 'shared/banner' %>
-<div class="p-5">
+<%#= render 'shared/banner' %>
 
-  <div class="text-center px-5">
-    <div class="text-center px-5 py-1">
+<div id="banner-main" class="banner homepage" style="margin-top: -60px;background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://sophiealexandre.eu/images/van);">
+  <div class="banner-text">
+      <h1 class="banner_title">Craft your perfect journey</h1>
+      <a class="btn btn-ghost" href="#experience">Build your adventure</a>
+  </div>
+</div>
+
+<%= simple_form_for(@search, url: new_itinerary_path, method: :get) do |f| %>
+  <!-- search experience page  -->
+  <div id="experience">
+    <div class="row vh-100 m-0 flex-column justify-content-center align-items-center bg-success">
+      <%= f.input :experience %>
+      <a id="country-next" href="#country">Next</a>
+    </div>
+  </div>
+
+  <!-- search country page  -->
+  <div id="country" class="d-none">
+    <div class="row vh-100 m-0 flex-column justify-content-center align-items-center bg-info">
+      <%= f.input :country, as: :string %>
+      <a id="budget-next" href="#budget">Next</a>
+    </div>
+  </div>
+
+  <!-- search budget page  -->
+  <div id="budget" class="d-none">
+    <div class="row vh-100 m-0 flex-column justify-content-center align-items-center bg-warning">
+      <%= f.input :budget %>
+      <a id="days-next" href="#days">Next</a>
+    </div>
+  </div>
+
+  <!-- search days page  -->
+  <div id="days" class="d-none">
+    <div class="row vh-100 m-0 flex-column justify-content-center align-items-center bg-danger">
+      <%= f.input :days %>
+      <%= f.submit class: "btn-ghost" %>
+      <!-- <a id="itinerary-next" href="#">Next</a> -->
+    </div>
+  </div>
+<% end %>
+
+<div id="traseu-services" class="homepage p-5">
+  <div class="text-center p-5">
+    <div class="text-center p-5">
       <h1>You're in the right place</h1>
       <p>For all DIY travelers. We have created a back-packer itinerary maker based your experience. From putting together a trip wishlist to creating a detailed itinerary; from pre-trip planning to on-trip access – all done in one place.</p>
     </div>
@@ -17,6 +59,7 @@
       <div>Adventure</div>
     </div>
   </div>
+
   <div class="cards">
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/culture)">
       <div>Culture</div>
@@ -24,14 +67,13 @@
      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/party)">
       <div>Party</div>
     </div>
-
   </div>
 
-<div class="text-center p-5">
-    <h1>Our Services</h1>
-</div>
+  <div class="text-center p-5">
+      <h1>Our Services</h1>
+  </div>
 
-<br>
+  <br>
 
   <div class="cards">
     <div class="card-category2" style="background-image: url(http://sophiealexandre.eu/images/1)">
@@ -49,7 +91,7 @@
     </div>
   </div>
 
-<div class="cards">
+  <div class="cards">
     <div class="card-category2" style="background-image: url(http://sophiealexandre.eu/images/3)">
     </div>
     <div class="card-category2">
@@ -57,21 +99,16 @@
     </div>
   </div>
 
-
-<div class="text-center p-5">
-  <div class="text-center p-5">
-    <%= simple_form_for(@search, url: new_itinerary_path, method: :get) do |f| %>
-      <%= f.input :experience %>
-      <%= f.input :country, as: :string %>
-      <%= f.input :budget %>
-      <%= f.input :days %>
-      <%#= f.hidden_field :product_id, value: @product.id %>
-
-      <a class="button" href="#"><%= f.submit%></a>
-    <% end %>
-
-    <form>
-    </form>
+  <div class="d-none">
+    <div class="text-center p-5">
+      <%= simple_form_for(@search, url: new_itinerary_path, method: :get) do |f| %>
+        <%= f.input :experience %>
+        <%= f.input :country, as: :string %>
+        <%= f.input :budget %>
+        <%= f.input :days %>
+        <%#= f.hidden_field :product_id, value: @product.id %>
+        <%= f.submit class: "btn-ghost" %>
+      <% end %>
     </div>
   </div>
 </div>

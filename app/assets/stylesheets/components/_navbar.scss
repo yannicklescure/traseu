@@ -2,25 +2,11 @@
   justify-content: space-between;
   background-color: transparent;
   transition: 0.5s background-color ease;
-   i.fas,
-  i.fab,
-  i.far,
-  i.fa, {
-    color: #ffcb20;
-  }
-  .navbar-brand {
-    color: #ffcb20;
-  }
-
 }
-
 
 .navbar-lewagon-white {
   background-color: white;
-  i.fas,
-  i.fab,
-  i.far,
-  i.fa, {
+  i {
     color: black;
   }
 
@@ -35,4 +21,18 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-traseu-yellow {
+  i,
+  a.navbar-brand,
+  a.navbar-brand i {
+    color: #ffcb20;
+  }
+
+  a.navbar-brand:hover,
+  a.navbar-brand:hover i,
+  i:hover {
+    color: white;
+  }
 }

@@ -7,9 +7,12 @@
           <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="100%">
         </div>
         <div class="text">
-          <div class="fab">&#43;</div>
-            <h3><%= restaurant.title %></h3>
+          <div class="fabbutton">&#43;</div>
+          <h3><%= restaurant.title %></h3>
+          <div class="d-flex justify-content-between pt-2">
             <p><%= restaurant.address %></p>
+            <p class="pl-2"><i class="fas fa-star"></i></p>
+          </div>
         </div>
       </div>
     <% end %>
@@ -22,7 +25,7 @@
           <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="100%">
         </div>
         <div class="text">
-          <div class="fab">&#43;</div>
+          <div class="fabbutton">&#43;</div>
             <h3><%= activity.title %></h3>
             <p><%= activity.address %></p>
         </div>
@@ -37,7 +40,7 @@
           <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="100%">
         </div>
         <div class="text">
-          <div class="fab">&#43;</div>
+          <div class="fabbutton">&#43;</div>
             <h3><%= hotel.title %></h3>
             <p><%= hotel.address %></p>
         </div>
