@@ -64,48 +64,49 @@ users_attributes = [
 User.create!(users_attributes)
 
 puts 'creating itineraries...'
+user_demo = User.find_by(email: "ferdinand@email.com")
 itineraries_attributes = [
   {
     country: "peru",
     experience: "party",
     budget: 1000,
     days: 15,
-    user_id: 1
+    user_id: user_demo.id
   },
   {
     country: "peru",
     experience: "party",
     budget: 1000,
     days: 15,
-    user_id: 1
+    user_id: user_demo.id
   },
   {
     country: "peru",
     experience: "party",
     budget: 1000,
     days: 15,
-    user_id: 1
+    user_id: user_demo.id
   },
   {
     country: "peru",
     experience: "urban",
     budget: 1000,
     days: 15,
-    user_id: 1
+    user_id: user_demo.id
   },
   {
     country: "peru",
     experience: "culture",
     budget: 1000,
     days: 15,
-    user_id: 1
+    user_id: user_demo.id
   },
   {
     country: "peru",
     experience: "adventure",
     budget: 1000,
     days: 15,
-    user_id: 1
+    user_id: user_demo.id
   },
 ]
 
@@ -125,37 +126,42 @@ city_attributes = [
   { name: "puerto maldonado", address: "puerto maldonado peru" },
 ]
 
-
 City.create!(city_attributes)
 
 puts 'creating itinerary_cities...'
-city_1 = City.find(1)
-city_2 = City.find(2)
-city_3 = City.find(3)
-city_4 = City.find(4)
-city_5 = City.find(5)
-city_6 = City.find(6)
-city_7 = City.find(7)
-city_8 = City.find(8)
-city_9 = City.find(9)
-city_10 = City.find(10)
+city_1 = City.find_by(name: "cuzco")
+city_2 = City.find_by(name: "lima")
+city_3 = City.find_by(name: "ica")
+city_4 = City.find_by(name: "arequipa")
+city_5 = City.find_by(name: "puno")
+city_6 = City.find_by(name: "huaraz")
+city_7 = City.find_by(name: "iquitos")
+city_8 = City.find_by(name: "mancora")
+city_9 = City.find_by(name: "ayacucho")
+city_10 = City.find_by(name: "puerto maldonado")
+
+country = "peru"
+experience = "party"
+itinerary_1 = Itinerary.where("country = ? AND experience = ?", country, experience).first
+itinerary_2 = Itinerary.where("country = ? AND experience = ?", country, experience).second
+itinerary_3 = Itinerary.where("country = ? AND experience = ?", country, experience).third
 
 itinerary_cities_attributes = [
-  { itinerary_id: 1, city: city_1 },
-  { itinerary_id: 1, city: city_2 },
-  { itinerary_id: 1, city: city_3 },
-  { itinerary_id: 1, city: city_4 },
-  { itinerary_id: 1, city: city_5 },
-  { itinerary_id: 2, city: city_6 },
-  { itinerary_id: 2, city: city_7 },
-  { itinerary_id: 2, city: city_8 },
-  { itinerary_id: 2, city: city_9 },
-  { itinerary_id: 2, city: city_10 },
-  { itinerary_id: 3, city: city_1 },
-  { itinerary_id: 3, city: city_3 },
-  { itinerary_id: 3, city: city_5 },
-  { itinerary_id: 3, city: city_7 },
-  { itinerary_id: 3, city: city_9 },
+  { itinerary: itinerary_1, city: city_1 },
+  { itinerary: itinerary_1, city: city_2 },
+  { itinerary: itinerary_1, city: city_3 },
+  { itinerary: itinerary_1, city: city_4 },
+  { itinerary: itinerary_1, city: city_5 },
+  { itinerary: itinerary_2, city: city_6 },
+  { itinerary: itinerary_2, city: city_7 },
+  { itinerary: itinerary_2, city: city_8 },
+  { itinerary: itinerary_2, city: city_9 },
+  { itinerary: itinerary_2, city: city_10 },
+  { itinerary: itinerary_3, city: city_1 },
+  { itinerary: itinerary_3, city: city_3 },
+  { itinerary: itinerary_3, city: city_5 },
+  { itinerary: itinerary_3, city: city_7 },
+  { itinerary: itinerary_3, city: city_9 },
 ]
 
 ItineraryCity.create!(itinerary_cities_attributes)
@@ -847,12 +853,11 @@ spots_attributes = [
 Spot.create!(spots_attributes)
 
 puts 'creating itinerary_spots...'
-spot_1 = Spot.find(1)
 
 itinerary_spots_attributes = [
   {
-    itinerary_id: 1,
-    spot: spot_1,
+    itinerary: Itinerary.first,
+    spot: Spot.first,
     days: 3
   },
 ]
