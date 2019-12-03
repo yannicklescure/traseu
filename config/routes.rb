@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get '/users/:id', to:'users#show'
+  get '/users/:id', to:'users#show', as: 'user'
   root to: 'searches#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # post '/bookmarks', to: 'bookmarks#bookmark'
   delete '/bookmarks', to: 'bookmarks#destroy'
   get '/pages', to: 'pages#home'
-  
+
   resources :itinaries_cities, only: [ :destroy, :create ]
   resources :itinaries_spots, only: [ :destroy, :create ]
   resources :cities, only: [ :show ]
