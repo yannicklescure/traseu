@@ -14,22 +14,50 @@ users_attributes = [
   {
     email: "ferdinand@email.com",
     password: "123456",
-    first_name: "ferdinand"
+    first_name: "ferdinand",
+    following: 142,
+    follower: 67,
+    presentation: "Hi there ! My idea is that I can help anyone; from someone that has never traveled or done a backpacking trip before to someone that has already traveled a lot but still might find some good advice on this site that can help him or her on the next adventure. And as a philosopher once said: "I know that I know nothing." Even after all that I have already traveled (but believe me, compared to some people that I’ve met, I’ve still only seen very little of the scope of the world), there are still a lot of things that I do not know as I am always learning and developing myself as a person.",
+    rating: "3",
+    country: "Poland, Chile, Mexico, New York",
+    itineraryofuser: "Party in Peru",
+    countryoforigin: "France"
   },
   {
     email: "pierre@email.com",
     password: "123456",
-    first_name: "pierre"
+    first_name: "pierre",
+    following: 121,
+    follower: 76,
+    presentation: "Hello, you! Anyone can backpack as there are trips to suit any size wallet. Nowadays, luxurious backpacking is becoming "fashionable" where the travelers use taxi as their principal mode of transportation and stay in hostels that are more expensive than 3-star hotels!! However, there are still other backpackers that travel the world hitchhiking and staying in the houses of strangers using couchsurfing and finish their entire trip with minimal cost. For others, like myself, there is a middle ground where I try to save on transportation and accommodation, but I don’t keep my wallet closed when it’s time to have fun and adventure. For me, as long as it takes you out of your comfort zone, it is worth trying.",
+    rating: "3",
+    country: "Belgium, Peru, Canada, New York",
+    itineraryofuser: "Party in Peru",
+    countryoforigin: "Chile"
   },
   {
     email: "sophie@email.com",
     password: "123456",
-    first_name: "sophie"
+    first_name: "sophie",
+    following: 32,
+    follower: 16,
+    presentation: "Welcome! Although I really like backpacking as it is the most economical way of seeing the world that I have found, this does not mean that I don’t like other forms of travel. For me, the important thing is to be in a new place with the opportunity to meet other people and to see cultures and customs different from those that I already know. Therefore, the type of the trip doesn’t matter to me whether it be a package to Disneyland, a luxurious beach resort with my family, a Caribbean cruise, or a ski trip with friends. I like to explore the world, however it may be.",
+    rating: "3",
+    country: "France, Peru, Canada, New York, Japan",
+    itineraryofuser: "Urban in New York",
+    countryoforigin: "France"
   },
   {
     email: "yannick@email.com",
     password: "123456",
-    first_name: "yannick"
+    first_name: "yannick",
+    following: 122,
+    follower: 86,
+    presentation: "Nice to meet you! Certainly, no matter what type of trip I am doing, I always do a Free Walking Tour if they are available in the city that I am visiting… if you have never heard of them, I will explain them more on my site as they are something not to be missed!  I will also keep a Blog with some advice about specific locations, general travel information, and some interesting stories that have happened during my wanderings. Well, that’s all for now folks. If you would like to know more about me and how I "left the system" to begin traveling around the world, continue reading below.",
+    rating: "3",
+    country: "Spain, Korea, Salvador, Peru, Canada, New York",
+    itineraryofuser: "Culture in Korea",
+    countryoforigin: "Belgium"
   },
 ]
 
@@ -235,7 +263,7 @@ spots_attributes = [
     price:20,
     longitude:-71.9791526,
     latitude:-13.5218139,
-    description:"translated from quechua, puriwasi “the house of the traveler”, is located just 3 blocks to plaza de armas , the safest in the City.",
+    description:"translated from quechua, puriwasi "the house of the traveler", is located just 3 blocks to plaza de armas , the safest in the City.",
     category: Category.find_by(title: "hotel"),
   },
     {
@@ -346,7 +374,7 @@ spots_attributes = [
     price:22,
     longitude:-77.0338889,
     latitude:-12.1201969,
-    description:"loki - we make your travels easy, fun and social. in the “city of kings”, a perfect and centric spot to relax, meet other travellers and locals.",
+    description:"loki - we make your travels easy, fun and social. in the "city of kings", a perfect and centric spot to relax, meet other travellers and locals.",
     category: Category.find_by(title: "hotel"),
   },
   {
