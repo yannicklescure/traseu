@@ -1,32 +1,37 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-      <!-- Slide One - Set the background image for this slide in the line below -->
-      <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')">
-        <div class="carousel-caption d-none d-md-block">
-        </div>
+<div class="thumb-slider sticky-carousel" id="slider">
+  <div id="myCarousel" class="carousel slide shadow">
+      <!-- main slider carousel items -->
+    <div class="carousel-inner">
+      <div class="active carousel-item" data-slide-number="0">
+        <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="thumb-inner img-fluid">
       </div>
-      <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1496024840928-4c417adf211d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')">
-        <div class="carousel-caption d-none d-md-block">
-        </div>
+      <div class="carousel-item" data-slide-number="1">
+        <img src="https://images.unsplash.com/photo-1529411081224-84ac0d0bf6ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="thumb-inner img-fluid">
       </div>
-      <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1519214605650-76a613ee3245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80')">
-        <div class="carousel-caption d-none d-md-block">
-        </div>
+      <div class="carousel-item" data-slide-number="2">
+        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="thumb-inner img-fluid">
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+      <!-- main slider carousel nav controls -->
+
+    <div class="d-flex justify-content-center">
+      <ul class="carousel-indicators list-inline">
+        <li class="list-inline-item active">
+          <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel">
+            <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class=" thumb img-fluid">
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel">
+            <img src="https://images.unsplash.com/photo-1529411081224-84ac0d0bf6ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="thumb img-fluid">
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel">
+            <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="thumb img-fluid">
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
+</div>
