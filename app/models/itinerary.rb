@@ -1,6 +1,7 @@
 class Itinerary < ApplicationRecord
   belongs_to :user
   has_many :reviews
+  has_many :bookmarks
   has_many :itinerary_cities, dependent: :destroy
   has_many :cities, through: :itinerary_cities
   has_many :itinerary_spots, dependent: :destroy

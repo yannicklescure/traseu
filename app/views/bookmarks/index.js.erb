@@ -1,12 +1,7 @@
-if (<%= @delete %>) {
-  if (!<%= @itineraries.size.positive? %>) {
-    element = document.querySelector('#bookmark a');
-    element.innerHTML = '<i class="far fa-star"></i>';
-  }
-  itinerary = document.querySelector('#itinerary-id-<%= @itinerary.id %>');
-  if (itinerary) itinerary.remove();
+if (!<%= @bookmarks.size.positive? %>) {
+  element = document.querySelector('#bookmark a');
+  element.innerHTML = '<i class="far fa-star"></i>';
 }
-// itinerary.addEventListener('click', (event) => {
-//   event.preventDefault();
-//   alert('toto');
-// });
+bookmark = document.querySelector('#bookmark-id-<%= @bookmark.id %>');
+if (bookmark) bookmark.remove();
+

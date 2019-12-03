@@ -77,9 +77,7 @@ class ItinerariesController < ApplicationController
         infowindow: render_to_string(partial: "info_window", locals: { spot: city })
       }
     end
-    @itineraries = Itinerary.where(bookmark: true)
-    # @itineraries = Itinerary.cities.all
-    # raise
+
     if params[:call] == 'create'
       @itinerary_city = ItineraryCity.new(city_id: params[:city], itinerary_id: params[:id])
       @new_marker = {
@@ -106,26 +104,30 @@ class ItinerariesController < ApplicationController
       end
     end
 
-    if params[:query]
-      case params[:query]
-      when "create"
-        @itinerary.bookmark = true
-        @itinerary.save!
-        # itinerary = Itinerary.find(params[:itinerary])
-        # redirect_to itinerary_path(itinerary)
-        # raise
-        respond_to do |format|
-          format.js
-        end
-      when "delete"
-        # raise
-        @itinerary.bookmark = false
-        @itinerary.save!
-        respond_to do |format|
-          format.js
-        end
-      end
-    end
+    @bookmark = Bookmark.find_by("itinerary_id = ? AND user_id = ?", params[:id], current_user.id)
+    # raise
+    # @itineraries = Itinerary.where(bookmark: true)
+
+    # if params[:query]
+    #   case params[:query]
+    #   when "create"
+    #     @itinerary.bookmark = true
+    #     @itinerary.save!
+    #     # itinerary = Itinerary.find(params[:itinerary])
+    #     # redirect_to itinerary_path(itinerary)
+    #     # raise
+    #     respond_to do |format|
+    #       format.js
+    #     end
+    #   when "delete"
+    #     # raise
+    #     @itinerary.bookmark = false
+    #     @itinerary.save!
+    #     respond_to do |format|
+    #       format.js
+    #     end
+    #   end
+    # end
   end
 
   def destroy

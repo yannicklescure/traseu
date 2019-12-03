@@ -1,13 +1,14 @@
 <div class="container py-5">
   <h1>Bookmarks#index</h1>
   <p>Find me in app/views/bookmarks/index.html.erb</p>
+  <p>current_user id: <%= current_user.id %></p>
   <hr>
   <ul class="list-unstyled">
-    <% @itineraries.each do |itinerary| %>
-      <li id="itinerary-id-<%= itinerary.id %>">
-        <%= link_to raw('<i class="fas fa-times"></i>'), "#{bookmarks_path}?query=delete&itinerary=#{itinerary.id}", remote: true, method: :get, class: 'text-decoration-none text-secondary' %>
+    <% @bookmarks.each do |bookmark| %>
+      <li id="bookmark-id-<%= bookmark.id %>">
+        <%= link_to raw('<i class="fas fa-times"></i>'), "#{bookmarks_path}?id=#{bookmark.id}&itinerary=#{bookmark.itinerary_id}", method: :delete, remote: true, class: 'text-decoration-none text-secondary' %>
         &emsp;
-        <%= link_to "#{itinerary.country}, #{itinerary.experience} experience", itinerary_path(itinerary) %>
+        <%= link_to "#{bookmark.itinerary.country}, #{bookmark.itinerary.experience} experience", itinerary_path(bookmark.itinerary) %>
         </li>
     <% end %>
   </ul>
