@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   # get '/search', to: 'itineraries#search', as: 'search_itineraries'
   # resources :bookmarks, only: [ :index, :destroy, :create ]
   get '/bookmarks', to: 'bookmarks#index', as: 'bookmarks'
-  # post '/bookmarks', to: 'bookmarks#bookmark'
+  post '/itineraries/:id', to: 'bookmarks#create'
   delete '/bookmarks', to: 'bookmarks#destroy'
   get '/pages', to: 'pages#home'
-  
+
   resources :itinaries_cities, only: [ :destroy, :create ]
   resources :itinaries_spots, only: [ :destroy, :create ]
   resources :cities, only: [ :show ]

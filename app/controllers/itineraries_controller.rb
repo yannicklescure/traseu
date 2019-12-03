@@ -65,40 +65,69 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    @cities_map = City.geocoded
+
     # binding.pry
     @cities = City.all
     @itinerary = Itinerary.find(params[:id])
-    @itineraries = Itinerary.where(bookmark: true)
-    # @itineraries = Itinerary.cities.all
-    # raise
+    @markers = @itinerary.cities.map do |city|
+      {
+        lat: city.latitude,
+        lng: city.longitude,
+        infowindow: render_to_string(partial: "info_window", locals: { spot: city })
+      }
+    end
+
     if params[:call] == 'create'
-      itinerary_city = ItineraryCity.new(city_id: params[:city], itinerary_id: params[:id])
-      itinerary_city.save
-      redirect_to itinerary_path(params[:id])
+      @itinerary_city = ItineraryCity.new(city_id: params[:city], itinerary_id: params[:id])
+      @new_marker = {
+        lat: @itinerary_city.city.latitude,
+        lng: @itinerary_city.city.longitude,
+        # WIP: add later
+        infowindow: render_to_string(partial: "info_window", locals: { spot: @itinerary_city.city })
+      }
+      @itinerary_city.save
+      # redirect_to itinerary_path(params[:id])
       # raise
+      respond_to do |format|
+        format.js
+      end
     end
 
     if params[:call] == 'delete'
       itinerary_city = ItineraryCity.find(params[:itinerary_city])
       itinerary_city.destroy
-      redirect_to itinerary_path(params[:id])
+      # redirect_to itinerary_path(params[:id])
       # raise
-    end
-
-    if params[:query]
-      case params[:query]
-      when "create"
-        @itinerary.bookmark = true
-        @itinerary.save!
-        # itinerary = Itinerary.find(params[:itinerary])
-        # redirect_to itinerary_path(itinerary)
-        # raise
-      when "delete"
-        # raise
-        @itinerary.bookmark = false
-        @itinerary.save!
+      respond_to do |format|
+        format.js
       end
     end
+
+    @bookmark = Bookmark.find_by("itinerary_id = ? AND user_id = ?", params[:id], current_user.id)
+    # raise
+    # @itineraries = Itinerary.where(bookmark: true)
+
+    # if params[:query]
+    #   case params[:query]
+    #   when "create"
+    #     @itinerary.bookmark = true
+    #     @itinerary.save!
+    #     # itinerary = Itinerary.find(params[:itinerary])
+    #     # redirect_to itinerary_path(itinerary)
+    #     # raise
+    #     respond_to do |format|
+    #       format.js
+    #     end
+    #   when "delete"
+    #     # raise
+    #     @itinerary.bookmark = false
+    #     @itinerary.save!
+    #     respond_to do |format|
+    #       format.js
+    #     end
+    #   end
+    # end
   end
 
   def destroy

@@ -3,16 +3,19 @@ const mapElement = document.getElementById('map');
 // import polyline from '@mapbox/polyline';
 var polyline = require('@mapbox/polyline');
 
+const markersArray = [];
 const addMarkers = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infowindow);
-    new mapboxgl.Marker()
+    const newMarker = new mapboxgl.Marker()
     .setLngLat([ marker.lng, marker.lat ])
     .setPopup(popup)
     .addTo(map);
+    markersArray.push(newMarker);
   });
 };
 
+const layers = [];
 const pathFinder = (map, markers) => {
   // debugger
   // {lat: -13.5228392, lng: -71.967627,
@@ -39,14 +42,20 @@ const pathFinder = (map, markers) => {
   fetch(url)
     .then(response => response.json())
     .then(data => {
+      if (layers.length > 0) {
+        const lastLayer = layers[layers.length-1]
+        map.removeLayer(lastLayer);
+      }
       // geoJSON takes LAT , LON
       // `data.trips[0].geometry` is the Geoline String from the API
       const polyLine = data.trips[0].geometry;
       // reverse (Lonng and lat) to (Lat and Lon)
       const geoJSON = polyline.decode(polyLine).map(coord => [coord[1], coord[0]] );
+      const routeName = `my-route-${new Date().getTime()}`
+      layers.push(routeName);
 
-      const options = {
-        "id": "myroute",
+      let options = {
+        "id": routeName,
         "type": "line",
         "source": {
           "type": "geojson",
@@ -81,6 +90,9 @@ const fitMapToMarkers = (map, markers) => {
 
 
 const initMapBox = () => {
+  const createTogglers = document.querySelectorAll('.city-toggler-create');
+  const deleteTogglers = document.querySelectorAll('.city-toggler-delete');
+
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 
   const map = new mapboxgl.Map({
@@ -90,11 +102,46 @@ const initMapBox = () => {
 
   const markers = JSON.parse(mapElement.dataset.markers);
 
+  Array.from(createTogglers).forEach(toggler=> {
+    toggler.addEventListener('click', () => {
+      console.log('create toggler', event.target.dataset);
+      const markerData = event.target.dataset;
+      const newMarker = new mapboxgl.Marker()
+        .setLngLat([ markerData.lng, markerData.lat ])
+        .addTo(map);
+      markersArray.push(newMarker);
+      console.log('marker array', markersArray);
+      markers.push({lng: markerData.lng, lat: markerData.lat});
+      pathFinder(map, markers);
+    });
+  });
+
+  Array.from(deleteTogglers).forEach(toggler=> {
+    toggler.addEventListener('click', () => {
+      console.log('delete toggler', event.target.dataset);
+      const markerData = event.target.dataset;
+      const newMarker = new mapboxgl.Marker()
+        .setLngLat([ markerData.lng, markerData.lat ])
+      markersArray.forEach((marker, index) => {
+        console.log('delete function', marker.getLngLat());
+        if (marker.getLngLat().lat === newMarker.getLngLat().lat && marker.getLngLat().lng === newMarker.getLngLat().lng) {
+          console.log('delete function newmarker', newMarker.getLngLat());
+          marker.remove();
+          markersArray.splice(index, 1);
+        }
+      });
+      const modifiedMarkersArray = markersArray.map(marker => {
+        return { lng: marker.getLngLat().lng, lat: marker.getLngLat().lat }
+      })
+      pathFinder(map, modifiedMarkersArray);
+    });
+  });
+
   fitMapToMarkers(map, markers);
   addMarkers(map, markers);
   // pathfinder prototype
   pathFinder(map, markers);
 };
 
-export { initMapBox };
+export { initMapBox, pathFinder, addMarkers };
 

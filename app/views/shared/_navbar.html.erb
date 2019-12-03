@@ -14,8 +14,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item" id="bookmark">
-          <% @bookmarks = Itinerary.where(bookmark: true) %>
+        <li class="nav-item active" id="bookmark">
+          <% @bookmarks = Bookmark.where(user: current_user) %>
           <% if @bookmarks.size.positive? %>
             <%= link_to raw('<i class="fas fa-star"></i>'), bookmarks_path, class: "nav-link" %>
           <% else %>
