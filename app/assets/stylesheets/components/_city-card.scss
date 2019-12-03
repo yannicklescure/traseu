@@ -1,3 +1,13 @@
+.country-banner {
+  height: 20vh;
+  margin-top: 0;
+
+  .country-name {
+    color: white;
+  }
+
+}
+
 .city-card {
   display: inline-block;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
@@ -5,10 +15,22 @@
   transition: all .2s ease-in-out;
   width: 300px;
   margin-bottom: 10px;
+
+  .no-margin {
+    margin-bottom: 0;
+  }
+}
+
+.icons-list {
+  margin-bottom: 0;
 }
 
 .city-card p {
   font-size: 0.8rem;
+}
+
+.city-card a{
+  color: $pastel_grey
 }
 
 .city-card h3 {
@@ -17,7 +39,7 @@
 
 .city-card:hover {
   /*box-shadow: 0 5px 22px 0 rgba(0,0,0,.25);*/
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 6px 6px rgba(0,0,0,0.1);
   margin-bottom: 10px;
 }
 
