@@ -1,9 +1,8 @@
-
 elementTrue = document.querySelector('#bookmark-show-true');
 elementFalse = document.querySelector('#bookmark-show-false');
 
 status = <%= @itinerary.bookmark %>;
-// alert(status);
+console.log(status)
 
 if (status == 'true') {
   elementTrue.style.display = 'block';

@@ -65,24 +65,39 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    @cities_map = City.geocoded
+
     # binding.pry
     @cities = City.all
     @itinerary = Itinerary.find(params[:id])
+    @markers = @itinerary.cities.map do |city|
+      {
+        lat: city.latitude,
+        lng: city.longitude,
+        infowindow: render_to_string(partial: "info_window", locals: { spot: city })
+      }
+    end
     @itineraries = Itinerary.where(bookmark: true)
     # @itineraries = Itinerary.cities.all
     # raise
     if params[:call] == 'create'
       itinerary_city = ItineraryCity.new(city_id: params[:city], itinerary_id: params[:id])
       itinerary_city.save
-      redirect_to itinerary_path(params[:id])
+      # redirect_to itinerary_path(params[:id])
       # raise
+      respond_to do |format|
+        format.js
+      end
     end
 
     if params[:call] == 'delete'
       itinerary_city = ItineraryCity.find(params[:itinerary_city])
       itinerary_city.destroy
-      redirect_to itinerary_path(params[:id])
+      # redirect_to itinerary_path(params[:id])
       # raise
+      respond_to do |format|
+        format.js
+      end
     end
 
     if params[:query]
@@ -93,10 +108,16 @@ class ItinerariesController < ApplicationController
         # itinerary = Itinerary.find(params[:itinerary])
         # redirect_to itinerary_path(itinerary)
         # raise
+        respond_to do |format|
+          format.js
+        end
       when "delete"
         # raise
         @itinerary.bookmark = false
         @itinerary.save!
+        respond_to do |format|
+          format.js
+        end
       end
     end
   end
