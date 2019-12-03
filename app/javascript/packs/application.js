@@ -1,6 +1,10 @@
 import "bootstrap";
-import { initUpdateNavbarOnScroll } from "../navbar";
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { initMapBox } from '../plugins/init_mapbox';
+import { initUpdateNavbarOnScroll } from '../navbar';
 import { scrollToAnchor } from "../scroll_to_anchor";
+
+initMapBox();
 
 // scrollTo();
 
