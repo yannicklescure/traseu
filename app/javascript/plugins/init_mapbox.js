@@ -96,5 +96,5 @@ const initMapBox = () => {
   pathFinder(map, markers);
 };
 
-export { initMapBox };
+export { initMapBox, pathFinder, addMarkers };
 

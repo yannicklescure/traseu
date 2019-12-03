@@ -81,8 +81,14 @@ class ItinerariesController < ApplicationController
     # @itineraries = Itinerary.cities.all
     # raise
     if params[:call] == 'create'
-      itinerary_city = ItineraryCity.new(city_id: params[:city], itinerary_id: params[:id])
-      itinerary_city.save
+      @itinerary_city = ItineraryCity.new(city_id: params[:city], itinerary_id: params[:id])
+      @new_marker = {
+        lat: @itinerary_city.city.latitude,
+        lng: @itinerary_city.city.longitude,
+        # WIP: add later
+        infowindow: render_to_string(partial: "info_window", locals: { spot: @itinerary_city.city })
+      }
+      @itinerary_city.save
       # redirect_to itinerary_path(params[:id])
       # raise
       respond_to do |format|
