@@ -17,12 +17,11 @@ users_attributes = [
     first_name: "ferdinand",
     following: 142,
     follower: 67,
-    presentation: "Hi there ! My idea is that I can help anyone; from someone that has never traveled or done a backpacking trip before to someone that has already traveled a lot but still might find some good advice on this site that can help him or her on the next adventure. And as a philosopher once said: “I know that I know nothing.” Even after all that I have already traveled (but believe me, compared to some people that I’ve met, I’ve still only seen very little of the scope of the world), there are still a lot of things that I do not know as I am always learning and developing myself as a person.",
+    presentation: "Hi there ! My idea is that I can help anyone; from someone that has never traveled or done a backpacking trip before to someone that has already traveled a lot but still might find some good advice on this site that can help him or her on the next adventure. And as a philosopher once said: "I know that I know nothing." Even after all that I have already traveled (but believe me, compared to some people that I’ve met, I’ve still only seen very little of the scope of the world), there are still a lot of things that I do not know as I am always learning and developing myself as a person.",
     rating: "3",
     country: "Poland, Chile, Mexico, New York",
     itineraryofuser: "Party in Peru",
     countryoforigin: "France"
-
   },
   {
     email: "pierre@email.com",
@@ -30,7 +29,7 @@ users_attributes = [
     first_name: "pierre",
     following: 121,
     follower: 76,
-    presentation: "Hello, you! Anyone can backpack as there are trips to suit any size wallet. Nowadays, luxurious backpacking is becoming “fashionable” where the travelers use taxi as their principal mode of transportation and stay in hostels that are more expensive than 3-star hotels!! However, there are still other backpackers that travel the world hitchhiking and staying in the houses of strangers using couchsurfing and finish their entire trip with minimal cost. For others, like myself, there is a middle ground where I try to save on transportation and accommodation, but I don’t keep my wallet closed when it’s time to have fun and adventure. For me, as long as it takes you out of your comfort zone, it is worth trying.",
+    presentation: "Hello, you! Anyone can backpack as there are trips to suit any size wallet. Nowadays, luxurious backpacking is becoming "fashionable" where the travelers use taxi as their principal mode of transportation and stay in hostels that are more expensive than 3-star hotels!! However, there are still other backpackers that travel the world hitchhiking and staying in the houses of strangers using couchsurfing and finish their entire trip with minimal cost. For others, like myself, there is a middle ground where I try to save on transportation and accommodation, but I don’t keep my wallet closed when it’s time to have fun and adventure. For me, as long as it takes you out of your comfort zone, it is worth trying.",
     rating: "3",
     country: "Belgium, Peru, Canada, New York",
     itineraryofuser: "Party in Peru",
@@ -54,7 +53,7 @@ users_attributes = [
     first_name: "yannick",
     following: 122,
     follower: 86,
-    presentation: "Nice to meet you! Certainly, no matter what type of trip I am doing, I always do a Free Walking Tour if they are available in the city that I am visiting… if you have never heard of them, I will explain them more on my site as they are something not to be missed!  I will also keep a Blog with some advice about specific locations, general travel information, and some interesting stories that have happened during my wanderings. Well, that’s all for now folks. If you would like to know more about me and how I “left the system” to begin traveling around the world, continue reading below.",
+    presentation: "Nice to meet you! Certainly, no matter what type of trip I am doing, I always do a Free Walking Tour if they are available in the city that I am visiting… if you have never heard of them, I will explain them more on my site as they are something not to be missed!  I will also keep a Blog with some advice about specific locations, general travel information, and some interesting stories that have happened during my wanderings. Well, that’s all for now folks. If you would like to know more about me and how I "left the system" to begin traveling around the world, continue reading below.",
     rating: "3",
     country: "Spain, Korea, Salvador, Peru, Canada, New York",
     itineraryofuser: "Culture in Korea",
@@ -71,42 +70,42 @@ itineraries_attributes = [
     experience: "party",
     budget: 1000,
     days: 15,
-    user: User.first
+    user_id: 1
   },
   {
     country: "peru",
     experience: "party",
     budget: 1000,
     days: 15,
-    user: User.first
+    user_id: 1
   },
   {
     country: "peru",
     experience: "party",
     budget: 1000,
     days: 15,
-    user: User.first
+    user_id: 1
   },
   {
     country: "peru",
     experience: "urban",
     budget: 1000,
     days: 15,
-    user: User.first
+    user_id: 1
   },
   {
     country: "peru",
     experience: "culture",
     budget: 1000,
     days: 15,
-    user: User.first
+    user_id: 1
   },
   {
     country: "peru",
     experience: "adventure",
     budget: 1000,
     days: 15,
-    user: User.first
+    user_id: 1
   },
 ]
 
@@ -129,35 +128,34 @@ city_attributes = [
 
 City.create!(city_attributes)
 
-
-puts 'Creating itinerary_cities...'
-city_1 = City.first
-city_2 = City.second
-city_3 = City.third
-city_4 = City.fourth
-city_5 = City.fifth
-city_6 = City.first
-city_7 = City.second
-city_8 = City.third
-city_9 = City.fourth
-city_10 = City.fifth
+puts 'creating itinerary_cities...'
+city_1 = City.find(1)
+city_2 = City.find(2)
+city_3 = City.find(3)
+city_4 = City.find(4)
+city_5 = City.find(5)
+city_6 = City.find(6)
+city_7 = City.find(7)
+city_8 = City.find(8)
+city_9 = City.find(9)
+city_10 = City.find(10)
 
 itinerary_cities_attributes = [
-  { itinerary: Itinerary.first, city: city_1 },
-  { itinerary: Itinerary.first, city: city_2 },
-  { itinerary: Itinerary.first, city: city_3 },
-  { itinerary: Itinerary.first, city: city_4 },
-  { itinerary: Itinerary.first, city: city_5 },
-  { itinerary: Itinerary.second, city: city_6 },
-  { itinerary: Itinerary.second, city: city_7 },
-  { itinerary: Itinerary.second, city: city_8 },
-  { itinerary: Itinerary.second, city: city_9 },
-  { itinerary: Itinerary.second, city: city_10 },
-  { itinerary: Itinerary.third, city: city_1 },
-  { itinerary: Itinerary.third, city: city_3 },
-  { itinerary: Itinerary.third, city: city_5 },
-  { itinerary: Itinerary.third, city: city_7 },
-  { itinerary: Itinerary.third, city: city_9 },
+  { itinerary_id: 1, city: city_1 },
+  { itinerary_id: 1, city: city_2 },
+  { itinerary_id: 1, city: city_3 },
+  { itinerary_id: 1, city: city_4 },
+  { itinerary_id: 1, city: city_5 },
+  { itinerary_id: 2, city: city_6 },
+  { itinerary_id: 2, city: city_7 },
+  { itinerary_id: 2, city: city_8 },
+  { itinerary_id: 2, city: city_9 },
+  { itinerary_id: 2, city: city_10 },
+  { itinerary_id: 3, city: city_1 },
+  { itinerary_id: 3, city: city_3 },
+  { itinerary_id: 3, city: city_5 },
+  { itinerary_id: 3, city: city_7 },
+  { itinerary_id: 3, city: city_9 },
 ]
 
 ItineraryCity.create!(itinerary_cities_attributes)
@@ -265,7 +263,7 @@ spots_attributes = [
     price:20,
     longitude:-71.9791526,
     latitude:-13.5218139,
-    description:"translated from quechua, puriwasi “the house of the traveler”, is located just 3 blocks to plaza de armas , the safest in the City.",
+    description:"translated from quechua, puriwasi "the house of the traveler", is located just 3 blocks to plaza de armas , the safest in the City.",
     category: Category.find_by(title: "hotel"),
   },
     {
@@ -376,7 +374,7 @@ spots_attributes = [
     price:22,
     longitude:-77.0338889,
     latitude:-12.1201969,
-    description:"loki - we make your travels easy, fun and social. in the “city of kings”, a perfect and centric spot to relax, meet other travellers and locals.",
+    description:"loki - we make your travels easy, fun and social. in the "city of kings", a perfect and centric spot to relax, meet other travellers and locals.",
     category: Category.find_by(title: "hotel"),
   },
   {
@@ -848,17 +846,12 @@ spots_attributes = [
 
 Spot.create!(spots_attributes)
 
-<<<<<<< HEAD
-puts 'Creating itinerary_spots...'
-spot_1 = Spot.first
-=======
 puts 'creating itinerary_spots...'
 spot_1 = Spot.find(1)
->>>>>>> master
 
 itinerary_spots_attributes = [
   {
-    itinerary: Itinerary.first,
+    itinerary_id: 1,
     spot: spot_1,
     days: 3
   },
