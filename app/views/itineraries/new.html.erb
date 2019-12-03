@@ -1,16 +1,9 @@
 <div class="container-fluid">
-  <div class= "mx-5">
-    <div class="d-flex justify-content-between my-4">
-      <div><%= @search.experience %></div>
-      <div><%= @search.country %></div>
-      <div><%= @search.budget %></div>
-      <div><%= @search.days %></div>
-    </div>
-  </div>
-  <div class="row my-2">
+  <%= render 'shared/recap-bar' %>
+  <div class="row m-2">
     <div class="col-12 col-sm-7">
       <% @itineraries.reverse.each do |itinerary| %>
-      <div class="mb-2">
+      <div class="mr-3 mb-3">
         <div class="card main-card card<%= itinerary.id %>">
           <div class="card-body p-4">
             <div class="d-flex justify-content-between">
