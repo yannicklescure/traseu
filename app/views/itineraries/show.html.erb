@@ -61,7 +61,7 @@
             </p>
           &emsp;
           <div id="city-delete-id-<%= itinerary_city.id %>">
-            <%= link_to "delete", "#{itinerary_path(@itinerary)}?call=delete&itinerary_city=#{itinerary_city.id}", remote: true, method: :get %>
+            <%= link_to "delete", "#{itinerary_path(@itinerary)}?call=delete&itinerary_city=#{itinerary_city.id}", remote: true, method: :get, class: "city-toggler-delete", data: { lat: itinerary_city.city.latitude, lng: itinerary_city.city.longitude } %>
           </div>
         </div>
       <% end %>
@@ -74,11 +74,17 @@
             <p class="text-danger"><%= city.name %></p>
             &emsp;
             <div id="city-create-id-<%= city.id %>">
-              <%= link_to "create", "#{itinerary_path(@itinerary)}?call=create&city=#{city.id}", remote: true, method: :get %>
+              <%= link_to "create", "#{itinerary_path(@itinerary)}?call=create&city=#{city.id}", remote: true, method: :get, class: "city-toggler-create", data: { lat: city.latitude, lng: city.longitude } %>
             </div>
           <% end %>
         </div>
       <% end %>
+
+      <div class="d-none">
+      <%# @cities.each do |city| %>
+
+      <%# end %>
+      </div>
     </div>
     <div class="col-6">
       <!-- <img src="https://github.com/PierreJaouen/traseu/blob/controllers-next/public/map.png?raw=true" alt="" width="100%"> -->

@@ -1,49 +1,40 @@
-  <div class="country-banner d-flex align-items-center flex-column justify-content-center" style="background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/pierreja/image/upload/v1575223194/TRASEU/Traseu%20-%20Arequipa/BANNER%20-%20Arequipa2.jpg)">
+  <div class="country-banner d-flex align-items-end justify-content-center" style="margin-top: -60px;background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/pierreja/image/upload/v1575223194/TRASEU/Traseu%20-%20Arequipa/BANNER%20-%20Arequipa2.jpg)">
     <h1 class="country-name">PERU</h1>
-    <div class="btn">SAVE</div>
   </div>
 
-  <div class="container d-flex justify-content-between">
-    <!-- Cities -->
-    <div class="cities ml-3 mr-3">
-      <div class="city-card" style="width: 30rem" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <div class="card-body" style="padding: 0.4rem">
-
-          <div class="d-flex justify-content-between align-items-center">
-            <h2 class="card-title" style="margin: 0px">Cuzco</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <!-- Card#1 -->
+      <div class="d-flex justify-content-between">
+        <!-- Cities -->
+        <div class="city-card" style="width: 100%" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <div class="mx-3 d-flex justify-content-between align-items-center">
+            <span class="lead">Cuzco</span>
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="customSwitches">
               <label class="custom-control-label" for="customSwitches"></label>
             </div>
           </div>
-
-          <div class="collapse " id="collapseExample">
-            <div class="d-flex justify-content-between align-items-end">
-
-              <ul class="icons-list" style="list-style-type: none; padding: 9px; padding-bottom: 0;" >
-                <li><p><i class="fas fa-utensils fa-lg" style="color:#3F3D56"></i> INPUT</p></li>
-                <li><p><i class="fas fa-bed fa-lg" style="color:#3F3D56"></i> INPUT</p></li>
-                <li><p class="no-margin"><i class="fas fa-binoculars fa-lg" style="color:#3F3D56"></i> INPUT</p></li>
-              </ul>
-              <div class="text-right"><a href="#">Edit details ></a></div>
-            </div>
+        </div>
+        <div class="collapse " id="collapseExample">
+          <div class="d-flex justify-content-between align-items-end">
+            <ul class="icons-list" style="list-style-type: none; padding: 9px; padding-bottom: 0;" >
+              <li><p><i class="fas fa-utensils" style="color:#3F3D56"></i> INPUT</p></li>
+              <li><p><i class="fas fa-bed" style="color:#3F3D56"></i> INPUT</p></li>
+              <li><p class="no-margin"><i class="fas fa-binoculars" style="color:#3F3D56"></i> INPUT</p></li>
+            </ul>
+            <div class="text-right"><a href="#">Edit details ></a></div>
           </div>
-
         </div>
       </div>
     </div>
-
-    <!----- Map ------>
-    <div class="d-flex flex-column align-items-end m-4" style="width:60%">
-      <div
-        id="map"
-        class="mt-3 mr-3"
-        style="width: 100%;
-        height: 600px;"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-        data-markers="<%= @markers.to_json %>">
-      </div>
-      <i class="fas fa-file-download fa-2x" style="color:#3F3D56; margin: 1em"></i></div>
+    <div class="col-6">
+      <img src="https://github.com/PierreJaouen/traseu/blob/controllers-next/public/map.png?raw=true" alt="" width="100%">
     </div>
   </div>
+</div>
+
+
+
 
