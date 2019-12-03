@@ -4,12 +4,15 @@ import { initMapBox } from '../plugins/init_mapbox';
 import { initUpdateNavbarOnScroll } from '../navbar';
 import { scrollToAnchor } from "../scroll_to_anchor";
 
-initMapBox();
-
 // scrollTo();
 
-let currentPage = window.location.href.split(/.*[\/]/)[1] || null;
+// let currentPage = window.location.href.split(/.*[\/]/)[1] || null;
+let currentPage = window.location.pathname.split("/")[1] || null;
 console.log(currentPage);
+
+if (currentPage == "itineraries") {
+  initMapBox();
+}
 
 if (currentPage == null || currentPage == '#experience' || currentPage == '#country' || currentPage == '#budget' || currentPage == '#days') {
   initUpdateNavbarOnScroll();
