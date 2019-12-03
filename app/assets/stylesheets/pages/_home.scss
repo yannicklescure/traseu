@@ -1,3 +1,11 @@
+//Images
+.img-circle {
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
 // Specific CSS for your home-page
 
 #map {
@@ -84,6 +92,17 @@
   flex-wrap: wrap;
 }
 
+.card-category3 {
+  background-size: cover;
+  background-position: center;
+  height: 706px;
+  width: 518px;
+  color: black;
+  font-size: 16px;
+  margin: 0 8px;
+  flex-wrap: wrap;
+}
+
 .cards {
   display: flex;
   justify-content: center;
@@ -126,3 +145,6 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+
+
