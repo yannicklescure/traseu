@@ -72,8 +72,8 @@ itineraries_attributes = [
     budget: 1700,
     days: 14,
     user_id: user_demo.id,
-    title: "Wild Party in Peru",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, impedit, cupiditate at aliquid unde magnam fugiat dolore perferendis natus et illo nobis quis. A, non adipisci illum odio consequatur. Quos.",
+    title: "Party in Peru",
+    description: "Want to meet local people and party without missing out on local social life?  You’re in the right place to celebrate the local folklore.",
   },
   {
     country: "peru",
@@ -81,8 +81,8 @@ itineraries_attributes = [
     budget: 1900,
     days: 12,
     user_id: user_demo.id,
-    title: "Lost in the city - Peru",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero asperiores voluptatum adipisci sunt ducimus, doloremque quo dolore porro autem deleniti rem incidunt, quaerat earum dolorem accusantium, quia, consequuntur reiciendis cum.",
+    title: "Not your average night club crawling",
+    description: "Feeling like you already know everything about clubbing? Join this tour and recollect why you like partying so much. Remember: what happens in Peru stays in Peru.",
   },
   {
     country: "peru",
@@ -90,22 +90,26 @@ itineraries_attributes = [
     budget: 1800,
     days: 14,
     user_id: user_demo.id,
-    title: "Pisco adventure Peru",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse repellendus ullam incidunt quis, velit qui quod a at magnam? Possimus placeat enim nihil eum in odit quidem commodi quia amet!",
+    title: "The ultimate nightlife experience",
+    description: "You’re into clubbing? So am I. Here are the best bars and clubs in Peru for you to enjoy the most exclusive experience.",
   },
   {
     country: "peru",
     experience: "urban",
     budget: 1000,
     days: 15,
-    user_id: user_demo.id
+    user_id: user_demo.id,
+    title: "La vida local",
+    description:"Feeling like dancing with the locals but also trekking and enjoy the beautiful nature? Kill two birds with one stone and try this tour.",
   },
   {
     country: "peru",
     experience: "culture",
     budget: 1000,
     days: 15,
-    user_id: user_demo.id
+    user_id: user_demo.id,
+    title: "La vida locas",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis explicabo a excepturi beatae velit, temporibus vel repellendus? Nulla facilis deleniti quo nam incidunt veritatis nobis, magni ex et fugiat at.",
   },
   {
     country: "peru",
