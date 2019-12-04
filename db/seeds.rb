@@ -147,9 +147,9 @@ itinerary_2 = Itinerary.where("country = ? AND experience = ?", country, experie
 itinerary_3 = Itinerary.where("country = ? AND experience = ?", country, experience).third
 
 itinerary_cities_attributes = [
-  { itinerary: itinerary_1, city: city_1 },
   { itinerary: itinerary_1, city: city_2 },
   { itinerary: itinerary_1, city: city_3 },
+  { itinerary: itinerary_1, city: city_1 },
   { itinerary: itinerary_1, city: city_4 },
   { itinerary: itinerary_1, city: city_5 },
   { itinerary: itinerary_2, city: city_6 },
@@ -187,7 +187,7 @@ spots_attributes = [
   {
     title: "hanz craft beer",
     address: "portal de carnes 216, cusco, peru",
-    zip_code: "zip",
+    zip_code: "$$",
     city: City.find_by(name: "cuzco"),
     price:"$$",
     longitude:-71.9808861,
@@ -198,7 +198,7 @@ spots_attributes = [
   {
     title: "indigo bar restaurant",
     address: "first floor, tecsecocha 415, cusco, peru",
-    zip_code: "zip",
+    zip_code: "$$$",
     city: City.find_by(name: "cuzco"),
     price:"$$$",
     longitude:-71.9824407,
@@ -209,7 +209,7 @@ spots_attributes = [
   {
     title: "republica del pisco",
     address: "calle plateros 354, cusco, peru",
-    zip_code: "zip",
+    zip_code: "$",
     city: City.find_by(name: "cuzco"),
     price:"$",
     longitude:-71.9824715,
@@ -220,7 +220,7 @@ spots_attributes = [
   {
     title: "eco-view bar",
     address: "calle tandapata 668, cusco, peru",
-    zip_code: "zip",
+    zip_code: "$$",
     city: City.find_by(name: "cuzco"),
     price:"$$",
     longitude:-71.9754585,
