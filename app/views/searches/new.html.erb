@@ -1,73 +1,163 @@
 <%#= render 'shared/banner' %>
 
-<div id="banner-main" class="banner homepage" style="margin-top: -60px;background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://sophiealexandre.eu/images/van);">
+<div id="banner-main" class="banner homepage" style="margin-top: -60px;background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(http://sophiealexandre.eu/images/van);">
   <div class="banner-text">
       <h1 class="banner_title">Craft your perfect journey</h1>
-      <a class="btn btn-ghost" href="#experience">Build your adventure</a>
+      <a class="home-button" href="#traseu-services">Build your adventure</a>
+      <section id="section01" class="demo">
+        <a href="#traseu-services"><span></span></a>
+      </section>
   </div>
 </div>
 
 <%= simple_form_for(@search, url: new_itinerary_path, method: :get) do |f| %>
-  <!-- search experience page  -->
-  <div id="experience">
-    <div class="row vh-100 m-0 flex-column justify-content-center align-items-center bg-success">
-      <%= f.input :experience %>
-      <a id="country-next" href="#country">Next</a>
+
+  <div id="homepage-onboarding" class="container-fluid d-none" style="padding: -60px;">
+      <!-- progress bar start -->
+      <div id="homepage-form">
+        <div class="inliner"></div>
+        <div class="inlined">
+          <div class="progress-meter">
+            <div class="track">
+              <span class="progress"></span>
+            </div>
+            <ol class="progress-points" data-current="1">
+              <li id="progress-point1" class="progress-point">
+                <span class="label"></span>
+              </li>
+              <li id="progress-point2" class="progress-point">
+                <span class="label"></span>
+              </li>
+              <li id="progress-point3" class="progress-point">
+                <span class="label"></span>
+              </li>
+              <li id="progress-point4" class="progress-point">
+                <span class="label"></span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      <!-- progress bar end -->
+    </div>
+
+    <div id="country" class="d-none">
+      <div class="row flex-column justify-content-center align-items-center">
+        <h2>WHERE DO YOU WANT TO GO?</h2>
+        <%= f.input :country, as: :string %>
+        <a id="budget-next" href="#page-content">Next</a>
+        <a href="/">
+          <div class="back-button">
+            <div class="arrow-wrap">
+              <span class="arrow-part-1"></span>
+              <span class="arrow-part-2"></span>
+              <span class="arrow-part-3"></span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- search budget page  -->
+    <div id="budget" class="d-none">
+      <div class="row flex-column justify-content-center align-items-center">
+        <h2>WHAT’S YOUR BUDGET?</h2>
+        <%= f.input :budget %>
+        <a id="days-next" href="#page-content">Next</a>
+        <a href="#country">
+          <div class="back-button">
+            <div class="arrow-wrap">
+              <span class="arrow-part-1"></span>
+              <span class="arrow-part-2"></span>
+              <span class="arrow-part-3"></span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- search days page  -->
+    <div id="days" class="d-none">
+      <div class="row flex-column justify-content-center align-items-center">
+        <h2>WHAT’S YOUR SCHEDULE?</h2>
+        <%= f.input :days %>
+        <%= button_tag type: 'submit', class: "btn btn-secondary" do %>
+        <i class="fas fa-plane"></i>
+        <% end %>
+        <a href="#budget">
+          <div class="back-button">
+            <div class="arrow-wrap">
+              <span class="arrow-part-1"></span>
+              <span class="arrow-part-2"></span>
+              <span class="arrow-part-3"></span>
+            </div>
+          </div>
+        </a>
+        <!-- <a id="itinerary-next" href="#">Next</a> -->
+      </div>
     </div>
   </div>
 
-  <!-- search country page  -->
-  <div id="country" class="d-none">
-    <div class="row vh-100 m-0 flex-column justify-content-center align-items-center bg-info">
-      <%= f.input :country, as: :string %>
-      <a id="budget-next" href="#budget">Next</a>
-    </div>
-  </div>
-
-  <!-- search budget page  -->
-  <div id="budget" class="d-none">
-    <div class="row vh-100 m-0 flex-column justify-content-center align-items-center bg-warning">
-      <%= f.input :budget %>
-      <a id="days-next" href="#days">Next</a>
-    </div>
-  </div>
-
-  <!-- search days page  -->
-  <div id="days" class="d-none">
-    <div class="row vh-100 m-0 flex-column justify-content-center align-items-center bg-danger">
-      <%= f.input :days %>
-      <%= f.submit class: "btn-ghost" %>
-      <!-- <a id="itinerary-next" href="#">Next</a> -->
-    </div>
-  </div>
-<% end %>
-
-<div id="traseu-services" class="homepage p-5">
-  <div class="text-center p-5">
+<div id="traseu-services" class="homepage py-5">
+  <div class="text-center py-5">
     <div class="text-center p-5">
-      <h1>You're in the right place</h1>
+      <h1 style="position: relative; margin-left: -230px;">Experiences matching your&nbsp;
+        <span id="typing" class="typing" style="position: absolute; bottom: 22px;"></span>
+      </h1>
       <p>For all DIY travelers. We have created a back-packer itinerary maker based your experience. From putting together a trip wishlist to creating a detailed itinerary; from pre-trip planning to on-trip access – all done in one place.</p>
     </div>
   </div>
 
+
   <div class="cards">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/urban)">
-      <div>Urban</div>
+
+    <div id="home-card-category1" class="home-card-category">
+      <h1>Urban</h1>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <p>Feeling like leaving the city without making compromises on your urban lifestyle? You’re in the right place!</p>
+        <div id="experience">
+          <%= f.hidden_field :experience, value: "urban" %>
+          <a class="country-next" href="#page-content">Start now!</a>
+        </div>
+      </div>
     </div>
 
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/adventure)">
-      <div>Adventure</div>
+    <div id="home-card-category2" class="home-card-category">
+      <h1>Adventure</h1>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <p>Feeling like leaving the comfort of your home to live a full experience of wildlife, landscape and local culture?</p>
+        <div id="experience">
+          <%= f.hidden_field :experience, value: "adventure" %>
+          <a class="country-next" href="#page-content">Start now!</a>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="cards">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/culture)">
-      <div>Culture</div>
+    <div id="home-card-category3" class="home-card-category">
+      <h1>Culture</h1>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <p>When was the last time you learned something? Stop counting and cruise for a cultural experience now!</p>
+        <div id="experience">
+          <%= f.hidden_field :experience, value: "culture" %>
+          <a class="country-next" href="#page-content">Start now!</a>
+        </div>
+      </div>
     </div>
-     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://sophiealexandre.eu/images/party)">
-      <div>Party</div>
+
+    <div id="home-card-category4" class="home-card-category">
+      <h1>Party</h1>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <p>Time to loosen up and take a real break from your 9 to 5 life! It is Party time, and it is waiting for you!</p>
+        <div id="experience">
+          <%= f.hidden_field :experience, value: "party" %>
+          <a class="country-next" href="#page-content">Start now!</a>
+        </div>
+      </div>
     </div>
   </div>
+
+<% end %>
 
   <div class="text-center p-5">
       <h1>Our Services</h1>
@@ -79,13 +169,15 @@
     <div class="card-category2" style="background-image: url(http://sophiealexandre.eu/images/1)">
     </div>
     <div class="card-category2">
-      <p> <b>We understand firsthand how overwhelmed you are</b> <br>When it comes to the perpetual dilemma of carry-on suitcase vs. travel backpack, it all depends on your personal preferences and travel needs. Although, we have to admit, we’re leaning towards the backpack option, not because we feel nostalgic about the good old schoolyard days, but because we’ve found it to be the more practical alternative of the two, especially on budget airlines where you’re more concerned with the weight of your luggage</p>
+      <h3>We understand firsthand how overwhelmed you are</h3>
+      <p>When it comes finding information for holidays, it all depends on your personal preferences and travel needs. Although, we have to admit, we’re leaning towards the web option, not because we do not believe in books, but because we feel it is more up-to date.</p>
     </div>
   </div>
 
   <div class="cards">
     <div class="card-category2">
-       <p> <b>Get rid of the noise when looking for information</b> <br>When it comes to the perpetual dilemma of carry-on suitcase vs. travel backpack, it all depends on your personal preferences and travel needs. Although, we have to admit, we’re leaning towards the backpack option, not because we feel nostalgic about the good old schoolyard days, but because we’ve found it to be the more practical alternative of the two, especially on budget airlines where you’re more concerned with the weight of your luggage</p>
+      <h3>Get rid of the noise when looking for information</h3>
+      <p>What we need is precise and accurate intelligence on our destination. While gathering the data, we’re often surrounded by a lot of noise. We got rid of it so that you have the best experience possible.</p>
     </div>
     <div class="card-category2" style="background-image: url(http://sophiealexandre.eu/images/2)">
     </div>
@@ -95,7 +187,8 @@
     <div class="card-category2" style="background-image: url(http://sophiealexandre.eu/images/3)">
     </div>
     <div class="card-category2">
-      <p> <b>Just because you're backpacking doesn't mean you have to do it ugly</b> <br>When it comes to the perpetual dilemma of carry-on suitcase vs. travel backpack, it all depends on your personal preferences and travel needs. Although, we have to admit, we’re leaning towards the backpack option, not because we feel nostalgic about the good old schoolyard days, but because we’ve found it to be the more practical alternative of the two, especially on budget airlines where you’re more concerned with the weight of your luggage</p>
+      <h3>You’re backpacking ? You don’t have to do it ugly!</h3>
+      <p>Whether you’re into glamping or more of an adventurous traveler, our community has an option for everyone, every budget, and every expectation. Feel free to add fancier options if you feel like it. After all, it’s YOUR holidays!</p>
     </div>
   </div>
 
@@ -112,3 +205,5 @@
     </div>
   </div>
 </div>
+
+
