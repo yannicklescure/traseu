@@ -7,7 +7,8 @@
         <div class="card main-card card<%= itinerary.id %>">
           <div class="card-body p-4">
             <div class="d-flex justify-content-between">
-              <div class="d-flex justify-content-start align-items-end"><h5 class="card-title mr-3"><%= itinerary.title %></h5><p id="shared-by"><em>shared by </em>Bob</p></div>
+              <div class="d-flex justify-content-start align-items-end"><h5 class="card-title mr-3"><%= itinerary.title %></h5><p id="shared-by"><em>shared by </em> <%= link_to itinerary.user.first_name, user_path(itinerary.user)
+                %></p></div>
               <div>
                 <%= link_to "", "#{bookmarks_path}?query=create&itinerary=#{itinerary.id}", method: :get, class: 'far fa-bookmark bookmark-icon' %>
               </div>
