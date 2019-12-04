@@ -11,4 +11,7 @@ class PagesController < ApplicationController
       }
     end
   end
+
+  def print
+  end
 end
