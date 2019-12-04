@@ -6,28 +6,39 @@
   <div class="row">
     <div class="col-6">
       <!-- Card#1 -->
-      <div class="d-flex justify-content-between">
+      <div class="card my-3">
         <!-- Cities -->
-        <div class="city-card" style="width: 100%" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-          <div class="mx-3 d-flex justify-content-between align-items-center">
+        <div class="w-100">
+          <div class="px-3 d-flex justify-content-between align-items-center">
             <span class="lead">Cuzco</span>
-            <div class="custom-control custom-switch">
+            <div class="custom-control custom-switch" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
               <input type="checkbox" class="custom-control-input" id="customSwitches">
               <label class="custom-control-label" for="customSwitches"></label>
             </div>
           </div>
-        </div>
-        <div class="collapse " id="collapseExample">
-          <div class="d-flex justify-content-between align-items-end">
-            <ul class="icons-list" style="list-style-type: none; padding: 9px; padding-bottom: 0;" >
-              <li><p><i class="fas fa-utensils" style="color:#3F3D56"></i> INPUT</p></li>
-              <li><p><i class="fas fa-bed" style="color:#3F3D56"></i> INPUT</p></li>
-              <li><p class="no-margin"><i class="fas fa-binoculars" style="color:#3F3D56"></i> INPUT</p></li>
-            </ul>
-            <div class="text-right"><a href="#">Edit details ></a></div>
+          <div class="collapse" id="collapseExample">
+            <div class="p-3">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio eos sed ex vero, impedit ad placeat commodi illo, quae iure laboriosam minus recusandae voluptates facilis, earum soluta minima voluptas nobis?</p>
+              <table>
+                <tr>
+                  <td class="text-center"><i class="fas fa-utensils pro-dark-blue"></i></td>
+                  <td class="pl-3">text</td>
+                </tr>
+                <tr>
+                  <td class="text-center"><i class="fas fa-bed pro-dark-blue"></i></td>
+                  <td class="pl-3">text</td>
+                </tr>
+                <tr>
+                  <td class="text-center"><i class="fas fa-binoculars pro-dark-blue"></i></td>
+                  <td class="pl-3">text</td>
+                </tr>
+              </table>
+              <div class="text-right" style="margin-top: -24px;"><a href="#" class="text-muted">See more</a></div>
+            </div>
           </div>
         </div>
       </div>
+      <!-- End Card#1 -->
     </div>
     <div class="col-6">
       <img src="https://github.com/PierreJaouen/traseu/blob/controllers-next/public/map.png?raw=true" alt="" width="100%">
