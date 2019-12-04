@@ -27,54 +27,25 @@
   background-color: #FFCB21;
 }
 
+// Banner
+
+.banner-text a {
+  margin-top: 20px;
+}
+
 // Font CSS
 
 .yellow{
   color:#FFCB21
 }
 
-// Buttons
-
-.btn-ghost {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
-  padding: 8px 24px;
-  border-radius: 70px;
-  font-weight: lighter;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-  background-color: #FFCB21;
-  justify-content: center;
-  width: 33%;
-}
-
-.btn-ghost:hover {
-  opacity: 1;
-}
-
 // Cards CSS
-.card-category {
-  background-size: cover;
-  background-position: center;
-  height: 300px;
-  width: 400px;
+
+.cards {
   display: flex;
   justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 0 8px;
+  margin-top: 16px;
   flex-wrap: wrap;
-}
-
-.card-category:hover {
-  /*box-shadow: 0 5px 22px 0 rgba(0,0,0,.25);*/
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 8px 8px rgba(0,0,0,0.23);
-  // margin-bottom: 10px;
 }
 
 .card-category2 {
@@ -103,12 +74,109 @@
   flex-wrap: wrap;
 }
 
-.cards {
-  display: flex;
-  justify-content: center;
-  margin-top: 16px;
-  flex-wrap: wrap;
 
+#home-text-sub {
+  margin-right: 80px;
+  margin-left: 80px;
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 56px;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+// Scroll-down button start;
+
+#section01 a {
+  padding-top: 60px;
+}
+#section01 a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 34px;
+  height: 34px;
+  margin-left: -12px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+  box-sizing: border-box;
+  opacity: 0.8;
+}
+
+section.demo a {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 2;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: .1em;
+  transition: opacity .3s;
+}
+section.demo a:hover {
+  opacity: 0.7;
+  transform: translateY(10px);
+  transition: .2s ease-out;
+}
+
+// Scroll-down button end;
+
+.home-button {
+    display: inline-block;
+    border-radius: 5px;
+    padding: .75rem 1.25rem;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: .15rem;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        z-index: -2;
+        border: 2px solid #FFCB21;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #FFCB21;
+        transition: all .7s;
+        z-index: -1;
+    }
+    &:hover {
+        color: #fff;
+        text-decoration: none;
+        &:before {
+            width: 100%;
+        }
+    }
+}
+
+#country, #budget, #days {
+  height: calc(100vh - 224px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 // Smallest device
