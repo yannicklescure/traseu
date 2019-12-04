@@ -1,11 +1,9 @@
 .country-banner {
-  height: 20vh;
-  margin-top: 0;
+  height: 168px;
 
   .country-name {
     color: white;
   }
-
 }
 
 .city-card {
@@ -30,8 +28,13 @@
 }
 
 .city-card a{
-  color: $pastel_grey
+  color: $pastel_grey;
 }
+
+.pro-dark-blue {
+  color: $pro_dark-blue;
+}
+
 
 .city-card h3 {
   font-size: 1.1rem;
