@@ -3,16 +3,17 @@
   <div class="row m-2">
     <div class="col-12 col-sm-7">
       <% @itineraries.reverse.each do |itinerary| %>
-      <div class="mr-3 mb-3">
-        <div class="card main-card card<%= itinerary.id %>">
+      <div class="mr-3 mb-3" >
+        <div class="card main-card card<%= itinerary.id %>" data-carousel="slider-<%= itinerary.id %>">
           <div class="card-body p-4">
             <div class="d-flex justify-content-between">
-              <div class="d-flex justify-content-start align-items-end"><h5 class="card-title mr-3">Sex on the beach</h5><p id="shared-by"><em>shared by </em>Bob</p></div>
+              <div class="d-flex justify-content-start align-items-end"><h5 class="card-title mr-3"><%= itinerary.title %></h5><p id="shared-by"><em>shared by </em> <%= link_to itinerary.user.first_name, user_path(itinerary.user)
+                %></p></div>
               <div>
                 <%= link_to "", "#{bookmarks_path}?query=create&itinerary=#{itinerary.id}", method: :get, class: 'far fa-bookmark bookmark-icon' %>
               </div>
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam sagittis accumsan ut posuere commodo. Enim mattis eget vestibulum bibendum ut ipsum at.</p>
+            <p><%= itinerary.description %></p>
             <div class= "d-flex justify-content-between align-items-end">
               <div>
                 <div class="d-flex justify-content-start h-25 mb-2"><span></span><p class="input"><%= itinerary.days %> days</p></div>
@@ -38,9 +39,13 @@
       </div>
       <% end %>
     </div>
+
     <div class="col-5 mb-2">
-      <%= render 'shared/itinerary-carousel' %>
+      <% @itineraries.each do |itinerary| %>
+        <%= render 'shared/itinerary-carousel', itinerary: itinerary %>
+      <% end %>
     </div>
+
   </div>
 </div>
 <!-- ###################################################################################### -->
@@ -109,3 +114,25 @@
     </div>
   <% end %>
 </div>
+
+
+<script>
+  // selectionner dans mon DOM tous les elements MAIN-CARD
+  cards = document.querySelectorAll(".card.main-card");
+
+  // display first card
+  document.getElementById(cards[0].dataset.carousel).classList.remove("d-none");
+
+  // sur chacun ajouter un event listener
+  cards.forEach((card) => {
+    // au CLIC targeter le bon carrousel
+    card.addEventListener('click', (event) => {
+      // add d-none to all cards
+      cards.forEach((cardi) => {
+        cardi.classList.contains("d-none") ? console.log("") : document.getElementById(cardi.dataset.carousel).classList.add("d-none");
+      })
+      // remove la class d-none)
+      document.getElementById(card.dataset.carousel).classList.remove("d-none");
+    })
+  })
+</script>

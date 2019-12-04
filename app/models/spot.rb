@@ -10,4 +10,15 @@ class Spot < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def range
+    return if self.price.nil?
+    if self.price < 15
+      return "$"
+    elsif self.price < 30
+      return "$$"
+    else
+      return "$$$"
+    end
+  end
 end
