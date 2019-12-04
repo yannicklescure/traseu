@@ -69,29 +69,29 @@ itineraries_attributes = [
   {
     country: "peru",
     experience: "party",
-    budget: 1000,
-    days: 15,
+    budget: 1700,
+    days: 14,
     user_id: user_demo.id,
     title: "Wild Party in Peru",
-    description: "",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, impedit, cupiditate at aliquid unde magnam fugiat dolore perferendis natus et illo nobis quis. A, non adipisci illum odio consequatur. Quos.",
   },
   {
     country: "peru",
     experience: "party",
-    budget: 1000,
-    days: 15,
+    budget: 1900,
+    days: 12,
     user_id: user_demo.id,
     title: "Lost in the city - Peru",
-    description: "",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero asperiores voluptatum adipisci sunt ducimus, doloremque quo dolore porro autem deleniti rem incidunt, quaerat earum dolorem accusantium, quia, consequuntur reiciendis cum.",
   },
   {
     country: "peru",
     experience: "party",
-    budget: 1000,
-    days: 15,
+    budget: 1800,
+    days: 14,
     user_id: user_demo.id,
     title: "Pisco adventure Peru",
-    description: "",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse repellendus ullam incidunt quis, velit qui quod a at magnam? Possimus placeat enim nihil eum in odit quidem commodi quia amet!",
   },
   {
     country: "peru",
@@ -153,32 +153,32 @@ city_attributes = [
   {
     name: "huaraz",
     address: "huaraz peru",
-    description: "",
-    image: ""
+    description: "Huaraz is the restless capital of this Andean adventure kingdom and its rooftops command exhaustive panoramas of the city's dominion: one of the most impressive mountain ranges in the world",
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575481159/TRASEU/Traseu%20-%20City%20picture/Huaraz%20-%20banner.jpg"
   },
   {
     name: "iquitos",
     address: "iquitos peru",
-    description: "",
-    image: ""
+    description: "Linked to the outside world by air and by river, Iquitos is the world’s largest city that cannot be reached by road. It’s a prosperous, vibrant jungle metropolis and the northern Amazon Basin's chief city, teeming with the usual, inexplicably addictive Amazonian anomalies",
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575481269/TRASEU/Traseu%20-%20City%20picture/CROP-Surburbs-of-Iquitos-Getty_flgfvb.jpg"
   },
   {
     name: "mancora",
     address: "mancora peru",
-    description: "",
-    image: ""
+    description: "Máncora is the place to see and be seen along the Peruvian coast – in summer foreigners flock here to rub sunburned shoulders with the Peruvian jet set",
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575481453/TRASEU/Traseu%20-%20City%20picture/GettyImages-453166247_high_dcxvdh.jpg"
   },
   {
     name: "ayacucho",
     address: "ayacucho peru",
-    description: "",
-    image: ""
+    description: "Travelers are only just rediscovering Ayacucho's treasures. Richly decorated churches dominate the vivid cityscape alongside peach- and pastel-colored colonial buildings hung with wooden balconies.",
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575481394/TRASEU/Traseu%20-%20City%20picture/aguas-turquesas-millpu-viewpoint-2-1380x927_lic0di.jpg"
   },
   {
     name: "puerto maldonado",
     address: "puerto maldonado peru",
-    description: "",
-    image: ""
+    description: "Visibly blossoming from its road connection to the outside world, Puerto Maldonado, capital of the southern jungle, has an increasingly smart sheen to the bedlam of its central streets, abuzz with tooting mototaxis.",
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575481123/TRASEU/Traseu%20-%20City%20picture/puerto-maldonado%20banner%202.jpg"
   },
 ]
 
@@ -243,9 +243,9 @@ spots_attributes = [
   {
     title: "hanz craft beer",
     address: "portal de carnes 216, cusco, peru",
-    zip_code: "$$",
+    zip_code: "zip",
     city: City.find_by(name: "cuzco"),
-    price:"",
+    price:32,
     longitude:-71.9808861,
     latitude:-13.5159377,
     description:"Miss your old good burger, back to some classic with the hanz craft beer bar, get also local beer, straight from the inca!",
@@ -255,9 +255,9 @@ spots_attributes = [
   {
     title: "indigo bar restaurant",
     address: "first floor, tecsecocha 415, cusco, peru",
-    zip_code: "$$$",
+    zip_code: "zip",
     city: City.find_by(name: "cuzco"),
-    price:"",
+    price: 17,
     longitude:-71.9824407,
     latitude:-13.515151,
     description:"Want a try local cuisine, go to indigo bar!",
@@ -269,7 +269,7 @@ spots_attributes = [
     address: "calle plateros 354, cusco, peru",
     zip_code: "$",
     city: City.find_by(name: "cuzco"),
-    price:"",
+    price:52,
     longitude:-71.9824715,
     latitude:-13.5158027,
     description:"Amazing bar with more than +60 different pisco sour",
@@ -281,7 +281,7 @@ spots_attributes = [
     address: "calle tandapata 668, cusco, peru",
     zip_code: "$$",
     city: City.find_by(name: "cuzco"),
-    price:"",
+    price:31,
     longitude:-71.9754585,
     latitude:-13.5153496,
     description:"Get the best 360 view in town!",
@@ -334,7 +334,7 @@ spots_attributes = [
     latitude:-13.5218139,
     description: 'Translated from quechua, puriwasi "the house of the traveler", is located just 3 blocks to plaza de armas , the safest in the City.',
     category: Category.find_by(title: "hotel"),
-    image: "https://res.cloudinary.com/pierreja/image/upload/v1575155047/TRASEU/Traseu%20-%20Cusco/Hotel%20Cusco%20-%20Puriwasi.jpg"
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575238622/TRASEU/Traseu%20-%20Cusco/HOTEL%20-%20CUSCO%20-%20Puriwasi%20Hostel.jpg"
   },
     {
     title: "pisco cuzco tour",
@@ -390,7 +390,7 @@ spots_attributes = [
     address: "calle manuel bonilla 103, miraflores 15074, peru",
     zip_code: "zip",
     city: City.find_by(name: "lima"),
-    price:"$",
+    price:15,
     longitude:-77.0286846,
     latitude:-12.1198349,
     description:"classic cuisine in the heart of miraflores",
@@ -402,7 +402,7 @@ spots_attributes = [
     address: "jirón de la unión 1049, cercado de lima, peru",
     zip_code: "zip",
     city: City.find_by(name: "lima"),
-    price:"$$",
+    price:30,
     longitude:-77.0379868,
     latitude:-12.052904,
     description:"local cuisine made with love by el chef juanito perez",
@@ -414,7 +414,7 @@ spots_attributes = [
     address: "av. primavera 640, santiago de surco, peru",
     zip_code: "zip",
     city: City.find_by(name: "lima"),
-    price:"$$$",
+    price:45,
     longitude:-76.9889414,
     latitude:-12.1111414,
     description:"miss your homecountry cuisine, la basilica offer a wide range of food",
@@ -426,19 +426,19 @@ spots_attributes = [
     address: "jirón junín 201, cercado de lima, peru",
     zip_code: "zip",
     city: City.find_by(name: "lima"),
-    price:"$$",
+    price:32,
     longitude:-77.0322772,
     latitude:-12.1207357,
     description:"peruvian cuisine with a lots of option to degust the best pisco",
     category: Category.find_by(title: "restaurant"),
-    image: "https://res.cloudinary.com/pierreja/image/upload/v1575160408/TRASEU/Traseu%20-%20LIMA/Restaurant%20-%20LIMA%20-%20La%20Basilica.jpg"
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575160443/TRASEU/Traseu%20-%20LIMA/Restaurant%20-%20LIMA%20-%20Museo%20del%20pisco.jpg"
   },
   {
     title: "pool paradize",
     address: "85 district de miraflores, peru",
     zip_code: "zip",
     city: City.find_by(name: "lima"),
-    price:17,
+    price:25,
     longitude:-77.0242352,
     latitude:-12.124193,
     description:"paradise, but in the city! pool paradise lima is the only hostel in the safe tourist district of miraflores with an outdoor pool! book now and enjoy the summer in lima with us! ",
@@ -535,60 +535,60 @@ spots_attributes = [
     address: "calle ugarte 403, arequipa, peru",
     zip_code: "zip",
     city: City.find_by(name: "arequipa"),
-    price:"$$$",
+    price:20,
     longitude:-71.5408209,
     latitude:-16.3953953,
     description:"near by the plaza de armas, if you want to test the arequipa's delicacy, alma is one of the best spot",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575481938/TRASEU/Traseu%20-%20Arequipa/bar_qrtamy.jpg"
   },
   {
     title: "hatumpa",
     address: "calle ugarte 207, cercado de arequipa, peru",
     zip_code: "zip",
     city: City.find_by(name: "arequipa"),
-    price:"$",
+    price:30,
     longitude:-71.5408209,
     latitude:-16.3953953,
     description:"local cuisine, can't be disapointed by hatumpa",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575223702/TRASEU/Traseu%20-%20Arequipa/RESTAURANT%20-%20AREQUIPA%20-%20Hatumpa%20-.jpg"
   },
   {
     title: "el tio dario",
     address: "callejón del cabildo 100, yanahuara, peru",
     zip_code: "zip",
     city: City.find_by(name: "arequipa"),
-    price:"$$",
+    price:40,
     longitude:-71.5445821,
     latitude:-16.3856723,
     description:"the well know churaseceria of arequipa is found in el tio dario",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575224128/TRASEU/Traseu%20-%20Arequipa/RESTAURANT%20-%20Arequipa%20-%20El%20tio%20Dario.jpg"
   },
   {
     title: "la nueva palomino",
     address: "leoncio prado 122, yanahuara, peru",
     zip_code: "zip",
     city: City.find_by(name: "arequipa"),
-    price:"$",
+    price:35,
     longitude:-71.5417352,
     latitude:-16.387075,
     description:"local cuisine fusion with asian food. a classic peruvian mix",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575223890/TRASEU/Traseu%20-%20Arequipa/Restaurant%20-%20Arequipa%20-%20La%20nueva%20Palomino.jpg"
   },
   {
     title: "mb hostel arequipa",
     address: "calle mercaderes 135/a, arequipa, peru",
     zip_code: "zip",
     city: City.find_by(name: "arequipa"),
-    price:20,
+    price:22,
     longitude:-71.5377525,
     latitude:-16.3986302,
     description:"amazing hostel arequipa has new location, now just 20 meters from the plaza de armas a priviliged location.",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575222807/TRASEU/Traseu%20-%20Arequipa/HOTEL%20-%20Arequipa%20-%20MB%20Hostel.jpg"
   },
   {
     title: "wild rover hostel arequipa",
@@ -600,7 +600,7 @@ spots_attributes = [
     latitude:-16.3965962,
     description:"wild rover arequipa offers a fun, sociable and full of atmosphere hostel right in the heart of arequipa City. ",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575222941/TRASEU/Traseu%20-%20Arequipa/HOTEL%20-%20Arequipa%20-%20Wild%20rover%20Arequipa.jpg"
   },
   {
     title: "arequipay - packers hostel",
@@ -612,7 +612,7 @@ spots_attributes = [
     latitude:-16.4020209,
     description:"chill out with like-minded people from around the world that travel without hassles and share laughs and experiences",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575222917/TRASEU/Traseu%20-%20Arequipa/HOTEL%20-%20Arequipa%20-%20Arequipay%20Hostel.jpg"
   },
   {
     title: "dragonfly hostel",
@@ -624,7 +624,7 @@ spots_attributes = [
     latitude:-16.401406,
     description:"everything you need is here, in dragonfly hostels arequipa. our aim is to make you feel at home. ranging from spacious dorms to intimate private rooms, we have the right accommodation for you! ",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575223617/TRASEU/Traseu%20-%20Arequipa/HOTEL%20-%20Arequipa%20-%20Dragonfly%20Hostel.jpg"
   },
   {
     title: "one day trekking colca",
@@ -636,7 +636,7 @@ spots_attributes = [
     latitude:"",
     description:"want to see condors and dive into the second deepest canyon in the world, go visit colca canyon",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575239691/TRASEU/Traseu%20-%20Arequipa/ACTIVITY%20-%20Arequipa%20-%20%20Colca%20Canyon.jpg"
   },
   {
     title: "qochamama party",
@@ -648,7 +648,7 @@ spots_attributes = [
     latitude:"",
     description:"full arequipa experience with the classic qochamama night!",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575239799/TRASEU/Traseu%20-%20Arequipa/ACTIVITY%20-%20AREQUIPA%20-%20Qochama.jpg"
   },
   {
     title: "peruvian dance at casona",
@@ -660,10 +660,10 @@ spots_attributes = [
     latitude:"",
     description:"peru is well know for traditional, what about a full evening learning the bases?",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575239722/TRASEU/Traseu%20-%20Arequipa/ACTIVITY%20-%20Arequipa%20-%20Peruvian%20Dance%20training.jpg"
   },
   {
-    title: "pimen river attractions",
+    title: "pimen river rafting",
     address: "something",
     zip_code: "zip",
     city: City.find_by(name: "arequipa"),
@@ -672,7 +672,7 @@ spots_attributes = [
     latitude:"",
     description:"want to have some fun & extrem sensation, the piment river is for you",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575239758/TRASEU/Traseu%20-%20Arequipa/Activity%20-%20Arequipa%20-%20Piment%20river.jpg"
   },
   ############################ ica ############################
   {
@@ -680,48 +680,48 @@ spots_attributes = [
     address: "something",
     zip_code: "zip",
     city: City.find_by(name: "ica"),
-    price:"$$",
+    price:64,
     longitude:"",
     latitude:"",
     description:"",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575228315/TRASEU/Traseu%20-%20Ica/RESTAURANT%20-%20ICA%20-%20Tambo%20Tacama.jpg"
   },
   {
     title: "la olla de juanita",
     address: "something",
     zip_code: "zip",
     city: City.find_by(name: "ica"),
-    price:"$$$",
+    price:32,
     longitude:"",
     latitude:"",
     description:"fish fresh from ica, simple cuisine",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575228359/TRASEU/Traseu%20-%20Ica/RESTAURANT%20-%20ICA%20-%20La%20olla%20de%20juanita.jpg"
   },
   {
     title: "restaurant el pallar",
     address: "something",
     zip_code: "zip",
     city: City.find_by(name: "ica"),
-    price:"$",
+    price:24,
     longitude:"",
     latitude:"",
     description:"",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575228404/TRASEU/Traseu%20-%20Ica/RESTAURANT%20-%20ICA%20-%20Elpallar%20-%20restaurant.jpg"
   },
   {
     title: "wild olive trattoria & guest house",
     address: "something",
     zip_code: "zip",
     city: City.find_by(name: "ica"),
-    price:"$$",
+    price:28,
     longitude:"",
     latitude:"",
     description:"",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575230831/TRASEU/Traseu%20-%20Ica/RESTAURANT%20-%20ICA%20-%20Wild%20Olive.jpg"
   },
   {
     title: "carola lodge",
@@ -733,7 +733,7 @@ spots_attributes = [
     latitude:-14.0866265,
     description:"carola lodge is a renovated hotel is surrounded by a huge sand dune which you can climb without any problem, we are just a few steps from the huacachina lagoon",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575227625/TRASEU/Traseu%20-%20Ica/HOTEL%20-%20ICA%20-%20Carola%20Lodge.jpg"
   },
   {
     title: "banana's adventure - huacachina",
@@ -745,7 +745,7 @@ spots_attributes = [
     latitude:-14.086852,
     description:"banana's is newly hotel in the heart of the oasis. everything is made to welcome you and let you enjoy what the oasis has to offer!",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575227665/TRASEU/Traseu%20-%20Ica/HOTEL%20-%20ICA%20-%20Banana%27s%20adventure.jpg"
   },
   {
     title: "wild rover backpackers hostel huacachina",
@@ -757,7 +757,7 @@ spots_attributes = [
     latitude:-14.0865126,
     description:"are you looking for the ultimate experience? with pool parties, ice cold beers, poolside bar, right in the heart of the oasis??? you have found it!",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575227773/TRASEU/Traseu%20-%20Ica/HOTEL%20-%20ICA%20-%20Wild%20Rover%20ICA.jpg"
   },
   {
     title: "the upcycle hostel",
@@ -769,7 +769,7 @@ spots_attributes = [
     latitude:-14.085315,
     description:"hello traveler…!!! we are glad you are checking us that means that we are doing a good job…!",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575227733/TRASEU/Traseu%20-%20Ica/HOTEL%20-%20ICA%20-%20The%20Upcycle%20Hostel.jpg"
   },
   {
     title: "buggy desert tour huacachina",
@@ -781,7 +781,7 @@ spots_attributes = [
     latitude:"",
     description:"crasy buggy experience in the heart of the oasis!",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575231354/TRASEU/Traseu%20-%20Ica/ACTIVITY%20-%20ICA%20-%20BUGGY2.jpg"
   },
   {
     title: "surf in the dunes!",
@@ -793,7 +793,7 @@ spots_attributes = [
     latitude:"",
     description:"never experience sandboard ? ica is known for the biggest dune in south america!",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575231411/TRASEU/Traseu%20-%20Ica/ACTIVITY%20-%20ICA%20-%20Sandboard.jpg"
   },
   {
     title: "pub-crawl ica",
@@ -805,7 +805,7 @@ spots_attributes = [
     latitude:"",
     description:" 3 bars, a wild night in the oasis!",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575231528/TRASEU/Traseu%20-%20Ica/ACTIVITY%20-%20ICA%20-%20PUB%20CRAWL.jpg"
   },
   {
     title: "visit of nazca line",
@@ -817,7 +817,7 @@ spots_attributes = [
     latitude:"",
     description:"those lines has been here since millenaries. experience the strange mysterie around it",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575231469/TRASEU/Traseu%20-%20Ica/ACTIVITY%20-%20ICA%20-%20NAZCA%20LINE.jpg"
   },
   ############################ puno ############################
   {
@@ -825,7 +825,7 @@ spots_attributes = [
     address:"lima 339, puno 21510, peru",
     zip_code:"zip",
     city: City.find_by(name: "puno"),
-    price:"$",
+    price:31,
     longitude:-70.0278824,
     latitude:-15.8403726,
     description:"new bar in town, large selection of amazing pisco cocktails",
@@ -837,7 +837,7 @@ spots_attributes = [
     address:"ancash 239, puno 21001, peru",
     zip_code:"zip",
     city: City.find_by(name: "puno"),
-    price:"$$$",
+    price:35,
     longitude:-70.0298322,
     latitude:-15.8403726,
     description:"want to try the local cuisine from puno. this is a place to try",
@@ -849,7 +849,7 @@ spots_attributes = [
     address: "lima, puno 21001, peru",
     zip_code: "zip",
     city: City.find_by(name: "puno"),
-    price:"$$",
+    price:12,
     longitude:-70.0626822,
     latitude:-15.8403633,
     description:"miss your homecountry cuisine, mojsa is the perfect place",
@@ -861,7 +861,7 @@ spots_attributes = [
     address: "isla esteves s/n, lago titicaca, puno, peru",
     zip_code: "zip",
     city: City.find_by(name: "puno"),
-    price:"$",
+    price:12,
     longitude:-70.0280579,
     latitude:-15.8278238,
     description:"located in an island, the 360view of the uros restaurant is unreal. ",
