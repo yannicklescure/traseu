@@ -71,21 +71,27 @@ itineraries_attributes = [
     experience: "party",
     budget: 1000,
     days: 15,
-    user_id: user_demo.id
+    user_id: user_demo.id,
+    title: "",
+    description: "",
   },
   {
     country: "peru",
     experience: "party",
     budget: 1000,
     days: 15,
-    user_id: user_demo.id
+    user_id: user_demo.id,
+    title: "",
+    description: "",
   },
   {
     country: "peru",
     experience: "party",
     budget: 1000,
     days: 15,
-    user_id: user_demo.id
+    user_id: user_demo.id,
+    title: "",
+    description: "",
   },
   {
     country: "peru",
@@ -114,16 +120,66 @@ Itinerary.create!(itineraries_attributes)
 
 puts 'creating cities...'
 city_attributes = [
-  { name: "cuzco", address: "cuzco peru" },
-  { name: "lima", address: "lima peru" },
-  { name: "ica", address: "ica peru" },
-  { name: "arequipa", address: "arequipa peru" },
-  { name: "puno", address: "av la torre 224, puno 21001, peru" },
-  { name: "huaraz", address: "huaraz peru" },
-  { name: "iquitos", address: "iquitos peru" },
-  { name: "mancora", address: "mancora peru" },
-  { name: "ayacucho", address: "ayacucho peru" },
-  { name: "puerto maldonado", address: "puerto maldonado peru" },
+  {
+    name: "cuzco",
+    address: "cuzco peru",
+    description: "",
+    image: ""
+  },
+  {
+    name: "lima",
+    address: "lima peru",
+    description: "",
+    image: ""
+  },
+  {
+    name: "ica",
+    address: "ica peru",
+    description: "",
+    image: ""
+  },
+  {
+    name: "arequipa",
+    address: "arequipa peru",
+    description: "",
+    image: ""
+  },
+  {
+    name: "puno",
+    address: "av la torre 224, puno 21001, peru",
+    description: "",
+    image: ""
+  },
+  {
+    name: "huaraz",
+    address: "huaraz peru",
+    description: "",
+    image: ""
+  },
+  {
+    name: "iquitos",
+    address: "iquitos peru",
+    description: "",
+    image: ""
+  },
+  {
+    name: "mancora",
+    address: "mancora peru",
+    description: "",
+    image: ""
+  },
+  {
+    name: "ayacucho",
+    address: "ayacucho peru",
+    description: "",
+    image: ""
+  },
+  {
+    name: "puerto maldonado",
+    address: "puerto maldonado peru",
+    description: "",
+    image: ""
+  },
 ]
 
 City.create!(city_attributes)
@@ -194,6 +250,7 @@ spots_attributes = [
     latitude:-13.5159377,
     description:"miss your old good burger, back to some classic with the hanz craft beer bar, get also local beer, straight from the inca!",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "indigo bar restaurant",
@@ -205,6 +262,7 @@ spots_attributes = [
     latitude:-13.515151,
     description:"want a try local cuisine, go to indigo bar!",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "republica del pisco",
@@ -216,6 +274,7 @@ spots_attributes = [
     latitude:-13.5158027,
     description:"amazing bar with more than +60 different pisco sour",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "eco-view bar",
@@ -227,6 +286,7 @@ spots_attributes = [
     latitude:-13.5153496,
     description:"get the best 360 view in town!",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "wild rover hostel",
@@ -238,6 +298,7 @@ spots_attributes = [
     latitude:-13.514518,
     description:"if you are looking for a fun, friendly hostel with a great vibe and the best parties, this is it. top location with the best views – don´t believe us? ask the hundreds of people staying in cusco who come just to see our view!",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "the point cusco",
@@ -249,6 +310,7 @@ spots_attributes = [
     latitude:-13.5198854,
     description:"the point cusco was opened in the middle of 2006. relax or party hard with other travellers in our colonial, spacious, brand new hostel.",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "intro hostels cuzco",
@@ -260,6 +322,7 @@ spots_attributes = [
     latitude:-13.5154581,
     description:"it´s known for been a real social place (activities and layout helps) but chill out too. in our converted 300 years old mansion, we emphasize a social experience but where you can also have a good sleep (bar closes at 11pm)",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "puriwasi cusco",
@@ -271,6 +334,7 @@ spots_attributes = [
     latitude:-13.5218139,
     description: 'translated from quechua, puriwasi "the house of the traveler", is located just 3 blocks to plaza de armas , the safest in the City.',
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
     {
     title: "pisco cuzco tour",
@@ -282,6 +346,7 @@ spots_attributes = [
     latitude:"",
     description:"discover the different pisco in an immersive tour of the city on those culture delicacy",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "salkenta trail 1 day",
@@ -293,6 +358,7 @@ spots_attributes = [
     latitude:"",
     description:"ready to go to machu-pichu in a very short 1 day trip salkenta trail is for you!",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "1 day trip atv",
@@ -304,6 +370,7 @@ spots_attributes = [
     latitude:"",
     description:"want to have pure sensation with your peer, try the atv for an entire day ",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "discovery of the inca valley",
@@ -315,6 +382,7 @@ spots_attributes = [
     latitude:"",
     description:"want some culture after some exhaustive day in cusco, try out the inca valley with our dedicated tour guide! ",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   ############################ lima ############################
   {
@@ -327,6 +395,7 @@ spots_attributes = [
     latitude:-12.1198349,
     description:"classic cuisine in the heart of miraflores",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "estadio restaurante",
@@ -338,6 +407,7 @@ spots_attributes = [
     latitude:-12.052904,
     description:"local cuisine made with love by el chef juanito perez",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "la basilica restaurante",
@@ -349,6 +419,7 @@ spots_attributes = [
     latitude:-12.1111414,
     description:"miss your homecountry cuisine, la basilica offer a wide range of food",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "museo del pisco",
@@ -360,6 +431,7 @@ spots_attributes = [
     latitude:-12.1207357,
     description:"peruvian cuisine with a lots of option to degust the best pisco",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "pool paradize",
@@ -371,6 +443,7 @@ spots_attributes = [
     latitude:-12.124193,
     description:"paradise, but in the city! pool paradise lima is the only hostel in the safe tourist district of miraflores with an outdoor pool! book now and enjoy the summer in lima with us! ",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "loki hostel",
@@ -382,6 +455,7 @@ spots_attributes = [
     latitude:-12.1201969,
     description: 'loki - we make your travels easy, fun and social. in the "city of kings", a perfect and centric spot to relax, meet other travellers and locals.',
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "puriwasi hostel",
@@ -393,6 +467,7 @@ spots_attributes = [
     latitude:-12.1198545,
     description:"puriwasi offers top quality affordable accommodation in superb location. right in the center of miraflores, we are 2 blocks from the metropolitano bus station",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "the prime spots",
@@ -404,6 +479,7 @@ spots_attributes = [
     latitude:-12.1129596,
     description:"after more than ten years of experience of knowing what the backpacker traveler is really looking for, we decided to create prime spot, the best service in terms of accommodation of this type.",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "bicycle tour - miraflores",
@@ -415,6 +491,7 @@ spots_attributes = [
     latitude:"",
     description:"want to discover the old lima miraflores by bicycle",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "surf day trip",
@@ -426,6 +503,7 @@ spots_attributes = [
     latitude:"",
     description:"a big sweel, one day with the best surfer from lima, this is the place to be!",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "pub crawl - miraflores",
@@ -437,6 +515,7 @@ spots_attributes = [
     latitude:"",
     description:"big night in miraflores, its the time to visit 4 bar in a crasy night! let's go lads!",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "peruvian folklore!",
@@ -448,6 +527,7 @@ spots_attributes = [
     latitude:"",
     description:"tradition peruvian folklore. lima is the place to be for a cultural / party !",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   ############################ arequipa ############################
   {
@@ -460,6 +540,7 @@ spots_attributes = [
     latitude:-16.3953953,
     description:"near by the plaza de armas, if you want to test the arequipa's delicacy, alma is one of the best spot",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "hatumpa",
@@ -471,6 +552,7 @@ spots_attributes = [
     latitude:-16.3953953,
     description:"local cuisine, can't be disapointed by hatumpa",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "el tio dario",
@@ -482,6 +564,7 @@ spots_attributes = [
     latitude:-16.3856723,
     description:"the well know churaseceria of arequipa is found in el tio dario",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "la nueva palomino",
@@ -493,6 +576,7 @@ spots_attributes = [
     latitude:-16.387075,
     description:"local cuisine fusion with asian food. a classic peruvian mix",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "mb hostel arequipa",
@@ -504,6 +588,7 @@ spots_attributes = [
     latitude:-16.3986302,
     description:"amazing hostel arequipa has new location, now just 20 meters from the plaza de armas a priviliged location.",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "wild rover hostel arequipa",
@@ -515,6 +600,7 @@ spots_attributes = [
     latitude:-16.3965962,
     description:"wild rover arequipa offers a fun, sociable and full of atmosphere hostel right in the heart of arequipa City. ",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "arequipay - packers hostel",
@@ -526,6 +612,7 @@ spots_attributes = [
     latitude:-16.4020209,
     description:"chill out with like-minded people from around the world that travel without hassles and share laughs and experiences",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "dragonfly hostel",
@@ -537,6 +624,7 @@ spots_attributes = [
     latitude:-16.401406,
     description:"everything you need is here, in dragonfly hostels arequipa. our aim is to make you feel at home. ranging from spacious dorms to intimate private rooms, we have the right accommodation for you! ",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "one day trekking colca",
@@ -548,6 +636,7 @@ spots_attributes = [
     latitude:"",
     description:"want to see condors and dive into the second deepest canyon in the world, go visit colca canyon",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "qochamama party",
@@ -559,6 +648,7 @@ spots_attributes = [
     latitude:"",
     description:"full arequipa experience with the classic qochamama night!",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "peruvian dance at casona",
@@ -570,6 +660,7 @@ spots_attributes = [
     latitude:"",
     description:"peru is well know for traditional, what about a full evening learning the bases?",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "pimen river attractions",
@@ -581,6 +672,7 @@ spots_attributes = [
     latitude:"",
     description:"want to have some fun & extrem sensation, the piment river is for you",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   ############################ ica ############################
   {
@@ -593,6 +685,7 @@ spots_attributes = [
     latitude:"",
     description:"",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "la olla de juanita",
@@ -604,6 +697,7 @@ spots_attributes = [
     latitude:"",
     description:"fish fresh from ica, simple cuisine",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "restaurant el pallar",
@@ -615,6 +709,7 @@ spots_attributes = [
     latitude:"",
     description:"",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "wild olive trattoria & guest house",
@@ -626,6 +721,7 @@ spots_attributes = [
     latitude:"",
     description:"",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "carola lodge",
@@ -637,6 +733,7 @@ spots_attributes = [
     latitude:-14.0866265,
     description:"carola lodge is a renovated hotel is surrounded by a huge sand dune which you can climb without any problem, we are just a few steps from the huacachina lagoon",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "banana's adventure - huacachina",
@@ -648,6 +745,7 @@ spots_attributes = [
     latitude:-14.086852,
     description:"banana's is newly hotel in the heart of the oasis. everything is made to welcome you and let you enjoy what the oasis has to offer!",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "wild rover backpackers hostel huacachina",
@@ -659,6 +757,7 @@ spots_attributes = [
     latitude:-14.0865126,
     description:"are you looking for the ultimate experience? with pool parties, ice cold beers, poolside bar, right in the heart of the oasis??? you have found it!",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "the upcycle hostel",
@@ -670,6 +769,7 @@ spots_attributes = [
     latitude:-14.085315,
     description:"hello traveler…!!! we are glad you are checking us that means that we are doing a good job…!",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "buggy desert tour huacachina",
@@ -681,6 +781,7 @@ spots_attributes = [
     latitude:"",
     description:"crasy buggy experience in the heart of the oasis!",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "surf in the dunes!",
@@ -692,6 +793,7 @@ spots_attributes = [
     latitude:"",
     description:"never experience sandboard ? ica is known for the biggest dune in south america!",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "pub-crawl ica",
@@ -703,6 +805,7 @@ spots_attributes = [
     latitude:"",
     description:" 3 bars, a wild night in the oasis!",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "visit of nazca line",
@@ -714,6 +817,7 @@ spots_attributes = [
     latitude:"",
     description:"those lines has been here since millenaries. experience the strange mysterie around it",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   ############################ puno ############################
   {
@@ -726,6 +830,7 @@ spots_attributes = [
     latitude:-15.8403726,
     description:"new bar in town, large selection of amazing pisco cocktails",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "la table del inca",
@@ -737,6 +842,7 @@ spots_attributes = [
     latitude:-15.8403726,
     description:"want to try the local cuisine from puno. this is a place to try",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "mojsa restaurant",
@@ -748,6 +854,7 @@ spots_attributes = [
     latitude:-15.8403633,
     description:"miss your homecountry cuisine, mojsa is the perfect place",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "los uros",
@@ -759,6 +866,7 @@ spots_attributes = [
     latitude:-15.8278238,
     description:"located in an island, the 360view of the uros restaurant is unreal. ",
     category: Category.find_by(title: "restaurant"),
+    image: ""
   },
   {
     title: "sol plaza hotel",
@@ -770,6 +878,7 @@ spots_attributes = [
     latitude:-15.8406116,
     description:"",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "uros lake titicaca lodge",
@@ -781,6 +890,7 @@ spots_attributes = [
     latitude:-15.820714,
     description:"wonderfull view on the titicaca lake, this hotel offer a wide range of activities",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "hotel rosario lago ticicaca",
@@ -792,6 +902,7 @@ spots_attributes = [
     latitude:"",
     description:"amazing view, unbeatable location and reasonable price. rosario is the perfect place to discover what has to offer the ticicaca lake",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "ecolodge la estancia",
@@ -803,6 +914,7 @@ spots_attributes = [
     latitude:-16.02915,
     description:"want to live like a local, ecolodge is for you!",
     category: Category.find_by(title: "hotel"),
+    image: ""
   },
   {
     title: "fishing in ticicaca",
@@ -814,6 +926,7 @@ spots_attributes = [
     latitude:"",
     description:"catch the best fish at 3500meters in the biggest lake in the world",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "boat tour titicaca",
@@ -825,6 +938,7 @@ spots_attributes = [
     latitude:"",
     description:"all day to discover the mystery and beauty of the famous lac titicaca",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "visit of the isla de la luna",
@@ -836,18 +950,20 @@ spots_attributes = [
     latitude:"",
     description:"isla de la luna for an entire day of history between bolivia & peru",
     category: Category.find_by(title: "activity"),
+    image: ""
   },
   {
     title: "jirón lima tour",
     address: "something",
     zip_code: "zip",
     city: City.find_by(name: "puno"),
-    price:30,
+    price: 30,
     longitude:"",
     latitude:"",
     description:"discover the heart of the puno city with a guide",
     category: Category.find_by(title: "activity"),
-  }
+    image: ""
+  },
 ]
 
 Spot.create!(spots_attributes)
