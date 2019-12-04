@@ -18,7 +18,7 @@ users_attributes = [
     following: 142,
     follower: 67,
     presentation: 'Hi there ! My idea is that I can help anyone; from someone that has never traveled or done a backpacking trip before to someone that has already traveled a lot but still might find some good advice on this site that can help him or her on the next adventure. And as a philosopher once said: "I know that I know nothing." Even after all that I have already traveled (but believe me, compared to some people that I’ve met, I’ve still only seen very little of the scope of the world), there are still a lot of things that I do not know as I am always learning and developing myself as a person.',
-    rating: "3",
+    rating: "4.1",
     country: "Poland, Chile, Mexico, New York",
     itineraryofuser: "Party in Peru",
     countryoforigin: "France"
@@ -30,7 +30,7 @@ users_attributes = [
     following: 121,
     follower: 76,
     presentation: 'Hello, you! Anyone can backpack as there are trips to suit any size wallet. Nowadays, luxurious backpacking is becoming "fashionable" where the travelers use taxi as their principal mode of transportation and stay in hostels that are more expensive than 3-star hotels!! However, there are still other backpackers that travel the world hitchhiking and staying in the houses of strangers using couchsurfing and finish their entire trip with minimal cost. For others, like myself, there is a middle ground where I try to save on transportation and accommodation, but I don’t keep my wallet closed when it’s time to have fun and adventure. For me, as long as it takes you out of your comfort zone, it is worth trying.',
-    rating: "3",
+    rating: "4.2",
     country: "Belgium, Peru, Canada, New York",
     itineraryofuser: "Party in Peru",
     countryoforigin: "Chile"
@@ -42,7 +42,7 @@ users_attributes = [
     following: 32,
     follower: 16,
     presentation: "Welcome! Although I really like backpacking as it is the most economical way of seeing the world that I have found, this does not mean that I don’t like other forms of travel. For me, the important thing is to be in a new place with the opportunity to meet other people and to see cultures and customs different from those that I already know. Therefore, the type of the trip doesn’t matter to me whether it be a package to Disneyland, a luxurious beach resort with my family, a Caribbean cruise, or a ski trip with friends. I like to explore the world, however it may be.",
-    rating: "3",
+    rating: "4.3",
     country: "France, Peru, Canada, New York, Japan",
     itineraryofuser: "Urban in New York",
     countryoforigin: "France"
@@ -54,7 +54,7 @@ users_attributes = [
     following: 122,
     follower: 86,
     presentation: 'Nice to meet you! Certainly, no matter what type of trip I am doing, I always do a Free Walking Tour if they are available in the city that I am visiting… if you have never heard of them, I will explain them more on my site as they are something not to be missed!  I will also keep a Blog with some advice about specific locations, general travel information, and some interesting stories that have happened during my wanderings. Well, that’s all for now folks. If you would like to know more about me and how I "left the system" to begin traveling around the world, continue reading below.',
-    rating: "3",
+    rating: "4.4",
     country: "Spain, Korea, Salvador, Peru, Canada, New York",
     itineraryofuser: "Culture in Korea",
     countryoforigin: "Belgium"
@@ -72,7 +72,7 @@ itineraries_attributes = [
     budget: 1000,
     days: 15,
     user_id: user_demo.id,
-    title: "",
+    title: "Wild Party in Peru",
     description: "",
   },
   {
@@ -81,7 +81,7 @@ itineraries_attributes = [
     budget: 1000,
     days: 15,
     user_id: user_demo.id,
-    title: "",
+    title: "Lost in the city - Peru",
     description: "",
   },
   {
@@ -90,7 +90,7 @@ itineraries_attributes = [
     budget: 1000,
     days: 15,
     user_id: user_demo.id,
-    title: "",
+    title: "Pisco adventure Peru",
     description: "",
   },
   {
@@ -123,32 +123,32 @@ city_attributes = [
   {
     name: "cuzco",
     address: "cuzco peru",
-    description: "",
-    image: ""
+    description: "Welcome to the navel of the world. The undisputed archaeological capital of the Americas, Cuzco is the continent’s oldest continuously inhabited city and the gateway to Machu Picchu.",
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575221394/TRASEU/Traseu%20-%20Cusco/Banner%20-%20Cuzco.jpg"
   },
   {
     name: "lima",
     address: "lima peru",
-    description: "",
-    image: ""
+    description: "After Cairo, this sprawling metropolis is the second-driest world capital, rising above a long coastline of crumbling cliffs.",
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575221537/TRASEU/Traseu%20-%20LIMA/BANNER%20-%20LIMA.jpg"
   },
   {
     name: "ica",
     address: "ica peru",
-    description: "",
-    image: ""
+    description: "Just when you thought the landscape was dry enough for martians, out jumps Ica, Peru’s agricultural ‘miracle in the desert’ that churns out bumper crop after bumper crop of asparagus, cotton and fruits, as well as laying claim to being the nation’s leading (and best) wine producer",
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575224795/TRASEU/Traseu%20-%20Ica/Banner%20-%20Hucachina.jpg"
   },
   {
     name: "arequipa",
     address: "arequipa peru",
-    description: "",
-    image: ""
+    description: "Other Peruvians joke that you need a different passport to enter Peru’s second-largest city. One-tenth the size of Lima, Arequipa is its pugnacious equal in terms of cuisine, historical significance and confident self-awareness.",
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575222046/TRASEU/Traseu%20-%20Arequipa/BANNER%20-%20Arequipa.jpg"
   },
   {
     name: "puno",
     address: "av la torre 224, puno 21001, peru",
-    description: "",
-    image: ""
+    description: "With a regal plaza, concrete-block buildings and crumbling bricks that blend into the hills, Puno has its share of both grit and cheer. It serves as the jumping-off point for Lake Titicaca and is a convenient stop for those traveling between Cuzco and La Paz",
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575240516/TRASEU/Traseu%20-%20Puno_titicaca/Banner%20%20-%20Lac%20titicaca.jpg"
   },
   {
     name: "huaraz",
@@ -245,48 +245,48 @@ spots_attributes = [
     address: "portal de carnes 216, cusco, peru",
     zip_code: "$$",
     city: City.find_by(name: "cuzco"),
-    price:"$$",
+    price:"",
     longitude:-71.9808861,
     latitude:-13.5159377,
-    description:"miss your old good burger, back to some classic with the hanz craft beer bar, get also local beer, straight from the inca!",
+    description:"Miss your old good burger, back to some classic with the hanz craft beer bar, get also local beer, straight from the inca!",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575159334/TRASEU/Traseu%20-%20Cusco/Restaurant%20-%20Cusco%20-%20Hanz%20-%20Craft%20-%20Beer.jpg"
   },
   {
     title: "indigo bar restaurant",
     address: "first floor, tecsecocha 415, cusco, peru",
     zip_code: "$$$",
     city: City.find_by(name: "cuzco"),
-    price:"$$$",
+    price:"",
     longitude:-71.9824407,
     latitude:-13.515151,
-    description:"want a try local cuisine, go to indigo bar!",
+    description:"Want a try local cuisine, go to indigo bar!",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575158724/TRASEU/Traseu%20-%20Cusco/Restaurant%20-%20Cusco%20-%20Indigo%20Bar%20Restaurant.jpg"
   },
   {
     title: "republica del pisco",
     address: "calle plateros 354, cusco, peru",
     zip_code: "$",
     city: City.find_by(name: "cuzco"),
-    price:"$",
+    price:"",
     longitude:-71.9824715,
     latitude:-13.5158027,
-    description:"amazing bar with more than +60 different pisco sour",
+    description:"Amazing bar with more than +60 different pisco sour",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575158760/TRASEU/Traseu%20-%20Cusco/Restaurant%20-%20Cusco%20-%20Republica%20Del%20Pisco.jpg"
   },
   {
     title: "eco-view bar",
     address: "calle tandapata 668, cusco, peru",
     zip_code: "$$",
     city: City.find_by(name: "cuzco"),
-    price:"$$",
+    price:"",
     longitude:-71.9754585,
     latitude:-13.5153496,
-    description:"get the best 360 view in town!",
+    description:"Get the best 360 view in town!",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575158794/TRASEU/Traseu%20-%20Cusco/Restaurant%20-%20Cuzco%20-%20Eco%20View%20Bar.jpg"
   },
   {
     title: "wild rover hostel",
@@ -296,9 +296,9 @@ spots_attributes = [
     price:16,
     longitude:-71.9874187,
     latitude:-13.514518,
-    description:"if you are looking for a fun, friendly hostel with a great vibe and the best parties, this is it. top location with the best views – don´t believe us? ask the hundreds of people staying in cusco who come just to see our view!",
+    description:"If you are looking for a fun, friendly hostel with a great vibe and the best parties, this is it. top location with the best views – don´t believe us? ask the hundreds of people staying in cusco who come just to see our view!",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575158829/TRASEU/Traseu%20-%20Cusco/Hotel%20-%20Cuzco%20-%20Wild%20Rover.jpg"
   },
   {
     title: "the point cusco",
@@ -308,9 +308,9 @@ spots_attributes = [
     price:24,
     longitude:-71.9825425,
     latitude:-13.5198854,
-    description:"the point cusco was opened in the middle of 2006. relax or party hard with other travellers in our colonial, spacious, brand new hostel.",
+    description:"The Intro cusco was opened in the middle of 2006. relax or party hard with other travellers in our colonial, spacious, brand new hostel.",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575154771/TRASEU/Traseu%20-%20Cusco/Hotel%20-%20Cusco%20-%20The%20Point.jpg"
   },
   {
     title: "intro hostels cuzco",
@@ -320,9 +320,9 @@ spots_attributes = [
     price:18,
     longitude:-71.9861192,
     latitude:-13.5154581,
-    description:"it´s known for been a real social place (activities and layout helps) but chill out too. in our converted 300 years old mansion, we emphasize a social experience but where you can also have a good sleep (bar closes at 11pm)",
+    description:"It´s known for been a real social place (activities and layout helps) but chill out too. in our converted 300 years old mansion, we emphasize a social experience but where you can also have a good sleep (bar closes at 11pm)",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575158922/TRASEU/Traseu%20-%20Cusco/Hotel%20-%20Cusco%20-%20Intro%20Hostel.jpg"
   },
   {
     title: "puriwasi cusco",
@@ -332,9 +332,9 @@ spots_attributes = [
     price:20,
     longitude:-71.9791526,
     latitude:-13.5218139,
-    description: 'translated from quechua, puriwasi "the house of the traveler", is located just 3 blocks to plaza de armas , the safest in the City.',
+    description: 'Translated from quechua, puriwasi "the house of the traveler", is located just 3 blocks to plaza de armas , the safest in the City.',
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575155047/TRASEU/Traseu%20-%20Cusco/Hotel%20Cusco%20-%20Puriwasi.jpg"
   },
     {
     title: "pisco cuzco tour",
@@ -344,9 +344,9 @@ spots_attributes = [
     price:35,
     longitude:"",
     latitude:"",
-    description:"discover the different pisco in an immersive tour of the city on those culture delicacy",
+    description:"Discover the different pisco in an immersive tour of the city on those culture delicacy",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575238685/TRASEU/Traseu%20-%20Cusco/ACTIVITY%20-%20CUSCO%20-Pisco-sour.jpg"
   },
   {
     title: "salkenta trail 1 day",
@@ -356,9 +356,9 @@ spots_attributes = [
     price:100,
     longitude:"",
     latitude:"",
-    description:"ready to go to machu-pichu in a very short 1 day trip salkenta trail is for you!",
+    description:"Ready to go to machu-pichu in a very short 1 day trip salkenta trail is for you!",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575238728/TRASEU/Traseu%20-%20Cusco/ACITIVITY%20-%20CUSCO%20-%20SALKENTA%20TRAIL.jpg"
   },
   {
     title: "1 day trip atv",
@@ -368,9 +368,9 @@ spots_attributes = [
     price:60,
     longitude:"",
     latitude:"",
-    description:"want to have pure sensation with your peer, try the atv for an entire day ",
+    description:"Want to have pure sensation with your peer, try the atv for an entire day ",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575238704/TRASEU/Traseu%20-%20Cusco/ACTIVITY%20-%20CUSCO%20-%20ATV%20Tour.jpg"
   },
   {
     title: "discovery of the inca valley",
@@ -380,9 +380,9 @@ spots_attributes = [
     price:40,
     longitude:"",
     latitude:"",
-    description:"want some culture after some exhaustive day in cusco, try out the inca valley with our dedicated tour guide! ",
+    description:"Want some culture after some exhaustive day in cusco, try out the inca valley with our dedicated tour guide! ",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575238812/TRASEU/Traseu%20-%20Cusco/ACTIVITY%20-%20CUSCO%20-%20Exploring-the-Sacred-Valley.jpg"
   },
   ############################ lima ############################
   {
@@ -395,7 +395,7 @@ spots_attributes = [
     latitude:-12.1198349,
     description:"classic cuisine in the heart of miraflores",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575160383/TRASEU/Traseu%20-%20LIMA/Restaurant%20-%20LIMA%20-%20Nuevo%20Mundo.jpg"
   },
   {
     title: "estadio restaurante",
@@ -407,7 +407,7 @@ spots_attributes = [
     latitude:-12.052904,
     description:"local cuisine made with love by el chef juanito perez",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575160703/TRASEU/Traseu%20-%20LIMA/RESTAURANT%20-%20LIMA%20-%20Estadio%20Restaurant.jpg"
   },
   {
     title: "la basilica restaurante",
@@ -419,7 +419,7 @@ spots_attributes = [
     latitude:-12.1111414,
     description:"miss your homecountry cuisine, la basilica offer a wide range of food",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575160408/TRASEU/Traseu%20-%20LIMA/Restaurant%20-%20LIMA%20-%20La%20Basilica.jpg"
   },
   {
     title: "museo del pisco",
@@ -431,7 +431,7 @@ spots_attributes = [
     latitude:-12.1207357,
     description:"peruvian cuisine with a lots of option to degust the best pisco",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575160408/TRASEU/Traseu%20-%20LIMA/Restaurant%20-%20LIMA%20-%20La%20Basilica.jpg"
   },
   {
     title: "pool paradize",
@@ -443,7 +443,7 @@ spots_attributes = [
     latitude:-12.124193,
     description:"paradise, but in the city! pool paradise lima is the only hostel in the safe tourist district of miraflores with an outdoor pool! book now and enjoy the summer in lima with us! ",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575160495/TRASEU/Traseu%20-%20LIMA/HOTEL%20-%20LIMA%20-%20Pool%20Paradise.jpg"
   },
   {
     title: "loki hostel",
@@ -455,7 +455,7 @@ spots_attributes = [
     latitude:-12.1201969,
     description: 'loki - we make your travels easy, fun and social. in the "city of kings", a perfect and centric spot to relax, meet other travellers and locals.',
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575161092/TRASEU/Traseu%20-%20LIMA/HOTEL%20-%20LIMA%20-%20LOKI%20HOSTEL.jpg"
   },
   {
     title: "puriwasi hostel",
@@ -467,7 +467,7 @@ spots_attributes = [
     latitude:-12.1198545,
     description:"puriwasi offers top quality affordable accommodation in superb location. right in the center of miraflores, we are 2 blocks from the metropolitano bus station",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575161166/TRASEU/Traseu%20-%20LIMA/Hotel%20-%20LIMA%20-%20Puriwasi%20Hostel.jpg"
   },
   {
     title: "the prime spots",
@@ -479,7 +479,7 @@ spots_attributes = [
     latitude:-12.1129596,
     description:"after more than ten years of experience of knowing what the backpacker traveler is really looking for, we decided to create prime spot, the best service in terms of accommodation of this type.",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575161213/TRASEU/Traseu%20-%20LIMA/HOTEL%20-%20LIMA%20-%20The%20prime%20Spots.jpg"
   },
   {
     title: "bicycle tour - miraflores",
@@ -491,7 +491,7 @@ spots_attributes = [
     latitude:"",
     description:"want to discover the old lima miraflores by bicycle",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575231797/TRASEU/Traseu%20-%20LIMA/ACTIVITY%20-%20LIMA%20-%20Bicycle%20tour.jpg"
   },
   {
     title: "surf day trip",
@@ -503,7 +503,7 @@ spots_attributes = [
     latitude:"",
     description:"a big sweel, one day with the best surfer from lima, this is the place to be!",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575238030/TRASEU/Traseu%20-%20LIMA/ACITIVITY%20-%20Arequipa%20-%20Surf.jpg"
   },
   {
     title: "pub crawl - miraflores",
@@ -515,7 +515,7 @@ spots_attributes = [
     latitude:"",
     description:"big night in miraflores, its the time to visit 4 bar in a crasy night! let's go lads!",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575231864/TRASEU/Traseu%20-%20LIMA/ACTIVITY%20-%20LIMA%20-%20%20bar-crawl-lima.jpg"
   },
   {
     title: "peruvian folklore!",
@@ -527,7 +527,7 @@ spots_attributes = [
     latitude:"",
     description:"tradition peruvian folklore. lima is the place to be for a cultural / party !",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575237766/TRASEU/Traseu%20-%20LIMA/ACTIVITY%20-%20LIMA%20-%20Peruvian%20folklore.jpg"
   },
   ############################ arequipa ############################
   {
@@ -830,7 +830,7 @@ spots_attributes = [
     latitude:-15.8403726,
     description:"new bar in town, large selection of amazing pisco cocktails",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575245926/TRASEU/Traseu%20-%20Puno_titicaca/RESTAURANT%20-%20PUNO%20-%20INCA%20BAR.jpg"
   },
   {
     title: "la table del inca",
@@ -842,7 +842,7 @@ spots_attributes = [
     latitude:-15.8403726,
     description:"want to try the local cuisine from puno. this is a place to try",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575246000/TRASEU/Traseu%20-%20Puno_titicaca/RESTAURANT%20-%20PUNO%20-%20La%20table%20del%20Inca.jpg"
   },
   {
     title: "mojsa restaurant",
@@ -854,7 +854,7 @@ spots_attributes = [
     latitude:-15.8403633,
     description:"miss your homecountry cuisine, mojsa is the perfect place",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575246033/TRASEU/Traseu%20-%20Puno_titicaca/RESTAURANT%20-%20PUNO%20-%20Mojsa%20restaurant.jpg"
   },
   {
     title: "los uros",
@@ -866,7 +866,7 @@ spots_attributes = [
     latitude:-15.8278238,
     description:"located in an island, the 360view of the uros restaurant is unreal. ",
     category: Category.find_by(title: "restaurant"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575246062/TRASEU/Traseu%20-%20Puno_titicaca/RESTAURANT%20-%20PUNO%20-%20Los%20uros.jpg"
   },
   {
     title: "sol plaza hotel",
@@ -878,7 +878,7 @@ spots_attributes = [
     latitude:-15.8406116,
     description:"",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575242927/TRASEU/Traseu%20-%20Puno_titicaca/HOTEL%20-%20PUNO%20-%20sol-plaza-hotel.jpg"
   },
   {
     title: "uros lake titicaca lodge",
@@ -890,7 +890,7 @@ spots_attributes = [
     latitude:-15.820714,
     description:"wonderfull view on the titicaca lake, this hotel offer a wide range of activities",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575242686/TRASEU/Traseu%20-%20Puno_titicaca/HOTEL%20-%20PUNO%20-%20uros-titicaca-lodge.jpg"
   },
   {
     title: "hotel rosario lago ticicaca",
@@ -902,7 +902,7 @@ spots_attributes = [
     latitude:"",
     description:"amazing view, unbeatable location and reasonable price. rosario is the perfect place to discover what has to offer the ticicaca lake",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575242020/TRASEU/Traseu%20-%20Puno_titicaca/HOTEL%20-%20PUNO%20-%20Hotel%20Rosario%20lago%20titicaca.jpg"
   },
   {
     title: "ecolodge la estancia",
@@ -914,7 +914,7 @@ spots_attributes = [
     latitude:-16.02915,
     description:"want to live like a local, ecolodge is for you!",
     category: Category.find_by(title: "hotel"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575240980/TRASEU/Traseu%20-%20Puno_titicaca/HOTEL%20-%20PUNO%20-%20Ecolodge%20la%20estancia.jpg"
   },
   {
     title: "fishing in ticicaca",
@@ -926,7 +926,7 @@ spots_attributes = [
     latitude:"",
     description:"catch the best fish at 3500meters in the biggest lake in the world",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575240626/TRASEU/Traseu%20-%20Puno_titicaca/ACTIVITY%20%20-%20PUNO%20-%20FISHING%20TITICACA.jpg"
   },
   {
     title: "boat tour titicaca",
@@ -938,7 +938,7 @@ spots_attributes = [
     latitude:"",
     description:"all day to discover the mystery and beauty of the famous lac titicaca",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575240590/TRASEU/Traseu%20-%20Puno_titicaca/Lago%20titicaca.jpg"
   },
   {
     title: "visit of the isla de la luna",
@@ -950,7 +950,7 @@ spots_attributes = [
     latitude:"",
     description:"isla de la luna for an entire day of history between bolivia & peru",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575241699/TRASEU/Traseu%20-%20Puno_titicaca/ACTIVITY%20-%20PUNO%20-%20Isla%20de%20la%20Luna.jpg"
   },
   {
     title: "jirón lima tour",
@@ -962,7 +962,7 @@ spots_attributes = [
     latitude:"",
     description:"discover the heart of the puno city with a guide",
     category: Category.find_by(title: "activity"),
-    image: ""
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575240661/TRASEU/Traseu%20-%20Puno_titicaca/ACTIVITY%20-%20Puno%20-%20Fiesta%20de%20Puno.jpg"
   },
 ]
 
