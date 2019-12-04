@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/itineraries/:id', to: 'bookmarks#create'
   delete '/bookmarks', to: 'bookmarks#destroy'
   get '/pages', to: 'pages#home'
+  get '/pages/print', to: 'pages#print'
 
   resources :itinaries_cities, only: [ :destroy, :create ]
   resources :itinaries_spots, only: [ :destroy, :create ]
