@@ -2,7 +2,8 @@ import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapBox } from '../plugins/init_mapbox';
 import { initUpdateNavbarOnScroll } from '../navbar';
-import { scrollToAnchor } from "../scroll_to_anchor";
+import { scrollToAnchor } from "../scroll-to-anchor";
+import { collapse } from "../itineraries-show";
 import { dynamicText } from "../dynamic-text";
 import { progressBar } from "../progress-bar";
 import { backButton } from "../back-button";
@@ -14,6 +15,7 @@ let currentPage = window.location.pathname.split("/")[1] || null;
 
 if (currentPage == "itineraries") {
   initMapBox();
+  collapse();
 }
 
 if (currentPage == null || currentPage == '#experience' || currentPage == '#country' || currentPage == '#budget' || currentPage == '#days' || currentPage == '#page-content') {
