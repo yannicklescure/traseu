@@ -57,19 +57,39 @@
 }
 
 
-.card-category-trip {
+.card-category-planning {
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background-size: cover;
   background-position: center;
+  height: 70px;
+  width: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 16px;
+  margin: 0 8px;
+  text-justify: center;
+  flex-wrap: wrap;
+}
+
+.card-category-trip {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 3px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 16px;
   margin: 0 8px;
+  text-justify: center;
   flex-wrap: wrap;
 }
 
@@ -112,6 +132,10 @@
   margin-right: 80px;
   margin-left: 80px;
   font-size: 18px;
+}
+
+a {
+  color: black;
 }
 
 h1 {
