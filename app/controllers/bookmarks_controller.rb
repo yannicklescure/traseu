@@ -46,5 +46,6 @@ class BookmarksController < ApplicationController
       @bookmark = Bookmark.create(user: current_user, itinerary_id: params[:itinerary_id])
       @bookmarked = true
     end
+    @bookmarks = Bookmark.where(user: current_user.id)
   end
 end

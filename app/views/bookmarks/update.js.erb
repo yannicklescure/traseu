@@ -14,3 +14,10 @@ if (bookmarked) {
   targetFalse.style.display = 'block';
 }
 
+element = document.querySelector('#bookmark a');
+if (!<%= @bookmarks.size.positive? %>) {
+  element.innerHTML = '<i class="far fa-bookmark"></i>';
+} else {
+  element.innerHTML = '<i class="fas fa-bookmark"></i>';
+}
+

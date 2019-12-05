@@ -13,15 +13,14 @@
                 </div>
                 <div id="shared-by" class="m-0" style="padding-bottom: 1px;"><em>shared by&nbsp;<%= link_to itinerary.user.first_name.capitalize, user_path(itinerary.user), class: "text-muted" %></em></div>
               </div>
-              <%#= link_to "", "#{bookmarks_path}?query=create&itinerary=#{itinerary.id}", method: :get, class: 'far fa-bookmark bookmark-icon' %>
-              <%# bookmark = Bookmark.find_by(user: current_user, itinerary: itinerary) %>
+              <% bookmark = Bookmark.find_by(user: current_user, itinerary: itinerary) %>
               <div id="bookmark-show-true-<%= itinerary.id %>">
-                <%#= link_to raw('<i class="fas fa-star"></i>'), "#{itinerary_path(@itinerary)}", remote: true, method: :get, class: 'btn' %>
-                <%= link_to raw('<i class="fas fa-star"></i>'), itinerary_bookmarks_path(itinerary), remote: true, method: :patch, class: 'btn' %>
+                <%= link_to raw('<i class="fas fa-bookmark"></i>'), itinerary_bookmarks_path(itinerary), remote: true, method: :patch, class: 'btn bookmark', "data-itinerary": "#{itinerary.id}", "data-bookmark": "#{bookmark ? true : false}" %>
               </div>
               <div id="bookmark-show-false-<%= itinerary.id %>">
-                <%= link_to raw('<i class="far fa-star"></i>'), itinerary_bookmarks_path(itinerary), remote: true, method: :patch, class: 'btn' %>
+                <%= link_to raw('<i class="far fa-bookmark"></i>'), itinerary_bookmarks_path(itinerary), remote: true, method: :patch, class: 'btn bookmark', "data-itinerary": "#{itinerary.id}", "data-bookmark": "#{bookmark ? true : false}" %>
               </div>
+              <%# raise %>
             </div>
             <p class="font-weight-normal"><%= itinerary.description %></p>
             <div class= "d-flex justify-content-between align-items-end">

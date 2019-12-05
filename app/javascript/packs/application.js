@@ -14,13 +14,27 @@ toggleCards();
 
 // let currentPage = window.location.href.split(/.*[\/]/)[1] || null;
 let currentPage = window.location.pathname.split("/")[1] || null;
+let currentAction = window.location.pathname.split("/")[2] || null;
 
-if (currentPage == "itineraries") {
+if (currentPage === "itineraries" && currentAction === "new" || currentAction.match(/\d+/) !== null) {
+  const bookmarks = document.querySelectorAll('.bookmark');
+  console.log(bookmarks);
+  bookmarks.forEach(bookmark => {
+    console.log(bookmark.dataset);
+    if (bookmark.dataset.bookmark === "true") {
+      document.querySelector(`#bookmark-show-false-${bookmark.dataset.itinerary}`).style.display = "none";
+    } else {
+      document.querySelector(`#bookmark-show-true-${bookmark.dataset.itinerary}`).style.display = "none";
+    }
+  });
+}
+
+if (currentPage === "itineraries" && currentAction.match(/\d+/) !== null) {
   initMapBox();
   collapse();
 }
 
-if (currentPage == null || currentPage == '#experience' || currentPage == '#country' || currentPage == '#budget' || currentPage == '#days' || currentPage == '#page-content') {
+if (currentPage === null || currentPage === '#experience' || currentPage === '#country' || currentPage === '#budget' || currentPage === '#days' || currentPage === '#page-content') {
   initUpdateNavbarOnScroll();
   scrollToAnchor();
   dynamicText();

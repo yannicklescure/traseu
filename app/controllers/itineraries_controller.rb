@@ -113,7 +113,7 @@ class ItinerariesController < ApplicationController
     #   end
     # end
 
-    @bookmark = Bookmark.find_by("itinerary_id = ? AND user_id = ?", params[:id], current_user.id)
+    # @bookmark = Bookmark.find_by("itinerary_id = ? AND user_id = ?", params[:id], current_user.id)
     # raise
     # @itineraries = Itinerary.where(bookmark: true)
 
