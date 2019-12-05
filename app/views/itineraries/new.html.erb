@@ -1,4 +1,4 @@
-  <%= render "shared/banner_itineraries_show" %>
+<%= render "shared/banner_itineraries_show" %>
 <div class="container-fluid">
   <%#= render 'shared/recap-bar' %>
   <div class="row m-2">
@@ -51,9 +51,7 @@
     </div>
 
     <div class="col-5 mb-2">
-      <% @itineraries.each do |itinerary| %>
-        <%= render 'shared/itinerary-carousel', itinerary: itinerary %>
-      <% end %>
+      <%= render 'shared/itinerary-carousel' %>
     </div>
 
   </div>
@@ -124,25 +122,3 @@
     </div>
   <% end %>
 </div>
-
-
-<script>
-  // selectionner dans mon DOM tous les elements MAIN-CARD
-  cards = document.querySelectorAll(".card.main-card");
-
-  // display first card
-  document.getElementById(cards[0].dataset.carousel).classList.remove("d-none");
-
-  // sur chacun ajouter un event listener
-  cards.forEach((card) => {
-    // au CLIC targeter le bon carrousel
-    card.addEventListener('click', (event) => {
-      // add d-none to all cards
-      cards.forEach((cardi) => {
-        cardi.classList.contains("d-none") ? console.log("") : document.getElementById(cardi.dataset.carousel).classList.add("d-none");
-      })
-      // remove la class d-none)
-      document.getElementById(card.dataset.carousel).classList.remove("d-none");
-    })
-  })
-</script>
