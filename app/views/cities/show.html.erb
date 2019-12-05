@@ -1,7 +1,7 @@
  <%= render "shared/banner_cities_show" %>
 <div class="container-fluid m-2">
   <h3 class="my-4">Top restaurants</h3>
-  <div class="row my-2">
+  <div class="d-flex justify-content-around">
     <% @restaurants.each do |restaurant| %>
       <div class="city-card m-2">
         <p class="card-price"><%= restaurant.range %></p>
@@ -17,8 +17,8 @@
       </div>
     <% end %>
   </div>
-  <h3 class="my-4">Top Activities</h3>
-  <div class="row my-2">
+  <h3 class="">Top Activities</h3>
+  <div class="d-flex justify-content-around">
     <% @activities.each do |activity| %>
       <div class="city-card m-2">
         <p class="card-price"> $<%= activity.price %></p>
@@ -36,7 +36,7 @@
     <% end %>
   </div>
   <h3 class="my-4">Top Hotels</h3>
-  <div class="row my-2">
+  <div class="d-flex justify-content-around">
     <% @hotels.each do |hotel| %>
       <div class="city-card m-2">
         <p class="card-price">$<%= hotel.price %></p>
