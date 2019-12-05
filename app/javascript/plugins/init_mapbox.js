@@ -29,13 +29,13 @@ const pathFinder = (map, markers) => {
 
   // api takes long,lat;
   const coords_old = `-71.967627,-13.5228392;-77.0365256,-12.0621065;-71.5350000,-16.3988900;-70.0430588,-15.8275436`;
-  console.log(coords_old);
+  // console.log(coords_old);
   let coords = [];
   markers.forEach((marker) => {
     coords.push(`${marker.lng},${marker.lat}`);
   });
   coords = coords.join(';');
-  console.log(coords);
+  // console.log(coords);
   // coords = `-71.967627,-13.5228392;-77.0365256,-12.0621065;-71.5350000,-16.3988900;-70.0430588,-15.8275436`;
   const mapboxApiKey = mapElement.dataset.mapboxApiKey;
   const url = `https://api.mapbox.com/optimized-trips/v1/mapbox/driving/${coords}?access_token=${mapboxApiKey}`;
@@ -104,13 +104,13 @@ const initMapBox = () => {
 
   Array.from(createTogglers).forEach(toggler=> {
     toggler.addEventListener('click', () => {
-      console.log('create toggler', event.target.dataset);
+      // console.log('create toggler', event.target.dataset);
       const markerData = event.target.dataset;
       const newMarker = new mapboxgl.Marker()
         .setLngLat([ markerData.lng, markerData.lat ])
         .addTo(map);
       markersArray.push(newMarker);
-      console.log('marker array', markersArray);
+      // console.log('marker array', markersArray);
       markers.push({lng: markerData.lng, lat: markerData.lat});
       pathFinder(map, markers);
     });
@@ -118,14 +118,14 @@ const initMapBox = () => {
 
   Array.from(deleteTogglers).forEach(toggler=> {
     toggler.addEventListener('click', () => {
-      console.log('delete toggler', event.target.dataset);
+      // console.log('delete toggler', event.target.dataset);
       const markerData = event.target.dataset;
       const newMarker = new mapboxgl.Marker()
         .setLngLat([ markerData.lng, markerData.lat ])
       markersArray.forEach((marker, index) => {
-        console.log('delete function', marker.getLngLat());
+        // console.log('delete function', marker.getLngLat());
         if (marker.getLngLat().lat === newMarker.getLngLat().lat && marker.getLngLat().lng === newMarker.getLngLat().lng) {
-          console.log('delete function newmarker', newMarker.getLngLat());
+          // console.log('delete function newmarker', newMarker.getLngLat());
           marker.remove();
           markersArray.splice(index, 1);
         }

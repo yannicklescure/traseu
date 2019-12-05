@@ -68,7 +68,16 @@ class ItinerariesController < ApplicationController
     @cities_map = City.geocoded
 
     # binding.pry
-    @cities = City.all
+    @cities_all = City.all
+    @cities_names = @cities_all.map { |city| city.name }.sort
+    @cities = []
+    @cities_names.each do |city_name|
+      @cities_all.each do |city|
+        if city.name == city_name
+          @cities << city
+        end
+      end
+    end
     @itinerary = Itinerary.find(params[:id])
     @markers = @itinerary.cities.map do |city|
       {
@@ -78,31 +87,31 @@ class ItinerariesController < ApplicationController
       }
     end
 
-    if params[:call] == 'create'
-      @itinerary_city = ItineraryCity.new(city_id: params[:city], itinerary_id: params[:id])
-      @new_marker = {
-        lat: @itinerary_city.city.latitude,
-        lng: @itinerary_city.city.longitude,
-        # WIP: add later
-        infowindow: render_to_string(partial: "info_window", locals: { spot: @itinerary_city.city })
-      }
-      @itinerary_city.save
-      # redirect_to itinerary_path(params[:id])
-      # raise
-      respond_to do |format|
-        format.js
-      end
-    end
+    # if params[:call] == 'create'
+    #   @itinerary_city = ItineraryCity.new(city_id: params[:city], itinerary_id: params[:id])
+    #   @new_marker = {
+    #     lat: @itinerary_city.city.latitude,
+    #     lng: @itinerary_city.city.longitude,
+    #     # WIP: add later
+    #     infowindow: render_to_string(partial: "info_window", locals: { spot: @itinerary_city.city })
+    #   }
+    #   @itinerary_city.save
+    #   # redirect_to itinerary_path(params[:id])
+    #   # raise
+    #   respond_to do |format|
+    #     format.js
+    #   end
+    # end
 
-    if params[:call] == 'delete'
-      itinerary_city = ItineraryCity.find(params[:itinerary_city])
-      itinerary_city.destroy
-      # redirect_to itinerary_path(params[:id])
-      # raise
-      respond_to do |format|
-        format.js
-      end
-    end
+    # if params[:call] == 'delete'
+    #   itinerary_city = ItineraryCity.find(params[:itinerary_city])
+    #   itinerary_city.destroy
+    #   # redirect_to itinerary_path(params[:id])
+    #   # raise
+    #   respond_to do |format|
+    #     format.js
+    #   end
+    # end
 
     @bookmark = Bookmark.find_by("itinerary_id = ? AND user_id = ?", params[:id], current_user.id)
     # raise
@@ -130,11 +139,37 @@ class ItinerariesController < ApplicationController
     # end
   end
 
+  def destroy_itinerary_city
+    @itinerary_city = ItineraryCity.find(params[:id])
+    @itinerary = @itinerary_city.itinerary
+    @city = @itinerary_city.city
+    @itinerary_city.destroy
+    # respond_to do |format|
+    #   format.js
+    # end
+  end
+
+  def create_itinerary_city
+    @itinerary_city = ItineraryCity.new(city_id: params[:city], itinerary_id: params[:itinerary])
+    @new_marker = {
+      lat: @itinerary_city.city.latitude,
+      lng: @itinerary_city.city.longitude,
+      # WIP: add later
+      infowindow: render_to_string(partial: "info_window", locals: { spot: @itinerary_city.city })
+    }
+    @itinerary_city.save
+    # redirect_to itinerary_path(params[:id])
+    # raise
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def destroy
     @itinerary = Itinerary.find(params[:id])
     @itinerary.destroy
     # raise
-    redirect_to searches_path
+    # redirect_to searches_path
   end
 
   private
