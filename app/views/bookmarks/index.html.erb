@@ -8,7 +8,7 @@
       <li id="bookmark-id-<%= bookmark.id %>">
         <%= link_to raw('<i class="fas fa-times"></i>'), "#{bookmarks_path}?id=#{bookmark.id}&itinerary=#{bookmark.itinerary_id}", method: :delete, remote: true, class: 'text-decoration-none text-secondary' %>
         &emsp;
-        <%= link_to "#{bookmark.itinerary.country}, #{bookmark.itinerary.experience} experience", itinerary_path(bookmark.itinerary) %>
+        <%= link_to "#{bookmark.itinerary.title}, #{bookmark.itinerary.experience} experience in #{bookmark.itinerary.country.capitalize}", itinerary_path(bookmark.itinerary) %>
         </li>
     <% end %>
   </ul>

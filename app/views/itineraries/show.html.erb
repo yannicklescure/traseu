@@ -9,7 +9,7 @@
           <%= link_to raw('<i class="fas fa-star"></i>'), "#{bookmarks_path}?id=#{@bookmark.id}&itinerary=#{@bookmark.itinerary_id}", method: :delete, remote: true, class: 'btn' %>
         </div>
         <div id="bookmark-show-false">
-          <%#= link_to raw('<i class="far fa-star"></i>'), "#{itinerary_path(@itinerary)}", remote: true, method: :post, class: 'btn' %>
+          <%= link_to raw('<i class="far fa-star"></i>'), "#{itinerary_path(@itinerary)}", remote: true, method: :post, class: 'btn' %>
         </div>
       <% else %>
         <div id="bookmark-show-false">

@@ -64,14 +64,18 @@ users_attributes = [
 User.create!(users_attributes)
 
 puts 'creating itineraries...'
-user_demo = User.find_by(email: "ferdinand@email.com")
+ferdinand = User.find_by(email: "ferdinand@email.com").id
+pierre = User.find_by(email: "pierre@email.com").id
+sophie = User.find_by(email: "sophie@email.com").id
+yannick = User.find_by(email: "yannick@email.com").id
+
 itineraries_attributes = [
   {
     country: "peru",
     experience: "party",
     budget: 1700,
     days: 14,
-    user_id: user_demo.id,
+    user_id: ferdinand,
     title: "Party in Peru",
     description: "Want to meet local people and party without missing out on local social life?  You’re in the right place to celebrate the local folklore.",
   },
@@ -80,7 +84,7 @@ itineraries_attributes = [
     experience: "party",
     budget: 1900,
     days: 12,
-    user_id: user_demo.id,
+    user_id: pierre,
     title: "Not your average night club crawling",
     description: "Feeling like you already know everything about clubbing? Join this tour and recollect why you like partying so much. Remember: what happens in Peru stays in Peru.",
   },
@@ -89,7 +93,7 @@ itineraries_attributes = [
     experience: "party",
     budget: 1800,
     days: 14,
-    user_id: user_demo.id,
+    user_id: sophie,
     title: "The ultimate nightlife experience",
     description: "You’re into clubbing? So am I. Here are the best bars and clubs in Peru for you to enjoy the most exclusive experience.",
   },
@@ -98,7 +102,7 @@ itineraries_attributes = [
     experience: "urban",
     budget: 2000,
     days: 15,
-    user_id: user_demo.id,
+    user_id: yannick,
     title: "La vida loca",
     description:"Feeling like dancing with the locals but also trekking and enjoy the beautiful nature? Kill two birds with one stone and try this tour.",
   },
@@ -107,7 +111,7 @@ itineraries_attributes = [
     experience: "culture",
     budget: 1700,
     days: 15,
-    user_id: user_demo.id,
+    user_id: ferdinand,
     title: "Pisco wild tour Peru",
     description: "Living your life 200%, best way to discover the crasy side of peru, this trip is for you, wild people, wild place and tons of different Pisco to try!",
   },
@@ -116,7 +120,7 @@ itineraries_attributes = [
     experience: "adventure",
     budget: 1800,
     days: 15,
-    user_id: user_demo.id,
+    user_id: pierre,
     title: "Adventure & Party Mix",
     description: "The perfect mix, want to do some raftings, atv or any other cool activity while meeting people. This trip is for you!",
   },
