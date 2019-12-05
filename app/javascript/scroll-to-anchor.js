@@ -1,6 +1,7 @@
 const scrollToAnchor = (anchor) => {
   // @ https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo
-  const btnTarget = document.querySelector(`a[href="${anchor}"]`);
+  const btnTarget = document.querySelector(".home-button");
+  console.log(btnTarget);
   btnTarget.addEventListener('click', (event) => {
     event.preventDefault();
     let target = event.currentTarget.getAttribute("href");

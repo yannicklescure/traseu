@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   # delete '/itineraries/:id/cities/:city', to: 'itineraries#destroy_itinerary_city', as: "delete_itinerary_city"
 
   get '/pages', to: 'pages#home'
+  get '/pages/print', to: 'pages#print'
 
   resources :itinaries_spots, only: [ :destroy, :create ]
   resources :cities, only: [ :show ]

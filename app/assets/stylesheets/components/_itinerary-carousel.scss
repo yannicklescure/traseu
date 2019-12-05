@@ -3,25 +3,25 @@
   top: 0;
 }
 
-#myCarousel .list-inline {
+.carousel .list-inline {
   white-space:nowrap;
   overflow-x:auto;
 }
 
-#myCarousel .carousel-indicators {
+.carousel .carousel-indicators {
   position: static;
   left: initial;
   width: initial;
   margin-left: initial;
 }
 
-#myCarousel .carousel-indicators > li {
+.carousel .carousel-indicators > li {
   width: initial;
   height: initial;
   text-indent: initial;
 }
 
-#myCarousel .carousel-indicators > li.active img {
+.carousel .carousel-indicators > li.active img {
   opacity: 1.2;
 }
 
