@@ -2,7 +2,7 @@
   <%= render 'shared/recap-bar' %>
   <div class="row m-2">
     <div class="col-12 col-sm-7">
-      <% @itineraries.reverse.each do |itinerary| %>
+      <% @itineraries.each do |itinerary| %>
       <div class="mr-3 mb-3" >
         <div class="card main-card card<%= itinerary.id %>" data-carousel="slider-<%= itinerary.id %>">
           <div class="card-body p-4">
