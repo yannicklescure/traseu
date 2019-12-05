@@ -12,7 +12,7 @@
 
 <%= simple_form_for(@search, url: new_itinerary_path, method: :get) do |f| %>
 
-  <div id="homepage-onboarding" class="container-fluid d-none" style="padding: -60px;">
+  <div id="homepage-onboarding" class="container-fluid d-none">
       <!-- progress bar start -->
       <div id="homepage-form">
         <div class="inliner"></div>
@@ -22,7 +22,7 @@
               <span class="progress"></span>
             </div>
             <ol class="progress-points" data-current="1">
-              <li id="progress-point1" class="progress-point">
+              <li id="progress-point1" class="progress-point pp1">
                 <span class="label"></span>
               </li>
               <li id="progress-point2" class="progress-point">
@@ -41,28 +41,57 @@
     </div>
 
     <div id="country" class="d-none">
-      <div class="row flex-column justify-content-center align-items-center">
+      <div class="row flex-column justify-content-center align-items-center" style="margin-bottom: 150px;">
         <h2>WHERE DO YOU WANT TO GO?</h2>
-        <%= f.input :country, as: :string %>
-        <a id="budget-next" href="#page-content">Next</a>
-        <a href="/">
-          <div class="back-button">
-            <div class="arrow-wrap">
-              <span class="arrow-part-1"></span>
-              <span class="arrow-part-2"></span>
-              <span class="arrow-part-3"></span>
-            </div>
+
+          <div class="cards">
+            <a class="budget-next" href="#page-content">
+              <div id="country-input-card1" class="form-country-input">
+                <p>Iceland</p>
+                <%= f.hidden_field :country, value: "peru" %>
+              </div>
+            </a>
+            <a class="budget-next" href="#page-content">
+              <div id="country-input-card2" class="form-country-input">
+                <p>Peru</p>
+                <%= f.hidden_field :country, value: "peru" %>
+              </div>
+            </a>
+            <a class="budget-next" href="#page-content">
+              <div id="country-input-card3" class="form-country-input">
+                <p>Argentina</p>
+                <%= f.hidden_field :country, value: "peru" %>
+              </div>
+            </a>
+            <a class="budget-next" href="#page-content">
+              <div id="country-input-card4" class="form-country-input">
+                <p>Australia</p>
+                <%= f.hidden_field :country, value: "peru" %>
+              </div>
+            </a>
           </div>
-        </a>
+
+          <a href="/">
+            <div class="back-button">
+              <div class="arrow-wrap">
+                <span class="arrow-part-1"></span>
+                <span class="arrow-part-2"></span>
+                <span class="arrow-part-3"></span>
+              </div>
+            </div>
+          </a>
+
       </div>
     </div>
 
     <!-- search budget page  -->
     <div id="budget" class="d-none">
-      <div class="row flex-column justify-content-center align-items-center">
+      <div class="row flex-column justify-content-center align-items-center" style="margin-bottom: 150px;">
         <h2>WHAT’S YOUR BUDGET?</h2>
-        <%= f.input :budget %>
-        <a id="days-next" href="#page-content">Next</a>
+        <div class="form-submit-input">
+          <%= f.input :budget, label: false %>
+          <a id="days-next" href="#page-content" class="btn-form-submit"><i class="fas fa-arrow-right"></i></a>
+        </div>
         <a href="#country">
           <div class="back-button">
             <div class="arrow-wrap">
@@ -77,12 +106,14 @@
 
     <!-- search days page  -->
     <div id="days" class="d-none">
-      <div class="row flex-column justify-content-center align-items-center">
+      <div class="row flex-column justify-content-center align-items-center" style="margin-bottom: 150px;">
         <h2>WHAT’S YOUR SCHEDULE?</h2>
-        <%= f.input :days %>
-        <%= button_tag type: 'submit', class: "btn btn-secondary" do %>
-        <i class="fas fa-plane"></i>
-        <% end %>
+        <div class="form-submit-input">
+          <%= f.input :days, label: false %>
+          <%= button_tag type: 'submit', class: "btn-form-submit" do %>
+          <i class="fas fa-plane"></i>
+          <% end %>
+        </div>
         <a href="#budget">
           <div class="back-button">
             <div class="arrow-wrap">
@@ -103,7 +134,7 @@
       <h1 style="position: relative; margin-left: -230px;">Experiences matching your&nbsp;
         <span id="typing" class="typing" style="position: absolute; bottom: 22px;"></span>
       </h1>
-      <p>For all DIY travelers. We have created a back-packer itinerary maker based your experience. From putting together a trip wishlist to creating a detailed itinerary; from pre-trip planning to on-trip access – all done in one place.</p>
+      <h5>For all DIY travelers. We have created a back-packer itinerary maker based your experience. From putting together a trip wishlist to creating a detailed itinerary; from pre-trip planning to on-trip access – all done in one place.</h5>
     </div>
   </div>
 
