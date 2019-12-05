@@ -5,14 +5,18 @@ var polyline = require('@mapbox/polyline');
 
 const markersArray = [];
 const addMarkers = (map, markers) => {
-  markers.forEach((marker) => {
-    const popup = new mapboxgl.Popup().setHTML(marker.infowindow);
-    const newMarker = new mapboxgl.Marker()
-    .setLngLat([ marker.lng, marker.lat ])
-    .setPopup(popup)
-    .addTo(map);
-    markersArray.push(newMarker);
-  });
+  if (markers.length > 0) {
+    markers.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.infowindow);
+      const newMarker = new mapboxgl.Marker()
+      .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
+      .addTo(map);
+      markersArray.push(newMarker);
+    });
+    const lastMarker = markers[markers.length-1];
+    map.flyTo({center: [ lastMarker.lng, lastMarker.lat ]});
+  }
 };
 
 let layers = [];
@@ -103,9 +107,11 @@ const pathFinder = (map, markers) => {
 };
 
 const fitMapToMarkers = (map, markers) => {
-  const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 6, duration: 0 });
+  if (markers.length > 0) {
+    const bounds = new mapboxgl.LngLatBounds();
+    markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+    map.fitBounds(bounds, { padding: 70, maxZoom: 6, duration: 0 });
+  }
 };
 
 
@@ -119,51 +125,54 @@ const initMapBox = () => {
 
   const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/mapbox/streets-v10',
+    center: [-71.5369607, -16.3988667],
+    zoom: [6]
   });
 
-  if (markers.length > 0) {
-    Array.from(createTogglers).forEach(toggler=> {
-      toggler.addEventListener('click', () => {
-        if (markersArray.length < 1) markers = [];
-         // console.log('create toggler', event.target.dataset);
-        const markerData = event.target.dataset;
-        const newMarker = new mapboxgl.Marker()
-          .setLngLat([ markerData.lng, markerData.lat ])
-          .addTo(map);
-        markersArray.push(newMarker);
-        // console.log('marker array', markersArray);ker
-        markers.push({lat: markerData.lat, lng: markerData.lng});
-        pathFinder(map, markers);
-      });
+  Array.from(createTogglers).forEach(toggler=> {
+    toggler.addEventListener('click', () => {
+      if (markersArray.length < 1) markers = [];
+       // console.log('create toggler', event.target.dataset);
+      const markerData = event.target.dataset;
+      const newMarker = new mapboxgl.Marker()
+        .setLngLat([ markerData.lng, markerData.lat ])
+        .addTo(map);
+      markersArray.push(newMarker);
+      // console.log('marker array', markersArray);ker
+      markers.push({lat: markerData.lat, lng: markerData.lng});
+      const lastMarker = markers[markers.length-1];
+      map.flyTo({center: [ lastMarker.lng, lastMarker.lat ], zoom: 6});
+      pathFinder(map, markers);
     });
+  });
 
-    Array.from(deleteTogglers).forEach(toggler=> {
-      toggler.addEventListener('click', () => {
-        // console.log('delete toggler', event.target.dataset);
-        const markerData = event.target.dataset;
-        const newMarker = new mapboxgl.Marker()
-          .setLngLat([ markerData.lng, markerData.lat ])
-        markersArray.forEach((marker, index) => {
-          // console.log('delete function', marker.getLngLat());
-          if (marker.getLngLat().lat === newMarker.getLngLat().lat && marker.getLngLat().lng === newMarker.getLngLat().lng) {
-            // console.log('delete function newmarker', newMarker.getLngLat());
-            marker.remove();
-            markersArray.splice(index, 1);
-          }
-        });
-        const modifiedMarkersArray = markersArray.map(marker => {
-          return { lng: marker.getLngLat().lng, lat: marker.getLngLat().lat }
-        })
-        pathFinder(map, modifiedMarkersArray);
+  Array.from(deleteTogglers).forEach(toggler=> {
+    toggler.addEventListener('click', () => {
+      // console.log('delete toggler', event.target.dataset);
+      const markerData = event.target.dataset;
+      const newMarker = new mapboxgl.Marker()
+        .setLngLat([ markerData.lng, markerData.lat ])
+      markersArray.forEach((marker, index) => {
+        // console.log('delete function', marker.getLngLat());
+        if (marker.getLngLat().lat === newMarker.getLngLat().lat && marker.getLngLat().lng === newMarker.getLngLat().lng) {
+          // console.log('delete function newmarker', newMarker.getLngLat());
+          marker.remove();
+          markersArray.splice(index, 1);
+        }
       });
+      const modifiedMarkersArray = markersArray.map(marker => {
+        return { lng: marker.getLngLat().lng, lat: marker.getLngLat().lat }
+      })
+      const lastMarker = markers[markers.length-2];
+      map.flyTo({center: [ lastMarker.lng, lastMarker.lat ], zoom: 6});
+      pathFinder(map, modifiedMarkersArray);
     });
+  });
 
-    fitMapToMarkers(map, markers);
-    addMarkers(map, markers);
-    // pathfinder prototype
-    pathFinder(map, markers);
-  }
+  fitMapToMarkers(map, markers);
+  addMarkers(map, markers);
+  pathFinder(map, markers);
 };
 
 export { initMapBox, pathFinder, addMarkers };
