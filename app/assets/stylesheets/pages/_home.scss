@@ -286,7 +286,24 @@ section.demo a:hover {
 .search_days {
   width: 100%;
 }
+// Small button
 
+.smallbutton {
+    padding: 3px 0;
+    margin-right: 5px;
+    white-space: nowrap;
+    width: 100%;
+    height:16px;
+    text-align: center;
+    box-sizing: border-box;
+    height: auto;
+    float: none;
+    border-radius: 2px;
+    font-size: 90%;
+    background-color: #ffcb20;
+    color: #3b4045;
+    transform: translateY(-1px);
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
