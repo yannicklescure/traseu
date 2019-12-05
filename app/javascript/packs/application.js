@@ -38,13 +38,15 @@ if (currentPage == null || currentPage == '#experience' || currentPage == '#coun
     });
   });
 
-  const budgetNextBtn = document.querySelector("#budget-next");
-  budgetNextBtn.addEventListener("click", (event) => {
-    console.log("budget-next clicked");
-    document.querySelector("#country").classList.add("d-none");
-    document.querySelector("#homepage-onboarding").classList.remove("d-none");
-    document.querySelector("#budget").classList.remove("d-none");
-    budgetLoad();
+  const budgetNextBtn = document.querySelectorAll(".budget-next");
+  budgetNextBtn.forEach((button) => {
+      button.addEventListener("click", (event) => {
+      console.log("budget-next clicked");
+      document.querySelector("#country").classList.add("d-none");
+      document.querySelector("#homepage-onboarding").classList.remove("d-none");
+      document.querySelector("#budget").classList.remove("d-none");
+      budgetLoad();
+    });
   });
 
   const daysNextBtn = document.querySelector("#days-next");
@@ -63,18 +65,19 @@ if (currentPage == null || currentPage == '#experience' || currentPage == '#coun
 }
 
 const countryLoad = () => {
+    document.querySelector("#progress-point2").classList.add("pp2");
     const progressPoint2 = document.querySelector("#progress-point2");
     progressPoint2.click();
 }
 
 const budgetLoad = () => {
-    console.log(3);
+    document.querySelector("#progress-point3").classList.add("pp3");
     const progressPoint3 = document.querySelector("#progress-point3");
     progressPoint3.click();
 }
 
 const daysLoad = () => {
-    console.log(4);
+    // document.querySelector("#progress-point4").classList.remove("d-none");
     const progressPoint4 = document.querySelector("#progress-point4");
     progressPoint4.click();
 }

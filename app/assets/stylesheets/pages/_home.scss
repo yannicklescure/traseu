@@ -122,6 +122,11 @@ h2 {
   margin-bottom: 30px;
 }
 
+h5 {
+  margin-top: 10px;
+  font-weight: 300;
+}
+
 // Scroll-down button start;
 
 #section01 a {
@@ -211,6 +216,27 @@ section.demo a:hover {
   align-items: center;
   justify-content: center;
 }
+
+.btn-form-submit {
+  background-color: #FFCB21;
+  color: white;
+  max-height: 38px;
+  padding: 8px;
+  border-style: none;
+}
+
+.form-submit-input {
+  display: flex;
+}
+
+.btn-form-submit:hover {
+  color:white;
+}
+
+.search_days {
+  width: 100%;
+}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

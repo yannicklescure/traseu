@@ -8,7 +8,7 @@ $track_h05     : $track_h / 2;
 $gutter        : 100% / ($points - 1);
 $duration      : 1s;
 
-$_r    : 40px;
+$_r    : 45px;
 $_r05  : $_r / 2;
 $_r025 : $_r05 / 2;
 $_b    : $_r / 6;
@@ -49,7 +49,7 @@ $tint-complete   : #3F3D56;
 
   %check {
 
-    content          : "\00BB";
+
     display          : block;
     width            : $_r;
     height           : $_r;
@@ -73,7 +73,7 @@ $tint-complete   : #3F3D56;
     width      : 0;
     height     : $track_h;
     background : $tint-progress;
-    transition: width 2s;
+    transition: width 2.2s;
   }
 
   .progress-points {
@@ -111,7 +111,7 @@ $tint-complete   : #3F3D56;
       color            : white;
       border-radius: 50%;
       background-color: #3F3D56;
-      opacity: 0.5;
+      opacity: 0;
     }
 
     &.completed,
@@ -125,9 +125,35 @@ $tint-complete   : #3F3D56;
       opacity: 1;
     }
 
+    &.pp1.completed:before {
+      font-family: "Font Awesome 5 Free";
+      text-align: center;
+      content: "\f5b6";
+      font-weight: 900;
+      line-height: 35px;
+    }
+
+    &.pp2.completed:before {
+      font-family: "Font Awesome 5 Free";
+      content: '\f5b0';
+      font-weight: 900;
+      line-height: 35px;
+    }
+
+    &.pp3.completed:before {
+      font-family: "Font Awesome 5 Free";
+      content: "\f155";
+      font-weight: 900;
+      line-height: 35px;
+    }
+
     &.active:before {
-      border-color: $tint-complete;
-      opacity: 0.8;
+      border-color: #FFCB21;
+      background-color: #FFCB21;
+      opacity: 1;
+      transition: 1.2s;
+      content: "\00BB";
+      line-height: 30px;
     }
   }
 }
