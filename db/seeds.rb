@@ -140,7 +140,7 @@ city_attributes = [
     name: "Lima",
     address: "lima peru",
     description: "After Cairo, this sprawling metropolis is the second-driest world capital, rising above a long coastline of crumbling cliffs.",
-    image: "https://res.cloudinary.com/pierreja/image/upload/v1575221537/TRASEU/Traseu%20-%20LIMA/BANNER%20-%20LIMA.jpg"
+    image: "https://res.cloudinary.com/pierreja/image/upload/v1575583070/TRASEU/photo-1531968455001-5c5272a41129_m2xach.jpg"
   },
   {
     name: "Ica",
@@ -217,7 +217,7 @@ itinerary_cities_attributes = [
   { itinerary: itinerary_1, city: city_3 },
   { itinerary: itinerary_1, city: city_1 },
   { itinerary: itinerary_1, city: city_4 },
-  #{ itinerary: itinerary_1, city: city_5 },
+  { itinerary: itinerary_1, city: city_9 },
   { itinerary: itinerary_2, city: city_6 },
   { itinerary: itinerary_2, city: city_7 },
   { itinerary: itinerary_2, city: city_8 },
