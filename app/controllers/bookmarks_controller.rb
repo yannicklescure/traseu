@@ -35,4 +35,16 @@ class BookmarksController < ApplicationController
       format.js
     end
   end
+
+  def update
+    @itinerary = params[:itinerary_id]
+    @bookmark = Bookmark.find_by(user: current_user, itinerary_id: @itinerary)
+    if @bookmark
+      @bookmark.destroy
+      @bookmarked = false
+    else
+      @bookmark = Bookmark.create(user: current_user, itinerary_id: params[:itinerary_id])
+      @bookmarked = true
+    end
+  end
 end

@@ -5,17 +5,21 @@ var polyline = require('@mapbox/polyline');
 
 const markersArray = [];
 const addMarkers = (map, markers) => {
-  markers.forEach((marker) => {
-    const popup = new mapboxgl.Popup().setHTML(marker.infowindow);
-    const newMarker = new mapboxgl.Marker()
-    .setLngLat([ marker.lng, marker.lat ])
-    .setPopup(popup)
-    .addTo(map);
-    markersArray.push(newMarker);
-  });
+  if (markers.length > 0) {
+    markers.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.infowindow);
+      const newMarker = new mapboxgl.Marker()
+      .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
+      .addTo(map);
+      markersArray.push(newMarker);
+    });
+    const lastMarker = markers[markers.length-1];
+    map.flyTo({center: [ lastMarker.lng, lastMarker.lat ]});
+  }
 };
 
-const layers = [];
+let layers = [];
 const pathFinder = (map, markers) => {
   // debugger
   // {lat: -13.5228392, lng: -71.967627,
@@ -31,6 +35,7 @@ const pathFinder = (map, markers) => {
   const coords_old = `-71.967627,-13.5228392;-77.0365256,-12.0621065;-71.5350000,-16.3988900;-70.0430588,-15.8275436`;
   // console.log(coords_old);
   let coords = [];
+  // debugger
   markers.forEach((marker) => {
     coords.push(`${marker.lng},${marker.lat}`);
   });
@@ -39,13 +44,32 @@ const pathFinder = (map, markers) => {
   // coords = `-71.967627,-13.5228392;-77.0365256,-12.0621065;-71.5350000,-16.3988900;-70.0430588,-15.8275436`;
   const mapboxApiKey = mapElement.dataset.mapboxApiKey;
   const url = `https://api.mapbox.com/optimized-trips/v1/mapbox/driving/${coords}?access_token=${mapboxApiKey}`;
+
+  const lastLayer = layers.length > 0 ? layers[layers.length-1] : undefined;
+  if (lastLayer !== undefined) map.removeLayer(lastLayer);
+
+  if (markers.length <= 1) {
+    // debugger
+    layers = [];
+    return;
+  }
+
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      if (layers.length > 0) {
-        const lastLayer = layers[layers.length-1]
-        map.removeLayer(lastLayer);
-      }
+
+      // if (markers.length == 1) {
+      //   layers = [];
+      //   map.removeLayer(lastLayer);
+      // }
+      // if (layers.length > 0 && markers.length > 0) {
+        // debugger
+        // const lastLayer = layers[layers.length-1];
+        // layers.splice(layers.length-1, 1);
+        // map.removeLayer(lastLayer);
+      // }
+      // if (markers.length < 2) return;
+
       // geoJSON takes LAT , LON
       // `data.trips[0].geometry` is the Geoline String from the API
       const polyLine = data.trips[0].geometry;
@@ -83,13 +107,17 @@ const pathFinder = (map, markers) => {
 };
 
 const fitMapToMarkers = (map, markers) => {
-  const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 6, duration: 0 });
+  if (markers.length > 0) {
+    const bounds = new mapboxgl.LngLatBounds();
+    markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+    map.fitBounds(bounds, { padding: 70, maxZoom: 6, duration: 0 });
+  }
 };
 
 
+
 const initMapBox = () => {
+  let markers = JSON.parse(mapElement.dataset.markers);
   const createTogglers = document.querySelectorAll('.city-toggler-create');
   const deleteTogglers = document.querySelectorAll('.city-toggler-delete');
 
@@ -97,21 +125,24 @@ const initMapBox = () => {
 
   const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/mapbox/streets-v10',
+    center: [-71.5369607, -16.3988667],
+    zoom: [6]
   });
-
-  const markers = JSON.parse(mapElement.dataset.markers);
 
   Array.from(createTogglers).forEach(toggler=> {
     toggler.addEventListener('click', () => {
-      // console.log('create toggler', event.target.dataset);
+      if (markersArray.length < 1) markers = [];
+       // console.log('create toggler', event.target.dataset);
       const markerData = event.target.dataset;
       const newMarker = new mapboxgl.Marker()
         .setLngLat([ markerData.lng, markerData.lat ])
         .addTo(map);
       markersArray.push(newMarker);
-      // console.log('marker array', markersArray);
-      markers.push({lng: markerData.lng, lat: markerData.lat});
+      // console.log('marker array', markersArray);ker
+      markers.push({lat: markerData.lat, lng: markerData.lng});
+      const lastMarker = markers[markers.length-1];
+      map.flyTo({center: [ lastMarker.lng, lastMarker.lat ], zoom: 6});
       pathFinder(map, markers);
     });
   });
@@ -133,13 +164,14 @@ const initMapBox = () => {
       const modifiedMarkersArray = markersArray.map(marker => {
         return { lng: marker.getLngLat().lng, lat: marker.getLngLat().lat }
       })
+      const lastMarker = markers[markers.length-2];
+      map.flyTo({center: [ lastMarker.lng, lastMarker.lat ], zoom: 6});
       pathFinder(map, modifiedMarkersArray);
     });
   });
 
   fitMapToMarkers(map, markers);
   addMarkers(map, markers);
-  // pathfinder prototype
   pathFinder(map, markers);
 };
 

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :cities, only: [] do
       resource :itinerary_cities, only: [:update]
     end
+    resource :bookmarks, only: [:update]
   end
   # get '/search', to: 'itineraries#search', as: 'search_itineraries'
   # resources :bookmarks, only: [ :index, :destroy, :create ]

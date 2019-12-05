@@ -1,0 +1,16 @@
+bookmarked = <%= @bookmarked %>
+itinerary = <%= @itinerary %>
+console.log(itinerary);
+targetTrue = document.querySelector(`#bookmark-show-true-${itinerary}`);
+targetFalse = document.querySelector(`#bookmark-show-false-${itinerary}`);
+
+if (bookmarked) {
+  console.log('update true');
+  targetTrue.style.display = 'block';
+  targetFalse.style.display = 'none';
+} else {
+  console.log('update false');
+  targetTrue.style.display = 'none';
+  targetFalse.style.display = 'block';
+}
+
