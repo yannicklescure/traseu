@@ -1,6 +1,6 @@
-<div class="banner-city-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1501371632240-5d60b49290e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);">
+<div class="banner-city-show" style="object-fit: cover;max-height: 100%; max-width: 100%; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=@city.image%>)">
   <div class="banner-text">
-      <h1 class="banner_title">Cuzco</h1>
+      <h1 class="banner_title"><%= @city.name %></h1>
+      <%= link_to "Back to Itinerary", itinerary_path(params[:itinerary]), class: "m-0 btn btn-outline-info btn-sm" %>
   </div>
-
 </div>

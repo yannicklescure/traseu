@@ -1,9 +1,5 @@
-<div class="city-banner d-flex align-items-end justify-content-center" style="margin-top: -60px;background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @city.image %>)">
-  <h1 class="city-name">
-    <%= @city.name %>
-  </h1>
-</div>
-<div class="container-fluid m-5">
+ <%= render "shared/banner_cities_show" %>
+<div class="container-fluid m-2">
   <h3 class="my-4">Top restaurants</h3>
   <div class="row my-2">
     <% @restaurants.each do |restaurant| %>
