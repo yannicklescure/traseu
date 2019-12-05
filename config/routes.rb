@@ -6,15 +6,23 @@ Rails.application.routes.draw do
 
   resources :searches, only: [ :index, :new, :create ]
 
-  resources :itineraries, only: [ :new, :create, :show, :destroy ]
+  resources :itineraries, only: [ :new, :create, :show, :destroy ] do
+    resources :cities, only: [] do
+      resource :itinerary_cities, only: [:update]
+    end
+  end
   # get '/search', to: 'itineraries#search', as: 'search_itineraries'
   # resources :bookmarks, only: [ :index, :destroy, :create ]
   get '/bookmarks', to: 'bookmarks#index', as: 'bookmarks'
-  post '/itineraries/:id', to: 'bookmarks#create'
+  post '/itineraries/:id', to: 'bookmarks#create', as: "create_bookmark"
   delete '/bookmarks', to: 'bookmarks#destroy'
+
+  # resources :itinerary_cities, only: [ :destroy, :create ]
+  # post '/itinerary_cities', to: 'itineraries#create_itinerary_city', as: "create_itinerary_city"
+  # delete '/itineraries/:id/cities/:city', to: 'itineraries#destroy_itinerary_city', as: "delete_itinerary_city"
+
   get '/pages', to: 'pages#home'
 
-  resources :itinaries_cities, only: [ :destroy, :create ]
   resources :itinaries_spots, only: [ :destroy, :create ]
   resources :cities, only: [ :show ]
 end

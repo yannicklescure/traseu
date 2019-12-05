@@ -3,6 +3,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapBox } from '../plugins/init_mapbox';
 import { initUpdateNavbarOnScroll } from '../navbar';
 import { scrollToAnchor } from "../scroll_to_anchor";
+import { collapse } from "../itineraries_show";
 
 // scrollTo();
 
@@ -12,6 +13,7 @@ console.log(currentPage);
 
 if (currentPage == "itineraries") {
   initMapBox();
+  collapse();
 }
 
 if (currentPage == null || currentPage == '#experience' || currentPage == '#country' || currentPage == '#budget' || currentPage == '#days') {

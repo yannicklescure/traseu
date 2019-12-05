@@ -13,7 +13,7 @@
         </div>
       <% else %>
         <div id="bookmark-show-false">
-          <%= link_to raw('<i class="far fa-star"></i>'), "#{itinerary_path(@itinerary)}", remote: true, method: :post, class: 'btn' %>
+          <%= link_to raw('<i class="far fa-star"></i>'), "#{create_bookmark_path(@itinerary)}", remote: true, method: :post, class: 'btn' %>
         </div>
         <div id="bookmark-show-true">
         </div>
@@ -54,42 +54,106 @@
       <% itinerary_city_array = [] %>
       <% @itinerary.itinerary_cities.each do |itinerary_city| %>
         <% itinerary_city_array << itinerary_city.city %>
-        <div class="d-flex">
-          <p class="text-success">
-            <%#= itinerary_city.city.name %>
-            <%= link_to itinerary_city.city.name, "#{city_path(itinerary_city.city)}?itinerary=#{@itinerary.id}", class: "text-success" %>
-            </p>
-          &emsp;
-          <div id="city-delete-id-<%= itinerary_city.id %>">
-            <%= link_to "delete", "#{itinerary_path(@itinerary)}?call=delete&itinerary_city=#{itinerary_city.id}", remote: true, method: :get, class: "city-toggler-delete", data: { lat: itinerary_city.city.latitude, lng: itinerary_city.city.longitude } %>
-          </div>
-        </div>
       <% end %>
 
       <%# raise %>
 
+      <%#= @cities_names %>
+
       <% @cities.each do |city| %>
         <div class="row m-0">
-          <% unless itinerary_city_array.include?(city) %>
-            <p class="text-danger"><%= city.name %></p>
-            &emsp;
-            <div id="city-create-id-<%= city.id %>">
-              <%= link_to "create", "#{itinerary_path(@itinerary)}?call=create&city=#{city.id}", remote: true, method: :get, class: "city-toggler-create", data: { lat: city.latitude, lng: city.longitude } %>
+          <% if itinerary_city_array.include?(city) %>
+            <% itinerary_city = ItineraryCity.find_by("itinerary_id = ? AND city_id = ?", @itinerary.id, city.id) %>
+            <%# raise %>
+            <!-- Card -->
+            <div id="city-id-<%= itinerary_city.city_id %>" class="card w-100 itinerary-show-city mt-3" data-itinerary-city="<%= itinerary_city.id %>" data-city="<%= itinerary_city.city_id %>">
+              <!-- Cities -->
+              <div class="w-100">
+                <div class="d-none <%= "city-delete-id-#{city.id}" %>">
+                  <%#= link_to "delete", "#{delete_itinerary_city_path(params[:id])}?itinerary_city=#{itinerary_city}", remote: true, method: :get, id: "city-delete-id-#{itinerary_city.id}", class: "city-toggler-delete", data: { lat: itinerary_city.city.latitude, lng: itinerary_city.city.longitude } %>
+                  <%= link_to "delete", itinerary_city_itinerary_cities_path(@itinerary, city), remote: true, method: :patch, id: "city-delete-id-#{city.id}", class: "city-toggler-delete", data: { lat: itinerary_city.city.latitude, lng: itinerary_city.city.longitude } %>
+                  <%= link_to "create", itinerary_city_itinerary_cities_path(@itinerary, city), remote: true, method: :patch, id: "city-create-id-#{city.id}", class: "city-toggler-create", data: { lat: city.latitude, lng: city.longitude } %>
+                </div>
+                <div class="px-3 d-flex justify-content-between align-items-center">
+                  <%= link_to itinerary_city.city.name.capitalize, "#{city_path(itinerary_city.city)}?itinerary=#{@itinerary.id}", class: "text-body lead" %>
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="switch-<%= itinerary_city.city_id %>">
+                    <label class="custom-control-label" for="switch-<%= itinerary_city.city_id %>"></label>
+                  </div>
+                </div>
+                <div id="city-id-<%= itinerary_city.city_id %>-details" class="itinerary-city-details">
+                  <div class="p-3">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio eos sed ex vero, impedit ad placeat commodi illo, quae iure laboriosam minus recusandae voluptates facilis, earum soluta minima voluptas nobis?</p>
+                    <table>
+                      <tr>
+                        <td class="text-center"><i class="fas fa-utensils pro-dark-blue"></i></td>
+                        <td class="pl-3">text</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center"><i class="fas fa-bed pro-dark-blue"></i></td>
+                        <td class="pl-3">text</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center"><i class="fas fa-binoculars pro-dark-blue"></i></td>
+                        <td class="pl-3">text</td>
+                      </tr>
+                    </table>
+                    <div class="text-right" style="margin-top: -24px;">
+                      <%= link_to "See more", "#{city_path(itinerary_city.city)}?itinerary=#{@itinerary.id}", class: "text-muted" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            <!-- End Card -->
+          <% else %>
+            <!-- Card -->
+            <div id="city-id-<%= city.id %>" class="card city-select-none w-100 mt-3" data-itinerary-city="<%= city.id %>" data-city="<%= city.id %>">
+              <div class="w-100">
+                <div class="d-none">
+                  <%= link_to "create", itinerary_city_itinerary_cities_path(@itinerary, city), remote: true, method: :patch, id: "city-create-id-#{city.id}", class: "city-toggler-create", data: { lat: city.latitude, lng: city.longitude } %>
+                  <%= link_to "delete", itinerary_city_itinerary_cities_path(@itinerary, city), remote: true, method: :patch, id: "city-delete-id-#{city.id}", class: "city-toggler-delete", data: { lat: city.latitude, lng: city.longitude } %>
+                </div>
+                <div class="px-3 d-flex justify-content-between align-items-center">
+                  <%= link_to city.name.capitalize, "#{city_path(city)}?itinerary=#{@itinerary.id}", class: "text-body lead" %>
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="switch-<%= city.id %>">
+                    <label class="custom-control-label" for="switch-<%= city.id %>"></label>
+                  </div>
+                </div>
+                <div id="city-id-<%= city.id %>-details" class="itinerary-city-details">
+                  <div class="p-3">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio eos sed ex vero, impedit ad placeat commodi illo, quae iure laboriosam minus recusandae voluptates facilis, earum soluta minima voluptas nobis?</p>
+                    <table>
+                      <tr>
+                        <td class="text-center"><i class="fas fa-utensils pro-dark-blue"></i></td>
+                        <td class="pl-3">text</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center"><i class="fas fa-bed pro-dark-blue"></i></td>
+                        <td class="pl-3">text</td>
+                      </tr>
+                      <tr>
+                        <td class="text-center"><i class="fas fa-binoculars pro-dark-blue"></i></td>
+                        <td class="pl-3">text</td>
+                      </tr>
+                    </table>
+                    <div class="text-right" style="margin-top: -24px;">
+                      <%= link_to "See more", "#{city_path(city)}?itinerary=#{@itinerary.id}", class: "text-muted" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Card -->
           <% end %>
         </div>
       <% end %>
-
-      <div class="d-none">
-      <%# @cities.each do |city| %>
-
-      <%# end %>
-      </div>
     </div>
     <div class="col-6">
       <!-- <img src="https://github.com/PierreJaouen/traseu/blob/controllers-next/public/map.png?raw=true" alt="" width="100%"> -->
       <!-- Map -->
-      <div class="d-flex flex-column align-items-end">
+      <div class="d-flex flex-column align-items-end sticky-top" style="top: 100px;">
         <div id="map" class="mt-3 mr-3" style="width: 100%; height: 500px;"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
           data-markers="<%= @markers.to_json %>">
