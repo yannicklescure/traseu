@@ -9,7 +9,6 @@ import { progressBar } from "../progress-bar";
 import { backButton } from "../back-button";
 import { toggleCards } from "../city-card-toggle";
 
-toggleCards();
 // scrollTo();
 
 // let currentPage = window.location.href.split(/.*[\/]/)[1] || null;
@@ -36,12 +35,12 @@ if (currentPage === "itineraries" && currentAction.match(/\d+/) !== null) {
   collapse();
 }
 
-if (currentPage === null || currentPage === '#experience' || currentPage === '#country' || currentPage === '#budget' || currentPage === '#days' || currentPage === '#page-content') {
+if (currentPage === null) {
   initUpdateNavbarOnScroll();
   scrollToAnchor();
   dynamicText();
   progressBar();
-  backButton();
+  //backButton();
 
   const countryNextBtn = document.querySelectorAll("a.country-next").forEach((el) => {
     el.addEventListener("click", (event) => {
@@ -56,25 +55,11 @@ if (currentPage === null || currentPage === '#experience' || currentPage === '#c
     });
   });
 
-  const budgetNextBtn = document.querySelectorAll(".budget-next");
-  budgetNextBtn.forEach((button) => {
-      button.addEventListener("click", (event) => {
-      console.log("budget-next clicked");
-      document.querySelector("#country").classList.add("d-none");
-      document.querySelector("#homepage-onboarding").classList.remove("d-none");
-      document.querySelector("#budget").classList.remove("d-none");
-      budgetLoad();
-    });
-  });
-
-  const daysNextBtn = document.querySelector("#days-next");
-  daysNextBtn.addEventListener("click", (event) => {
-    console.log("days-next clicked");
-    document.querySelector("#budget").classList.add("d-none");
-    document.querySelector("#homepage-onboarding").classList.remove("d-none");
-    document.querySelector("#days").classList.remove("d-none");
-    daysLoad();
-  });
+  const countryLoad = () => {
+    document.querySelector("#progress-point2").classList.add("pp2");
+    const progressPoint2 = document.querySelector("#progress-point2");
+    progressPoint2.click();
+  }
 
 } else {
   const navbar = document.querySelector('.navbar');
@@ -82,22 +67,59 @@ if (currentPage === null || currentPage === '#experience' || currentPage === '#c
   // console.log(navbar.className);
 }
 
-const countryLoad = () => {
-    document.querySelector("#progress-point2").classList.add("pp2");
-    const progressPoint2 = document.querySelector("#progress-point2");
-    progressPoint2.click();
-}
 
-const budgetLoad = () => {
+window.addEventListener("hashchange", () => {
+
+  const formPage = window.location.href.match("page-content");
+
+  if (formPage != null && formPage[0] === "page-content") {
+
+    backButton();
+    const navbar = document.querySelector('.navbar');
+    navbar.classList.remove('navbar-traseu-yellow');
+
+    const budgetNextBtn = document.querySelectorAll(".budget-next");
+    budgetNextBtn.forEach((button) => {
+      button.addEventListener("click", (event) => {
+      console.log("budget-next clicked");
+      document.querySelector("#country").classList.add("d-none");
+      document.querySelector("#homepage-onboarding").classList.remove("d-none");
+      document.querySelector("#budget").classList.remove("d-none");
+      budgetLoad();
+      });
+    });
+
+    const daysNextBtn = document.querySelector("#days-next");
+    daysNextBtn.addEventListener("click", (event) => {
+      console.log("days-next clicked");
+      document.querySelector("#budget").classList.add("d-none");
+      document.querySelector("#homepage-onboarding").classList.remove("d-none");
+      document.querySelector("#days").classList.remove("d-none");
+      daysLoad();
+    });
+  }
+  const budgetLoad = () => {
     document.querySelector("#progress-point3").classList.add("pp3");
     const progressPoint3 = document.querySelector("#progress-point3");
     progressPoint3.click();
-}
+  }
 
-const daysLoad = () => {
-    // document.querySelector("#progress-point4").classList.remove("d-none");
+  const daysLoad = () => {
     const progressPoint4 = document.querySelector("#progress-point4");
     progressPoint4.click();
-}
+  }
+});
 
+window.addEventListener("scroll", () => {
+  const formPage = window.location.href.match("page-content");
+
+  if (formPage != null && formPage[0] === "page-content") {
+    const navbar = document.querySelector('.navbar');
+    navbar.classList.remove('navbar-traseu-yellow');
+  }
+});
+
+if (currentPage == "cities") {
+  toggleCards();
+}
 
