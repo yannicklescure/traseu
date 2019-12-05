@@ -9,10 +9,8 @@
 
     <div class="col-sm-5">
           <div class="text-center p-3 mb-3" style="position: relative">
-            <div class="card-category-trip" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1450562624248-869a3ec195f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)"></div>
+            <div class="card-category-trip" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/pierreja/image/upload/v1575559925/TRASEU/Sophie%20user%20-%20pages/Bagpackers.jpg)"></div>
             <div class="photo-info">
-            <!-- <i class="far fa-flag"> </i><%= @user.countryoforigin  %> <br>
-            <i class="far fa-envelope"> </i><%= @user.email  %> <br> -->
         </div>
       </div>
     </div>
@@ -28,8 +26,9 @@
         <i class="fas fa-user-friends"></i><b> Followers: </b><%= @user.follower  %> <br>
         <i class="fas fa-users"></i> <b> Following: </b><%= @user.following  %> <br>
         <i class="fas fa-star"></i> <b> Rating: </b><%= @user.rating  %>  <br>
-        <i class="fas fa-map-signs"></i><b> My itineraries: </b><%= @user.itineraryofuser  %> <br>
+        <i class="fas fa-map-signs"></i><b> My itineraries: </b> <%= link_to @user.itineraryofuser, itinerary_path %> <br>
         <i class="fas fa-globe"></i> <b> Visited countries: </b> <%= @user.country %> <br>
+
       </div>
 
 
@@ -64,13 +63,13 @@
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="https://images.unsplash.com/photo-1519074598089-6436475c7f8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" alt="First slide">
+            <img class="d-block w-100" src="https://res.cloudinary.com/pierreja/image/upload/v1575560021/TRASEU/Sophie%20user%20-%20pages/Machu-pichu.jpg" alt="First slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="First slide" alt="Second slide">
+            <img class="d-block w-100" src="https://res.cloudinary.com/pierreja/image/upload/v1575559986/TRASEU/Sophie%20user%20-%20pages/child.jpg" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="https://images.unsplash.com/photo-1534615098829-958121bcc188?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Third slide">
+            <img class="d-block w-100" src="https://res.cloudinary.com/pierreja/image/upload/v1575559940/TRASEU/Sophie%20user%20-%20pages/Lama.jpg" alt="Third slide">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -102,12 +101,12 @@
     <div class="col-sm-1"></div>
     <div class="col-sm-3 text-center">
       <p><b>Marina</b></p>
-      <img class="img-circle" src="https://images.unsplash.com/photo-1441486374104-36abe5ed9b69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Marina">
+      <img class="img-circle" src="https://res.cloudinary.com/pierreja/image/upload/v1575560145/TRASEU/Sophie%20user%20-%20pages/Marina.jpg" alt="Marina">
     </div>
 
     <div class="col-sm-7 text-left">
-      <b><i>Fantastic input! <i class="fas fa-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></i></b><br><br>
-      <p>I tried <%= @user.first_name.capitalize  %>’s itinerary for “Party to Peru” If it wasn’t for <%= @user.first_name.capitalize  %>’s itinerary, I would have missed out quite a lot. Not too fancy but still comfortable, his itineraries are not only relevant but also precious when you are a lonely backpacker like me!</p>
+      <b><i>Fantastic input! <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></i></b><br><br>
+      <p><i>I tried <%= @user.first_name.capitalize  %>’s itinerary for “Party to Peru” If it wasn’t for <%= @user.first_name.capitalize  %>’s itinerary, I would have missed out quite a lot. Not too fancy but still comfortable, his itineraries are not only relevant but also precious when you are a lonely backpacker like me!</i></p>
     </div>
     <div class="col-sm-1"></div>
   </div>
@@ -118,12 +117,12 @@
     <div class="col-sm-1"></div>
     <div class="col-sm-3 text-center">
       <p><b>Javier</b></p>
-      <img class="img-circle" src="https://images.unsplash.com/photo-1483323323858-4916bde7bd5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Marina">
+      <img class="img-circle" src="https://res.cloudinary.com/pierreja/image/upload/v1575560165/TRASEU/Sophie%20user%20-%20pages/javier.jpg" alt="Javier">
     </div>
 
     <div class="col-sm-7 text-left">
       <b><i>I Wish I read this before! <i class="fas fa-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></i></b><br><br>
-      <p>I have been following <%= @user.first_name.capitalize  %> for 6 month, and I agree with each and every single word <%= @user.first_name.capitalize  %> writes. It’s simple but efficient advice as well as original and genuine itineraries that allowed me to meet locals, not only tourists.</p>
+      <p><i>I have been following <%= @user.first_name.capitalize  %> for 6 month, and I agree with each and every single word <%= @user.first_name.capitalize  %> writes. It’s simple but efficient advice as well as original and genuine itineraries that allowed me to meet locals, not only tourists.</i></p>
     </div>
     <div class="col-sm-1"></div>
   </div>
@@ -134,20 +133,16 @@
     <div class="col-sm-1"></div>
     <div class="col-sm-3 text-center">
       <p><b>Bob</b></p>
-      <img class="img-circle" src="https://images.unsplash.com/photo-1475021200099-fd2cbb889dd1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="Marina">
+      <img class="img-circle" src="https://res.cloudinary.com/pierreja/image/upload/v1575560183/TRASEU/Sophie%20user%20-%20pages/bob.jpg" alt="Bob">
     </div>
 
     <div class="col-sm-7 text-left">
       <b><i>Great advice! <i class="fas fa-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></i></b><br><br>
-      <p>At first I was skeptical when I read <%= @user.first_name.capitalize  %>’s itinerary, but after reading the reviews, I figured “why not?”. I gave a try to the “Party to Peru” itinerary, and it is probably the best way to visit a country I received. If anyone knows Peru, it’s definitely <%= @user.first_name.capitalize  %>!</p>
+      <p><i>At first I was skeptical when I read <%= @user.first_name.capitalize  %>’s itinerary, but after reading the reviews, I figured “why not?”. I gave a try to the “Party to Peru” itinerary, and it is probably the best way to visit a country I received. If anyone knows Peru, it’s definitely <%= @user.first_name.capitalize  %>!</i></p>
     </div>
     <div class="col-sm-1"></div>
   </div>
 
 
 </div>
-    <div class="text-center p-3">
-       <div class="button">Back</div>
-      </div>
-  </div>
 </div>
