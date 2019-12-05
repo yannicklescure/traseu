@@ -1,9 +1,9 @@
 class CitiesController < ApplicationController
   def show
     #@navbar_transparent = true
-    @restaurants = Spot.where("city_id = ? AND category_id = 1", params[:id])
-    @hotels = Spot.where("city_id = ? AND category_id = 2", params[:id])
-    @activities = Spot.where("city_id = ? AND category_id = 3", params[:id])
+    @restaurants = Spot.where("city_id = ? AND category_id = ?", params[:id], Category.find_by(name: "restaurant").id)
+    @hotels = Spot.where("city_id = ? AND category_id = ?", params[:id], Category.find_by(name: "hotel").id)
+    @activities = Spot.where("city_id = ? AND category_id = ?", params[:id], Category.find_by(name: "activity").id)
     @city = City.find(params[:id])
     # raise
   end
