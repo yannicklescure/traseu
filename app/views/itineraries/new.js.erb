@@ -2,6 +2,7 @@ elementTrue = document.querySelector('<%= "#bookmark-create-id-#{@itinerary.id}"
 elementFalse = document.querySelector('<%= "#bookmark-delete-id-#{@itinerary.id}" %>');
 
 status = <%= @itinerary.bookmark %>;
+console.log(status);
 
 if (status == 'true') {
   elementTrue.style.display = 'none';
