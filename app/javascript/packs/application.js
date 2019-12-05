@@ -7,7 +7,9 @@ import { collapse } from "../itineraries-show";
 import { dynamicText } from "../dynamic-text";
 import { progressBar } from "../progress-bar";
 import { backButton } from "../back-button";
+import { toggleCards } from "../city-card-toggle";
 
+toggleCards();
 // scrollTo();
 
 // let currentPage = window.location.href.split(/.*[\/]/)[1] || null;

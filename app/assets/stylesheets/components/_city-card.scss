@@ -126,3 +126,10 @@
   transform: rotate(90deg);
 }
 
+.fabbutton.active {
+  background: #3F3D56;
+  cursor: pointer;
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
