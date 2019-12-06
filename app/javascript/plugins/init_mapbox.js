@@ -189,11 +189,10 @@ const initMapBox = () => {
       // console.log(markersLat);
       map.flyTo({center: markersCenter(markers)});
 
-      // map.fitBounds(markers);
-      map.fitBounds(bounds(markers), {
-        padding: 2000
-      });
-      // map.maxBounds: bounds // Sets bounds as max
+      // map.fitBounds(bounds(markers), {
+      //   padding: 2000
+      // });
+      fitMapToMarkers(map, markers);
       pathFinder(map, markers);
     });
   });
@@ -209,7 +208,11 @@ const initMapBox = () => {
         if (marker.getLngLat().lat === newMarker.getLngLat().lat && marker.getLngLat().lng === newMarker.getLngLat().lng) {
           // console.log('delete function newmarker', newMarker.getLngLat());
           marker.remove();
+          // console.log(markers);
+          // console.log(marker);
+          // debugger
           markersArray.splice(index, 1);
+          markers.splice(index, 1);
         }
       });
 
@@ -224,10 +227,12 @@ const initMapBox = () => {
       map.flyTo({center: markersCenter(modifiedMarkersArray)});
       // console.log('modifiedMarkersArray', markers);
       // console.log('markers', markers);
-      // map.fitBounds(modifiedMarkersArray);
-      map.fitBounds(bounds(modifiedMarkersArray), {
-        padding: 2000
-      });
+      // map.fitBounds(bounds(modifiedMarkersArray), {
+      //   padding: 2000
+      // });
+
+
+      fitMapToMarkers(map, modifiedMarkersArray);
       pathFinder(map, modifiedMarkersArray);
       if (modifiedMarkersArray.length <= 1) layers = [];
     });
