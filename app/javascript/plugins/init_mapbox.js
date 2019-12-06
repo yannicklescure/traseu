@@ -74,7 +74,7 @@ const pathFinder = (map, markers) => {
 
       // geoJSON takes LAT , LON
       // `data.trips[0].geometry` is the Geoline String from the API
-
+      console.log(data);
       const polyLine = data.trips[0].geometry;
       // reverse (Lonng and lat) to (Lat and Lon)
       const geoJSON = polyline.decode(polyLine).map(coord => [coord[1], coord[0]] );
@@ -221,11 +221,11 @@ const initMapBox = () => {
       // map.flyTo({center: [ lastMarker.lng, lastMarker.lat ], zoom: 6});
 
 
-      map.flyTo({center: markersCenter(markers)});
+      map.flyTo({center: markersCenter(modifiedMarkersArray)});
       // console.log('modifiedMarkersArray', markers);
       // console.log('markers', markers);
       // map.fitBounds(modifiedMarkersArray);
-      map.fitBounds(bounds(markers), {
+      map.fitBounds(bounds(modifiedMarkersArray), {
         padding: 2000
       });
       pathFinder(map, modifiedMarkersArray);

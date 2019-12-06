@@ -117,13 +117,13 @@
   font-size: 35px;
   font-weight: 100;
   line-height: 46px;
-  background: #FFCB21;
+  background: #3F3D56; /* dark */
   -webkit-transition: -webkit-transform .2s ease-in-out;
   transition: transform .2s ease-in-out;
 }
 
 .fabbutton:hover {
-  background: #3F3D56;
+  background: #FFCB21; /* yellow */
   cursor: pointer;
   -ms-transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
@@ -131,7 +131,7 @@
 }
 
 .fabbutton.active {
-  background: #3F3D56;
+  background: #FFCB21; /* yellow */
   cursor: pointer;
   -ms-transform: rotate(90deg);
   -webkit-transform: rotate(90deg);

@@ -40,6 +40,10 @@ const elementsMaxHeight = elements => {
   return max - 16;
 };
 
+if (currentPage === "users") {
+  document.querySelector('.navbar').classList.add('bg-light');
+}
+
 if (currentPage === "cities") {
   initUpdateNavbarOnScroll(128);
   const texts = document.querySelectorAll(".text");
@@ -47,6 +51,11 @@ if (currentPage === "cities") {
   console.log(textMaxHeight);
   texts.forEach(text => {
     text.style.height = `${textMaxHeight}px`;
+  });
+  const fabbuttons = document.querySelectorAll(".fabbutton");
+  fabbuttons.forEach((fabbutton, index) => {
+    console.log('fabbutton index', index);
+    if (index == 0 || index == 4 || index == 8) fabbutton.classList.add('active');
   });
 }
 

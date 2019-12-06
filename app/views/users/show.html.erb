@@ -20,17 +20,41 @@
         <h4 class="text-center"><%= @user.first_name.capitalize  %>'s activity on Traseu</h4> <hr>
       </div>
       <div class="text-justify px-3">
-        <i class="far fa-flag"></i> <b> <%= @user.countryoforigin %> </b><br>
-        <i class="far fa-envelope"> </i><b> <%= @user.email %> </b><br>
-        <i class="fas fa-user-friends"></i><b> Followers </b><%= @user.follower  %> <br>
-        <i class="fas fa-users"></i> <b> Following </b><%= @user.following  %> <br>
-        <i class="fas fa-star"></i> <b> Rating </b><%= @user.rating  %> <br>
-        <i class="fas fa-globe"></i> <b> Visited countries </b> <%= @user.country %> <br>
-        <i class="fas fa-map-signs"></i><b> My itineraries </b>
-        <div class="d-flex justify-content-around mt-3">
-          <a class="smallbutton" href="/itineraries/new?utf8=✓&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bbudget%5D=1500&search%5Bdays%5D=15&button=&search%5Bexperience%5D=urban&search%5Bexperience%5D=adventure&search%5Bexperience%5D=culture&search%5Bexperience%5D=party">Party in Peru!</a><%#= link_to @user.itineraryofuser, itinerary_path %>
-          <div class="smallbutton">Chill en Chile!</div>
-          <div class="smallbutton">Polka in Poland!</div>
+        <table>
+          <tr>
+            <td class="text-center"><i class="far fa-flag"></i></td>
+            <td class="pl-1"><b> <%= @user.countryoforigin %> </b></td>
+          </tr>
+          <tr>
+            <td class="text-center"><i class="far fa-envelope"> </i></td>
+            <td class="pl-1"><b> <%= @user.email %> </b></td>
+          </tr>
+          <tr>
+            <td class="text-center"><i class="fas fa-user-friends"></i></td>
+            <td class="pl-1"><b> Followers </b><%= @user.follower  %></td>
+          </tr>
+          <tr>
+            <td class="text-center"><i class="fas fa-users"></i></td>
+            <td class="pl-1"><b> Following </b><%= @user.following  %></td>
+          </tr>
+          <tr>
+            <td class="text-center"><i class="fas fa-star"></i></td>
+            <td class="pl-1"><b> Rating </b><%= @user.rating  %></td>
+          </tr>
+          <tr>
+            <td class="text-center"><i class="fas fa-globe"></i></td>
+            <td class="pl-1"><b> Visited countries </b> <%= @user.country %></td>
+          </tr>
+          <tr>
+            <td class="text-center"><i class="fas fa-map-signs"></i></td>
+            <td class="pl-1"><b> My itineraries </b></td>
+          </tr>
+        </table>
+        <div class="d-flex justify-content-start mt-1">
+          <%#= link_to @user.itineraryofuser, itinerary_path %>
+          <a class="btn btn-info btn-sm mr-3" href="/itineraries/new?utf8=✓&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bbudget%5D=1500&search%5Bdays%5D=15&button=&search%5Bexperience%5D=urban&search%5Bexperience%5D=adventure&search%5Bexperience%5D=culture&search%5Bexperience%5D=party">Party in Peru!</a>
+          <a class="btn btn-info btn-sm mr-3" href="#">Chill en Chile!</a>
+          <a class="btn btn-info btn-sm mr-3" href="#">Polka in Poland!</a>
         </div>
       </div>
 
