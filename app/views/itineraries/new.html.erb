@@ -127,3 +127,24 @@
     </div>
   <% end %>
 </div>
+
+<script>
+  cards = document.querySelectorAll(".card.main-card");
+  // document.getElementById(cards[0].dataset.carousel).classList.remove("d-none");
+  cards.forEach((card) => {
+
+    console.log(card.dataset);
+    card.addEventListener('click', (event) => {
+      secondItineraryCarousel = document.getElementById("wild-itinerary");
+      firstItineraryCarousel = document.getElementById("normal-itinerary");
+
+      if (firstItineraryCarousel.classList.contains('d-none')) {
+        firstItineraryCarousel.classList.remove("d-none");
+        secondItineraryCarousel.classList.add("d-none");
+      } else {
+        secondItineraryCarousel.classList.remove("d-none");
+        firstItineraryCarousel.classList.add("d-none");
+      }
+    });
+  });
+</script>
