@@ -1,4 +1,4 @@
-#sticky-carousel {
+.sticky-carousel {
   position: sticky;
   top: 0;
   img {
@@ -8,7 +8,7 @@
 }
 
 @media(max-width: 576px) {
-  #sticky-carousel {
+  .sticky-carousel {
     display: none;
   }
 }
