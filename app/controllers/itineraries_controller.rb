@@ -69,7 +69,10 @@ class ItinerariesController < ApplicationController
 
     # binding.pry
     @cities_all = City.all
-    @cities_names = @cities_all.map { |city| city.name }.sort
+    # @cities_names = @cities_all.map { |city| city.name }.sort
+    @cities_names = @cities_all.sort_by do |city|
+      -city.itinerary_cities.joins(:itinerary).where(itineraries: { user: current_user }).count
+    end.map { |city| city.name }
     @cities = []
     @cities_names.each do |city_name|
       @cities_all.each do |city|

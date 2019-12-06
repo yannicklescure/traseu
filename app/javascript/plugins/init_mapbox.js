@@ -10,7 +10,7 @@ const addMarkers = (map, markers) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infowindow);
       const newMarker = new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup)
+      // .setPopup(popup)
       .addTo(map);
       markersArray.push(newMarker);
     });
