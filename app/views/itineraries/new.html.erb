@@ -15,7 +15,7 @@
             <div class="d-flex justify-content-between align-items-center">
               <div class="d-flex align-items-end">
                 <div class="border-0 mr-3">
-                  <a class="itinerary-card-title-carousel" href="#"><p class="font-weight-bold lead m-0"><%= itinerary.title %></p></a>
+                  <a class="itinerary-card-title-carousel" href="#"><p class="font-weight-bold lead m-0"><%= itinerary.title.capitalize %></p></a>
                 </div>
                 <div id="shared-by" class="m-0" style="padding-bottom: 1px;"><em>shared by&nbsp;<%= link_to itinerary.user.first_name.capitalize, user_path(itinerary.user), class: "text-muted" %></em></div>
               </div>
