@@ -15,6 +15,10 @@ import { toggleCards } from "../city-card-toggle";
 let currentPage = window.location.pathname.split("/")[1] || null;
 let currentAction = window.location.pathname.split("/")[2] || null;
 
+if (currentPage === "pages" && currentAction === "print") {
+  document.querySelector('.navbar').classList.add('bg-light');
+}
+
 if (currentPage === "itineraries") {
   // if (currentAction === "new" || currentAction.match(/\d+/) !== null) {
   if (currentAction === "new") initUpdateNavbarOnScroll(128);
@@ -55,7 +59,10 @@ if (currentPage === "cities") {
   const fabbuttons = document.querySelectorAll(".fabbutton");
   fabbuttons.forEach((fabbutton, index) => {
     console.log('fabbutton index', index);
-    if (index == 0 || index == 4 || index == 8) fabbutton.classList.add('active');
+    if (index == 3 || index == 7 || index == 11) {
+      fabbutton.classList.add('active');
+      fabbutton.parentElement.parentElement.classList.toggle("active");
+    }
   });
 }
 
