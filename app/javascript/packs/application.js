@@ -31,8 +31,23 @@ if (currentPage === "itineraries") {
   // }
 }
 
+const elementsMaxHeight = elements => {
+  let max = 0;
+  elements.forEach((element, index) => {
+    // console.log(element.offsetHeight);
+    if (element.offsetHeight > max) max = element.offsetHeight;
+  });
+  return max - 16;
+};
+
 if (currentPage === "cities") {
   initUpdateNavbarOnScroll(128);
+  const texts = document.querySelectorAll(".text");
+  const textMaxHeight = elementsMaxHeight(texts);
+  console.log(textMaxHeight);
+  texts.forEach(text => {
+    text.style.height = `${textMaxHeight}px`;
+  });
 }
 
 if (currentPage === "itineraries" && currentAction.match(/\d+/) !== null) {
