@@ -14,8 +14,8 @@
     </div>
     <div class="row m-0">
       <% @restaurants.each do |restaurant| %>
-        <div class="col-3 m-0 p-0">
-          <div class="city-card m-3 p-0">
+        <div class="col-3 m-0 p-3">
+          <div class="city-card m-0 p-0" style="width: 100%;">
             <p class="card-price"><%= restaurant.range %></p>
             <div class="image">
               <%= image_tag restaurant.image %>
@@ -36,7 +36,7 @@
     <div class="row m-0">
       <% @activities.each do |activity| %>
         <div class="col-3 m-0 p-3">
-          <div class="city-card m-0 p-0">
+          <div class="city-card m-0 p-0" style="width: 100%;">
             <p class="card-price"> $<%= activity.price %></p>
             <div class="image">
               <%= image_tag activity.image %>
@@ -58,7 +58,7 @@
     <div class="row m-0">
       <% @hotels.each do |hotel| %>
         <div class="col-3 m-0 p-3">
-          <div class="city-card m-0 p-0">
+          <div class="city-card m-0 p-0" style="width: 100%;">
             <p class="card-price">$<%= hotel.price %></p>
             <div class="image">
               <%= image_tag hotel.image %>

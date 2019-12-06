@@ -52,7 +52,9 @@
         </table>
         <div class="d-flex justify-content-start mt-1">
           <%#= link_to @user.itineraryofuser, itinerary_path %>
-          <a class="btn btn-info btn-sm mr-3" href="/itineraries/new?utf8=✓&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bbudget%5D=1500&search%5Bdays%5D=15&button=&search%5Bexperience%5D=urban&search%5Bexperience%5D=adventure&search%5Bexperience%5D=culture&search%5Bexperience%5D=party">Party in Peru!</a>
+          <!-- party with locals -->
+          <% itinerary = Itinerary.find_by(title: "party with locals") %>
+          <%= link_to itinerary.title.capitalize, itinerary_path(itinerary), class: "btn btn-info btn-sm mr-3" %>
           <a class="btn btn-info btn-sm mr-3" href="#">Chill en Chile!</a>
           <a class="btn btn-info btn-sm mr-3" href="#">Polka in Poland!</a>
         </div>

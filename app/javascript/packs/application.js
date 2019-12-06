@@ -37,7 +37,7 @@ const elementsMaxHeight = elements => {
     // console.log(element.offsetHeight);
     if (element.offsetHeight > max) max = element.offsetHeight;
   });
-  return max - 16;
+  return max;
 };
 
 if (currentPage === "users") {

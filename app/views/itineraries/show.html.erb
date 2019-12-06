@@ -1,12 +1,13 @@
 <div class="container-fluid m-0 p-0">
   <div class="country-banner d-flex align-items-center justify-content-center" style="height: 196px;margin-top: -60px;background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/pierreja/image/upload/v1575223194/TRASEU/Traseu%20-%20Arequipa/BANNER%20-%20Arequipa2.jpg);background-position: center bottom;background-size: cover;">
-    <div class="country-name h1 mt-3">PERU</div>
+    <% itinerary = Itinerary.find_by(id: params[:id]) %>
+    <div class="country-name h1 mt-3"><%= itinerary.title.upcase %></div>
   </div>
 </div>
 <div class="container-fluid pt-3 pb-5">
-  <div class="d-flex justify-content-between align-items-center">
-    <a href="/itineraries/new?utf8=✓&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bbudget%5D=1500&search%5Bdays%5D=15&button=&search%5Bexperience%5D=urban&search%5Bexperience%5D=adventure&search%5Bexperience%5D=culture&search%5Bexperience%5D=party" class="text-body">Back to search</a>
+  <div class="d-flex justify-content-between align-items-center px-2">
     <div class="row justify-content-end align-items-center" style="padding-right: 32px;">
+      <div id="shared-by" class="m-0 ml-2" style="padding-bottom: 0px;">Experience shared by&nbsp;<%= link_to itinerary.user.first_name.capitalize, user_path(itinerary.user), class: "text-muted" %></div>
       <div id="bookmark">
         <% bookmark = Bookmark.find_by(user: current_user, itinerary: params[:id]) %>
         <div id="bookmark-show-true-<%= params[:id] %>">
@@ -23,6 +24,7 @@
         <a href="/pages/print"><i class="fas fa-print"></i></a>
       </div>
     </div>
+    <a href="/itineraries/new?utf8=✓&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bbudget%5D=1500&search%5Bdays%5D=15&button=&search%5Bexperience%5D=urban&search%5Bexperience%5D=adventure&search%5Bexperience%5D=culture&search%5Bexperience%5D=party" class="text-body">Back to search</a>
   </div>
   <div class="row">
     <div class="col-6">
