@@ -32,12 +32,15 @@ if (currentPage === "itineraries") {
 }
 
 if (currentPage === "itineraries" && currentAction.match(/\d+/) !== null) {
+  initUpdateNavbarOnScroll(128);
   initMapBox();
   collapse();
+  // console.log('map', (window.innerHeight - 76))
+  // document.querySelector("#map").style.height = `${(window.innerHeight - 96)}px`;
 }
 
 if (currentPage === null || currentPage === '#experience' || currentPage === '#country' || currentPage === '#budget' || currentPage === '#days' || currentPage === '#page-content') {
-  initUpdateNavbarOnScroll();
+  initUpdateNavbarOnScroll(window.innerHeight);
   scrollToAnchor();
   dynamicText();
   progressBar();

@@ -32,7 +32,7 @@ const citiesElements = (elements) => {
         details.style.display = "block";
       } else {
         deleteAnchor.click();
-        details.style.display = "none";
+        details.style.display = "block";
       }
     });
   });
@@ -50,7 +50,7 @@ const citiesSelectNoneElements = (elements) => {
     const createAnchor = document.querySelector(`#city-create-id-${element.dataset.city}`);
     // console.log(createAnchor);
     const details = document.querySelector(`#city-id-${element.dataset.city}-details`);
-    details.style.display = "none";
+    details.style.display = "block";
     // console.log(details);
 
     customSwitch.addEventListener("change", (event) => {
@@ -62,7 +62,7 @@ const citiesSelectNoneElements = (elements) => {
         details.style.display = "block";
       } else {
         deleteAnchor.click();
-        details.style.display = "none";
+        details.style.display = "block";
       }
     });
   });

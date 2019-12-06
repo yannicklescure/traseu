@@ -81,9 +81,9 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.find(params[:id])
     @markers = @itinerary.cities.map do |city|
       {
-        lat: city.latitude,
         lng: city.longitude,
-        infowindow: render_to_string(partial: "info_window", locals: { spot: city })
+        lat: city.latitude,
+        # infowindow: render_to_string(partial: "info_window", locals: { spot: city })
       }
     end
 

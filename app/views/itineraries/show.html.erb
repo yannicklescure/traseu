@@ -1,8 +1,9 @@
 <div class="container-fluid m-0 p-0">
-  <div class="country-banner d-flex align-items-end justify-content-center" style="margin-top: 0px;background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/pierreja/image/upload/v1575223194/TRASEU/Traseu%20-%20Arequipa/BANNER%20-%20Arequipa2.jpg)">
-  <h1 class="country-name">PERU</h1>
+  <div class="country-banner d-flex align-items-center justify-content-center" style="height: 196px;margin-top: -60px;background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/pierreja/image/upload/v1575223194/TRASEU/Traseu%20-%20Arequipa/BANNER%20-%20Arequipa2.jpg)">
+    <div class="country-name h1 mt-3">PERU</div>
+  </div>
 </div>
-<div class="container pt-3 pb-5">
+<div class="container-fluid pt-3 pb-5">
   <div class="d-flex justify-content-between align-items-center">
     <a href="/itineraries/new?utf8=✓&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bcountry%5D=peru&search%5Bbudget%5D=1500&search%5Bdays%5D=15&button=&search%5Bexperience%5D=urban&search%5Bexperience%5D=adventure&search%5Bexperience%5D=culture&search%5Bexperience%5D=party" class="text-body">Back to search</a>
     <div class="row justify-content-end align-items-center" style="padding-right: 32px;">
@@ -25,21 +26,6 @@
   </div>
   <div class="row">
     <div class="col-6">
-      <% @itinerary.cities.each do |city| %>
-        <div class="row m-0 d-none">
-          <p><%= city.name %></p>
-          &emsp;
-          <% restaurant_id = 1 %>
-          <% str = @itinerary.spots.where("city_id = ? AND category_id = ?", city.id, restaurant_id).first %>
-          <p><%= str.title unless str.nil? %></p>
-          <% hotel_id = 2 %>
-          <% str = @itinerary.spots.where("city_id = ? AND category_id = ?", city.id, hotel_id).first %>
-          <p><%= str.title unless str.nil? %></p>
-          <% activity_id = 3 %>
-          <% str = @itinerary.spots.where("city_id = ? AND category_id = ?", city.id, activity_id).first %>
-          <p><%= str.title unless str.nil? %></p>
-        </div>
-      <% end %>
 
       <% itinerary_city_array = [] %>
       <% @itinerary.itinerary_cities.each do |itinerary_city| %>
@@ -146,8 +132,8 @@
     <div class="col-6">
       <!-- <img src="https://github.com/PierreJaouen/traseu/blob/controllers-next/public/map.png?raw=true" alt="" width="100%"> -->
       <!-- Map -->
-      <div class="d-flex flex-column align-items-end sticky-top" style="top: 100px;">
-        <div id="map" class="mt-3 mr-3" style="width: 100%; height: 500px;"
+      <div class="d-flex flex-column align-items-center sticky-top" style="top: 68px;">
+        <div id="map" class="mt-3 mr-3" style="width: 100%;height: 500px;"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
           data-markers="<%= @markers.to_json %>">
         </div>

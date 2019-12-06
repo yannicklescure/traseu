@@ -14,8 +14,8 @@ const addMarkers = (map, markers) => {
       .addTo(map);
       markersArray.push(newMarker);
     });
-    const lastMarker = markers[markers.length-1];
-    map.flyTo({center: [ lastMarker.lng, lastMarker.lat ]});
+    // const lastMarker = markers[markers.length-1];
+    // map.flyTo({center: [ lastMarker.lng, lastMarker.lat ]});
   }
 };
 
@@ -37,7 +37,10 @@ const pathFinder = (map, markers) => {
   let coords = [];
   // debugger
   markers.forEach((marker) => {
-    coords.push(`${marker.lng},${marker.lat}`);
+    // debugger
+    if (true) {
+      coords.push(`${marker.lng},${marker.lat}`);
+    }
   });
   coords = coords.join(';');
   // console.log(coords);
@@ -49,7 +52,6 @@ const pathFinder = (map, markers) => {
   if (lastLayer !== undefined) map.removeLayer(lastLayer);
 
   if (markers.length <= 1) {
-    // debugger
     layers = [];
     return;
   }
@@ -72,6 +74,7 @@ const pathFinder = (map, markers) => {
 
       // geoJSON takes LAT , LON
       // `data.trips[0].geometry` is the Geoline String from the API
+
       const polyLine = data.trips[0].geometry;
       // reverse (Lonng and lat) to (Lat and Lon)
       const geoJSON = polyline.decode(polyLine).map(coord => [coord[1], coord[0]] );
@@ -114,7 +117,42 @@ const fitMapToMarkers = (map, markers) => {
   }
 };
 
+const markersLngLat = (markers) => {
+  let markersLng = [];
+  let markersLat = [];
+  markers.forEach(marker => {
+    markersLng.push(parseInt(marker.lng));
+    markersLat.push(parseInt(marker.lat));
+  });
+  return [markersLng.sort(), markersLat.sort()];
+}
 
+const markersCenter = (markers) => {
+  const coords = markersLngLat(markers);
+  const markersLng = coords[0];
+  const markersLat = coords[1];
+
+  const center = [
+    (markersLng[0] + markersLng[markersLng.length-1])/2,
+    (markersLat[0] + markersLat[markersLat.length-1])/2
+  ];
+  console.log(markers)
+  console.log('calculated the center', center)
+  return center;
+}
+
+const bounds = (markers) => {
+  const coords = markersLngLat(markers);
+  const markersLng = coords[0];
+  const markersLat = coords[1];
+
+  const limits = [
+    [markersLng[0], markersLat[0]], // Southwest coordinates
+    [markersLng[markersLng.length-1], markersLat[markersLat.length-1]]  // Northeast coordinates
+  ];
+  console.log(limits);
+  return limits;
+}
 
 const initMapBox = () => {
   let markers = JSON.parse(mapElement.dataset.markers);
@@ -140,9 +178,22 @@ const initMapBox = () => {
         .addTo(map);
       markersArray.push(newMarker);
       // console.log('marker array', markersArray);ker
-      markers.push({lat: markerData.lat, lng: markerData.lng});
-      const lastMarker = markers[markers.length-1];
-      map.flyTo({center: [ lastMarker.lng, lastMarker.lat ], zoom: 6});
+
+      markers.push({lat: parseFloat(markerData.lat), lng: parseFloat(markerData.lng)});
+      // markers.push({lat: markerData.lat, lng: markerData.lng});
+
+      // const lastMarker = markers[markers.length-1];
+      // map.flyTo({center: [ lastMarker.lng, lastMarker.lat ], zoom: 6});
+
+      // console.log(markersLng);
+      // console.log(markersLat);
+      map.flyTo({center: markersCenter(markers)});
+
+      // map.fitBounds(markers);
+      map.fitBounds(bounds(markers), {
+        padding: 2000
+      });
+      // map.maxBounds: bounds // Sets bounds as max
       pathFinder(map, markers);
     });
   });
@@ -161,12 +212,24 @@ const initMapBox = () => {
           markersArray.splice(index, 1);
         }
       });
+
       const modifiedMarkersArray = markersArray.map(marker => {
+        // return { lng: marker.getLngLat().lng, lat: marker.getLngLat().lat, infowindow: "" }
         return { lng: marker.getLngLat().lng, lat: marker.getLngLat().lat }
       })
-      const lastMarker = markers[markers.length-2];
-      map.flyTo({center: [ lastMarker.lng, lastMarker.lat ], zoom: 6});
+      // const lastMarker = markers[markers.length-2];
+      // map.flyTo({center: [ lastMarker.lng, lastMarker.lat ], zoom: 6});
+
+
+      map.flyTo({center: markersCenter(markers)});
+      // console.log('modifiedMarkersArray', markers);
+      // console.log('markers', markers);
+      // map.fitBounds(modifiedMarkersArray);
+      map.fitBounds(bounds(markers), {
+        padding: 2000
+      });
       pathFinder(map, modifiedMarkersArray);
+      if (modifiedMarkersArray.length <= 1) layers = [];
     });
   });
 
