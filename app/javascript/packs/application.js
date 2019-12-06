@@ -14,6 +14,7 @@ import { toggleCards } from "../city-card-toggle";
 // let currentPage = window.location.href.split(/.*[\/]/)[1] || null;
 let currentPage = window.location.pathname.split("/")[1] || null;
 let currentAction = window.location.pathname.split("/")[2] || null;
+console.log('currentAction ', currentAction);
 
 if (currentPage === "pages" && currentAction === "print") {
   document.querySelector('.navbar').classList.add('bg-light');
@@ -56,12 +57,23 @@ if (currentPage === "cities") {
   texts.forEach(text => {
     text.style.height = `${textMaxHeight}px`;
   });
+
   const fabbuttons = document.querySelectorAll(".fabbutton");
   fabbuttons.forEach((fabbutton, index) => {
     console.log('fabbutton index', index);
-    if (index == 3 || index == 7 || index == 11) {
-      fabbutton.classList.add('active');
-      fabbutton.parentElement.parentElement.classList.toggle("active");
+    if (currentAction === "1") console.log('cuzco');
+    if (currentAction === "1") {
+      if(index === 0 || index === 4 || index === 8) {
+        fabbutton.classList.add('active');
+        fabbutton.parentElement.parentElement.classList.toggle("active");
+      }
+    }
+    if (currentAction === "5") console.log('puno');
+    if (currentAction === "5") {
+      if(index === 1 || index === 6 || index === 8) {
+        fabbutton.classList.add('active');
+        fabbutton.parentElement.parentElement.classList.toggle("active");
+      }
     }
   });
 }
