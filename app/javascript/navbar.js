@@ -1,8 +1,10 @@
 const initUpdateNavbarOnScroll = (elementHeight) => {
   const navbar = document.querySelector('.navbar');
+  console.log('navbar', navbar);
+  if (navbar !== undefined) {
+  // navbar.style.background = "none";
+  navbar.classList.remove('bg-light');
   navbar.classList.add('navbar-traseu-yellow');
-  navbar.style.background = "none";
-  if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= elementHeight) {
         // console.log(navbar.className);
